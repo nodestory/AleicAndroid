@@ -1,0 +1,1226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidConfiguredLogFilters">
+    <filters>
+      <filter>
+        <option name="logLevel" value="info" />
+        <option name="logMessagePattern" value="" />
+        <option name="logTagPattern" value="LOG" />
+        <option name="name" value="LOG" />
+        <option name="packageNamePattern" value="" />
+        <option name="pid" value="" />
+      </filter>
+    </filters>
+  </component>
+  <component name="AndroidLayoutPreviewToolWindow">
+    <option name="state">
+      <GlobalState>
+        <option name="visible" value="false" />
+      </GlobalState>
+    </option>
+  </component>
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="INFO" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="LOG" />
+  </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRequester.java" line="225" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7d99bf34-d622-49f8-b9d8-de26a881e6ab" name="Default" comment="" />
+    <ignored path="ActivityRecognition.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel />
+    <splitter proportion="0.5" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="ActivityRecognition" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="226" column="40" selection-start="7871" selection-end="7871" vertical-scroll-proportion="0.0" vertical-offset="2090" max-vertical-offset="5542">
+              <folding>
+                <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#6281#6314#0" expanded="true" />
+                <element signature="e#6553#6615#0" expanded="true" />
+                <element signature="e#7929#7972#0" expanded="true" />
+                <element signature="e#8151#8172#0" expanded="true" />
+                <element signature="e#9610#9653#0" expanded="true" />
+                <element signature="e#12612#12655#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogFile.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/LogFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="207" column="33" selection-start="6483" selection-end="6483" vertical-scroll-proportion="1.2119815" vertical-offset="2712" max-vertical-offset="3604">
+              <folding>
+                <element signature="e#3213#3433#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="18" selection-start="2776" selection-end="2776" vertical-scroll-proportion="0.0" vertical-offset="458" max-vertical-offset="1054">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="34" selection-start="912" selection-end="912" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="1258">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityRecognitionIntentService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityRecognitionIntentService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="117" column="18" selection-start="4688" selection-end="4688" vertical-scroll-proportion="-14.148149" vertical-offset="1046" max-vertical-offset="2125">
+              <folding>
+                <element signature="e#2684#2721#0" expanded="true" />
+                <element signature="e#4808#4871#0" expanded="true" />
+                <element signature="e#4918#4976#0" expanded="true" />
+                <element signature="docComment;method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+                <element signature="method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+                <element signature="e#5940#5968#0" expanded="true" />
+                <element signature="e#6002#6033#0" expanded="true" />
+                <element signature="docComment;method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+                <element signature="method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+                <element signature="docComment;method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+                <element signature="method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+                <element signature="docComment;method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+                <element signature="method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+                <element signature="docComment;method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+                <element signature="method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+                <element signature="e#10157#10220#0" expanded="true" />
+                <element signature="e#10267#10325#0" expanded="true" />
+                <element signature="docComment;method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+                <element signature="method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DetectionRemover.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRemover.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="164" column="17" selection-start="5617" selection-end="5617" vertical-scroll-proportion="0.0" vertical-offset="2081" max-vertical-offset="3434">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DetectionRequester.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRequester.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="117" column="28" selection-start="4290" selection-end="4310" vertical-scroll-proportion="-7.0" vertical-offset="1069" max-vertical-offset="3655">
+              <folding>
+                <element signature="docComment;class#DetectionRequester#0" expanded="false" />
+                <element signature="e#3277#3278#0" expanded="true" />
+                <element signature="e#3333#3334#0" expanded="true" />
+                <element signature="e#5976#6236#0" expanded="true" />
+                <element signature="e#6213#6214#0" expanded="true" />
+                <element signature="e#7626#7664#0" expanded="true" />
+                <element signature="method#onDisconnected#0;class#DetectionRequester#0" expanded="false" />
+                <element signature="e#8029#8070#0" expanded="true" />
+                <element signature="method#onConnectionFailed#0;class#DetectionRequester#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRemover.java" />
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/PhoneStateDetector.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AppWidgetExample.java" />
+        <option value="$PROJECT_DIR$/res/xml/appwidget_provider.xml" />
+        <option value="$PROJECT_DIR$/res/layout/widget.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRequester.java" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityRecognitionIntentService.java" />
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/LogFile.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ActivityRecognition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ActivityRecognition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ActivityRecognition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="google-play-services_lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ActivityRecognition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ActivityRecognition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$APPLICATION_HOME_DIR$/sdk/extras/google/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="FullScreen" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="options.lastSelected" value="editor.preferences.import" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="LayoutCode.rearrangeEntriesJava" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
+  </component>
+  <component name="RunManager" selected="Android Application.ActivityRecognition">
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ActivityRecognition" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="ActivityRecognition" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <RunnerSettings RunnerId="AndroidDebugRunner" />
+      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Android Application.ActivityRecognition" />
+    </list>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d99bf34-d622-49f8-b9d8-de26a881e6ab" name="Default" comment="" />
+      <created>1390332149547</created>
+      <updated>1390332149547</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57385397" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1512247" sideWeight="0.5005314" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32767403" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.53989816" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21450152" sideWeight="0.49946865" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32731137" sideWeight="0.41993958" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="149" y="94" width="1182" height="544" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/res/xml/appwidget_provider.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="38" selection-start="38" selection-end="38" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AppWidgetExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="42" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/widget.xml">
+      <provider editor-type-id="text-editor">
+        <state line="4" column="31" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="901">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="350" column="17" selection-start="11664" selection-end="11664" vertical-scroll-proportion="0.0" vertical-offset="5950" max-vertical-offset="6953">
+          <folding>
+            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#6281#6314#0" expanded="true" />
+            <element signature="e#6553#6615#0" expanded="true" />
+            <element signature="e#7929#7972#0" expanded="true" />
+            <element signature="e#8151#8172#0" expanded="true" />
+            <element signature="e#9610#9653#0" expanded="true" />
+            <element signature="e#12612#12655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="31" selection-start="934" selection-end="934" vertical-scroll-proportion="0.0" vertical-offset="310" max-vertical-offset="1173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/xml/appwidget_provider.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="25" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="187">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AppWidgetExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="42" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.0" vertical-offset="662" max-vertical-offset="1292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/widget.xml">
+      <provider editor-type-id="text-editor">
+        <state line="4" column="31" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="901">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="350" column="17" selection-start="11664" selection-end="11664" vertical-scroll-proportion="0.0" vertical-offset="5950" max-vertical-offset="6953">
+          <folding>
+            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#6281#6314#0" expanded="true" />
+            <element signature="e#6553#6615#0" expanded="true" />
+            <element signature="e#7929#7972#0" expanded="true" />
+            <element signature="e#8151#8172#0" expanded="true" />
+            <element signature="e#9610#9653#0" expanded="true" />
+            <element signature="e#12612#12655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="31" selection-start="934" selection-end="934" vertical-scroll-proportion="0.0" vertical-offset="310" max-vertical-offset="1173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityRecognitionIntentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="39" selection-start="2826" selection-end="2826" vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="4709">
+          <folding>
+            <element signature="e#2684#2721#0" expanded="true" />
+            <element signature="e#4808#4871#0" expanded="true" />
+            <element signature="e#4918#4976#0" expanded="true" />
+            <element signature="docComment;method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="e#5940#5968#0" expanded="true" />
+            <element signature="e#6002#6033#0" expanded="true" />
+            <element signature="docComment;method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="e#10157#10220#0" expanded="true" />
+            <element signature="e#10267#10325#0" expanded="true" />
+            <element signature="docComment;method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRequester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="222" column="16" selection-start="8044" selection-end="8044" vertical-scroll-proportion="0.0" vertical-offset="3774" max-vertical-offset="4675">
+          <folding>
+            <element signature="docComment;class#DetectionRequester#0" expanded="false" />
+            <element signature="e#3277#3278#0" expanded="true" />
+            <element signature="e#3333#3334#0" expanded="true" />
+            <element signature="e#5976#6236#0" expanded="true" />
+            <element signature="e#6213#6214#0" expanded="true" />
+            <element signature="e#7626#7664#0" expanded="true" />
+            <element signature="method#onDisconnected#0;class#DetectionRequester#0" expanded="false" />
+            <element signature="e#8029#8070#0" expanded="true" />
+            <element signature="method#onConnectionFailed#0;class#DetectionRequester#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="350" column="17" selection-start="11664" selection-end="11664" vertical-scroll-proportion="0.0" vertical-offset="5950" max-vertical-offset="6953">
+          <folding>
+            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#6281#6314#0" expanded="true" />
+            <element signature="e#6553#6615#0" expanded="true" />
+            <element signature="e#7929#7972#0" expanded="true" />
+            <element signature="e#8151#8172#0" expanded="true" />
+            <element signature="e#9610#9653#0" expanded="true" />
+            <element signature="e#12612#12655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="31" selection-start="934" selection-end="934" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityRecognitionIntentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="29" selection-start="5606" selection-end="5606" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4471">
+          <folding>
+            <element signature="e#2684#2721#0" expanded="true" />
+            <element signature="e#4808#4871#0" expanded="true" />
+            <element signature="e#4918#4976#0" expanded="true" />
+            <element signature="docComment;method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="e#5940#5968#0" expanded="true" />
+            <element signature="e#6002#6033#0" expanded="true" />
+            <element signature="docComment;method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="e#10157#10220#0" expanded="true" />
+            <element signature="e#10267#10325#0" expanded="true" />
+            <element signature="docComment;method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="150" column="47" selection-start="5386" selection-end="5405" vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="6970">
+          <folding>
+            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#6281#6314#0" expanded="true" />
+            <element signature="e#6553#6615#0" expanded="true" />
+            <element signature="e#7929#7972#0" expanded="true" />
+            <element signature="e#8151#8172#0" expanded="true" />
+            <element signature="e#9610#9653#0" expanded="true" />
+            <element signature="e#12612#12655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRemover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="29" selection-start="2676" selection-end="2689" vertical-scroll-proportion="0.0" vertical-offset="1292" max-vertical-offset="3944">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRequester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="192" column="53" selection-start="6966" selection-end="6999" vertical-scroll-proportion="0.0" vertical-offset="3264" max-vertical-offset="3927">
+          <folding>
+            <element signature="docComment;class#DetectionRequester#0" expanded="false" />
+            <element signature="e#3277#3278#0" expanded="true" />
+            <element signature="e#3333#3334#0" expanded="true" />
+            <element signature="e#5976#6236#0" expanded="true" />
+            <element signature="e#6213#6214#0" expanded="true" />
+            <element signature="e#7626#7664#0" expanded="true" />
+            <element signature="method#onDisconnected#0;class#DetectionRequester#0" expanded="false" />
+            <element signature="e#8029#8070#0" expanded="true" />
+            <element signature="method#onConnectionFailed#0;class#DetectionRequester#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/LogFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="42" selection-start="3987" selection-end="3994" vertical-scroll-proportion="0.0" vertical-offset="2074" max-vertical-offset="4199">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="64" selection-start="1629" selection-end="1655" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="1173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityRecognitionIntentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="38" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4471">
+          <folding>
+            <element signature="e#2684#2721#0" expanded="true" />
+            <element signature="e#4808#4871#0" expanded="true" />
+            <element signature="e#4918#4976#0" expanded="true" />
+            <element signature="docComment;method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="e#5940#5968#0" expanded="true" />
+            <element signature="e#6002#6033#0" expanded="true" />
+            <element signature="docComment;method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="e#10157#10220#0" expanded="true" />
+            <element signature="e#10267#10325#0" expanded="true" />
+            <element signature="docComment;method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="43" selection-start="3808" selection-end="3820" vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="6341">
+          <folding>
+            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#6281#6314#0" expanded="true" />
+            <element signature="e#6553#6615#0" expanded="true" />
+            <element signature="e#7929#7972#0" expanded="true" />
+            <element signature="e#8151#8172#0" expanded="true" />
+            <element signature="e#9610#9653#0" expanded="true" />
+            <element signature="e#12612#12655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/item_layout.xml">
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityRecognitionIntentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="38" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4471">
+          <folding>
+            <element signature="e#2684#2721#0" expanded="true" />
+            <element signature="e#4808#4871#0" expanded="true" />
+            <element signature="e#4918#4976#0" expanded="true" />
+            <element signature="docComment;method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="e#5940#5968#0" expanded="true" />
+            <element signature="e#6002#6033#0" expanded="true" />
+            <element signature="docComment;method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="e#10157#10220#0" expanded="true" />
+            <element signature="e#10267#10325#0" expanded="true" />
+            <element signature="docComment;method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="0" selection-start="1899" selection-end="1899" vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="6290">
+          <folding>
+            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#6281#6314#0" expanded="true" />
+            <element signature="e#6553#6615#0" expanded="true" />
+            <element signature="e#7929#7972#0" expanded="true" />
+            <element signature="e#8151#8172#0" expanded="true" />
+            <element signature="e#9610#9653#0" expanded="true" />
+            <element signature="e#12612#12655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityRecognitionIntentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="38" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4471">
+          <folding>
+            <element signature="e#2684#2721#0" expanded="true" />
+            <element signature="e#4808#4871#0" expanded="true" />
+            <element signature="e#4918#4976#0" expanded="true" />
+            <element signature="docComment;method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="e#5940#5968#0" expanded="true" />
+            <element signature="e#6002#6033#0" expanded="true" />
+            <element signature="docComment;method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="e#10157#10220#0" expanded="true" />
+            <element signature="e#10267#10325#0" expanded="true" />
+            <element signature="docComment;method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRequester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="36" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="4250">
+          <folding>
+            <element signature="docComment;class#DetectionRequester#0" expanded="false" />
+            <element signature="e#3277#3278#0" expanded="true" />
+            <element signature="e#3333#3334#0" expanded="true" />
+            <element signature="e#5976#6236#0" expanded="true" />
+            <element signature="e#6213#6214#0" expanded="true" />
+            <element signature="e#7626#7664#0" expanded="true" />
+            <element signature="method#onDisconnected#0;class#DetectionRequester#0" expanded="false" />
+            <element signature="e#8029#8070#0" expanded="true" />
+            <element signature="method#onConnectionFailed#0;class#DetectionRequester#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="44" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="850">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/item_layout.xml">
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/extras/google/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar!/com/google/android/gms/location/ActivityRecognitionResult.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.23743017" vertical-offset="0" max-vertical-offset="782" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/extras/google/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar!/com/google/android/gms/common/GooglePlayServicesClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="40" selection-start="1366" selection-end="1385" vertical-scroll-proportion="0.6908397" vertical-offset="148" max-vertical-offset="697" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/PhoneStateDetector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="31" selection-start="225" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#PhoneStateDetector#0" expanded="false" />
+            <element signature="e#612#1270#0" expanded="false" />
+            <element signature="e#1259#1260#0" expanded="false" />
+            <element signature="e#1345#1346#0" expanded="false" />
+            <element signature="e#1374#1375#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/widget.xml">
+      <provider editor-type-id="text-editor">
+        <state line="4" column="31" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AppWidgetExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="42" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.7259787" vertical-offset="0" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/xml/appwidget_provider.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="38" selection-start="38" selection-end="38" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="55" selection-start="292" selection-end="306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="34" selection-start="912" selection-end="912" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="1258">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRequester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="28" selection-start="4290" selection-end="4310" vertical-scroll-proportion="-7.0" vertical-offset="1069" max-vertical-offset="3655">
+          <folding>
+            <element signature="docComment;class#DetectionRequester#0" expanded="false" />
+            <element signature="e#3277#3278#0" expanded="true" />
+            <element signature="e#3333#3334#0" expanded="true" />
+            <element signature="e#5976#6236#0" expanded="true" />
+            <element signature="e#6213#6214#0" expanded="true" />
+            <element signature="e#7626#7664#0" expanded="true" />
+            <element signature="method#onDisconnected#0;class#DetectionRequester#0" expanded="false" />
+            <element signature="e#8029#8070#0" expanded="true" />
+            <element signature="method#onConnectionFailed#0;class#DetectionRequester#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRemover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="164" column="17" selection-start="5617" selection-end="5617" vertical-scroll-proportion="0.0" vertical-offset="2081" max-vertical-offset="3434">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="18" selection-start="2776" selection-end="2776" vertical-scroll-proportion="0.0" vertical-offset="458" max-vertical-offset="1054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityRecognitionIntentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="18" selection-start="4688" selection-end="4688" vertical-scroll-proportion="-14.148149" vertical-offset="1046" max-vertical-offset="2125">
+          <folding>
+            <element signature="e#2684#2721#0" expanded="true" />
+            <element signature="e#4808#4871#0" expanded="true" />
+            <element signature="e#4918#4976#0" expanded="true" />
+            <element signature="docComment;method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#sendNotification#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="e#5940#5968#0" expanded="true" />
+            <element signature="e#6002#6033#0" expanded="true" />
+            <element signature="docComment;method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#getContentIntent#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#activityChanged#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#isMoving#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="docComment;method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#logActivityRecognitionResult#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="e#10157#10220#0" expanded="true" />
+            <element signature="e#10267#10325#0" expanded="true" />
+            <element signature="docComment;method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+            <element signature="method#getNameFromType#0;class#ActivityRecognitionIntentService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="226" column="40" selection-start="7871" selection-end="7871" vertical-scroll-proportion="0.0" vertical-offset="2090" max-vertical-offset="5542">
+          <folding>
+            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#6281#6314#0" expanded="true" />
+            <element signature="e#6553#6615#0" expanded="true" />
+            <element signature="e#7929#7972#0" expanded="true" />
+            <element signature="e#8151#8172#0" expanded="true" />
+            <element signature="e#9610#9653#0" expanded="true" />
+            <element signature="e#12612#12655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/LogFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="207" column="33" selection-start="6483" selection-end="6483" vertical-scroll-proportion="1.2119815" vertical-offset="2712" max-vertical-offset="3604">
+          <folding>
+            <element signature="e#3213#3433#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Android</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>Android API 19 Platform</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ActivityRecognition</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>Android API 19 Platform</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>android-support-v4</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

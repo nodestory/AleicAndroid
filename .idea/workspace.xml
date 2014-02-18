@@ -108,48 +108,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="3" selection-start="1884" selection-end="1884" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4131">
+            <state line="252" column="0" selection-start="9013" selection-end="9013" vertical-scroll-proportion="3.532721" vertical-offset="0" max-vertical-offset="3468">
               <folding>
-                <element signature="e#5482#5515#0" expanded="true" />
-                <element signature="e#5761#5823#0" expanded="true" />
+                <element signature="e#5444#5477#0" expanded="true" />
+                <element signature="e#5723#5785#0" expanded="true" />
                 <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#6686#6729#0" expanded="true" />
-                <element signature="e#6798#6819#0" expanded="true" />
+                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#6648#6691#0" expanded="true" />
+                <element signature="e#6760#6781#0" expanded="true" />
                 <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#isServicesConnected#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#updateLogs#0;class#MainActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DetectionRequester.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DetectionRequester.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRequester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="32" selection-start="2510" selection-end="2510" vertical-scroll-proportion="0.17514794" vertical-offset="430" max-vertical-offset="2346">
+            <state line="117" column="45" selection-start="4655" selection-end="4655" vertical-scroll-proportion="3.4615386" vertical-offset="1501" max-vertical-offset="2346">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppUsageLogUpdateIntentService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/AppUsageLogUpdateIntentService.java">
+      <file leaf-file-name="ActivityUtils.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="66" selection-start="3359" selection-end="3385" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1428">
-              <folding>
-                <element signature="e#2580#2617#0" expanded="true" />
-                <element signature="e#3838#3901#0" expanded="true" />
-                <element signature="e#3948#4006#0" expanded="true" />
-                <element signature="method#getActivityName#0;class#AppUsageLogUpdateIntentService#0" expanded="false" />
-                <element signature="method#isActivityChanged#0;class#AppUsageLogUpdateIntentService#0" expanded="false" />
-                <element signature="method#isMoving#0;class#AppUsageLogUpdateIntentService#0" expanded="false" />
-                <element signature="method#sendNotification#0;class#AppUsageLogUpdateIntentService#0" expanded="false" />
-                <element signature="e#5589#5617#0" expanded="true" />
-                <element signature="e#5651#5682#0" expanded="true" />
-                <element signature="method#getContentIntent#0;class#AppUsageLogUpdateIntentService#0" expanded="false" />
-              </folding>
+            <state line="38" column="28" selection-start="1486" selection-end="1486" vertical-scroll-proportion="0.0" vertical-offset="166" max-vertical-offset="1394">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -183,18 +174,18 @@
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AppWidgetExample.java" />
         <option value="$PROJECT_DIR$/res/xml/appwidget_provider.xml" />
         <option value="$PROJECT_DIR$/res/layout/widget.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/LogFile.java" />
         <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityDetecctor.java" />
         <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/Detector.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/LogUpdateAlarmReceiver.java" />
-        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRequester.java" />
         <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityRecognitionIntentService.java" />
-        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/AppUsageLogUpdateIntentService.java" />
         <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/LocationUpdateReceiver.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/AppUsageLogUpdateIntentService.java" />
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java" />
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRequester.java" />
       </list>
     </option>
   </component>
@@ -577,7 +568,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -626,19 +617,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/Detector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="29" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1258">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#860#861#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#962#963#0" expanded="true" />
-            <element signature="e#1001#1002#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityDetecctor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="0" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
@@ -722,21 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="3" selection-start="1884" selection-end="1884" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4131">
-          <folding>
-            <element signature="e#5482#5515#0" expanded="true" />
-            <element signature="e#5761#5823#0" expanded="true" />
-            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#6686#6729#0" expanded="true" />
-            <element signature="e#6798#6819#0" expanded="true" />
-            <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#isServicesConnected#0;class#MainActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="72" column="19" selection-start="2934" selection-end="2934" vertical-scroll-proportion="0.0" vertical-offset="438" max-vertical-offset="1394">
@@ -752,26 +715,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/AppUsageLogUpdateIntentService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="66" selection-start="3359" selection-end="3385" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1428">
+        <state line="58" column="29" selection-start="2088" selection-end="2088" vertical-scroll-proportion="-0.15154994" vertical-offset="557" max-vertical-offset="1428">
           <folding>
-            <element signature="e#2580#2617#0" expanded="true" />
-            <element signature="e#3838#3901#0" expanded="true" />
-            <element signature="e#3948#4006#0" expanded="true" />
+            <element signature="e#2513#2550#0" expanded="true" />
+            <element signature="e#3867#3930#0" expanded="true" />
+            <element signature="e#3977#4035#0" expanded="true" />
             <element signature="method#getActivityName#0;class#AppUsageLogUpdateIntentService#0" expanded="false" />
             <element signature="method#isActivityChanged#0;class#AppUsageLogUpdateIntentService#0" expanded="false" />
             <element signature="method#isMoving#0;class#AppUsageLogUpdateIntentService#0" expanded="false" />
             <element signature="method#sendNotification#0;class#AppUsageLogUpdateIntentService#0" expanded="false" />
-            <element signature="e#5589#5617#0" expanded="true" />
-            <element signature="e#5651#5682#0" expanded="true" />
+            <element signature="e#5618#5646#0" expanded="true" />
+            <element signature="e#5680#5711#0" expanded="true" />
             <element signature="method#getContentIntent#0;class#AppUsageLogUpdateIntentService#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="28" selection-start="1486" selection-end="1486" vertical-scroll-proportion="0.0" vertical-offset="166" max-vertical-offset="1394">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/DetectionRequester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="32" selection-start="2510" selection-end="2510" vertical-scroll-proportion="0.17514794" vertical-offset="430" max-vertical-offset="2346">
+        <state line="117" column="45" selection-start="4655" selection-end="4655" vertical-scroll-proportion="3.4615386" vertical-offset="1501" max-vertical-offset="2346">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="252" column="0" selection-start="9013" selection-end="9013" vertical-scroll-proportion="3.532721" vertical-offset="0" max-vertical-offset="3468">
+          <folding>
+            <element signature="e#5444#5477#0" expanded="true" />
+            <element signature="e#5723#5785#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#6648#6691#0" expanded="true" />
+            <element signature="e#6760#6781#0" expanded="true" />
+            <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#isServicesConnected#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#updateLogs#0;class#MainActivity#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

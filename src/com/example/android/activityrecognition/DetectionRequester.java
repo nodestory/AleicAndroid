@@ -115,7 +115,7 @@ public class DetectionRequester implements OnConnectionFailedListener {
                     Log.d(ActivityUtils.APPTAG, "connected");
                     LocationRequest request = LocationRequest.create();
                     request.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-                    request.setInterval(1500);
+                    request.setInterval(60000);
 
                     Intent intent = new Intent(mContext, LocationUpdateReceiver.class);
                     mLocationPendingIntent = PendingIntent.getBroadcast(

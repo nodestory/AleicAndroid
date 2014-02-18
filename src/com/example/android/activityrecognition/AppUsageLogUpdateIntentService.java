@@ -56,8 +56,7 @@ public class AppUsageLogUpdateIntentService extends IntentService {
                 ActivityUtils.SHARED_PREFERENCES, Context.MODE_PRIVATE);
 
         if (ActivityRecognitionResult.hasResult(intent)) {
-            ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
-
+            // TODO: refactor
             String timeStamp = "";
             try {
                 mDateFormat = (SimpleDateFormat) DateFormat.getDateTimeInstance();
@@ -74,6 +73,7 @@ public class AppUsageLogUpdateIntentService extends IntentService {
                     mPrefs.getLong(ActivityUtils.KEY_PREVIOUS_LONGITUDE, -1));
             float accuracy = mPrefs.getFloat(ActivityUtils.KEY_PREVIOUS_LOCATION_ACC, -1);
 
+            ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
             DetectedActivity mostProbableActivity = result.getMostProbableActivity();
             int activityType = mostProbableActivity.getType();
             String activityName = getActivityName(activityType);

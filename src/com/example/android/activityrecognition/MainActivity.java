@@ -63,9 +63,6 @@ public class MainActivity extends Activity {
     private ListView mStatusListView;
     private ArrayAdapter<Spanned> mStatusAdapter;
 
-    int lat = 20;
-    int lng = 121;
-
     /*
      *  Intent filter for incoming broadcasts from the
      *  IntentService.
@@ -263,7 +260,7 @@ public class MainActivity extends Activity {
                 Spanned log = (Spanned) iterator.previous();
                 mStatusAdapter.add(log);
                 count += 1;
-                if (count == 100) {
+                if (count == 50) {
                     break;
                 }
             }

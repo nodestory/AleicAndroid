@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ActivityRecognition.iml" filepath="$PROJECT_DIR$/ActivityRecognition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AleicAndroid.iml" filepath="$PROJECT_DIR$/AleicAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Scheduler/Scheduler.iml" filepath="$PROJECT_DIR$/../Scheduler/Scheduler.iml" />
       <module fileurl="file://$APPLICATION_HOME_DIR$/sdk/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" filepath="$APPLICATION_HOME_DIR$/sdk/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" />
     </modules>
   </component>

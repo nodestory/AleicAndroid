@@ -41,22 +41,15 @@ import java.util.Locale;
  * log the activities that where detected by the activity detection service.
  */
 public class LogFile {
-
-    // Store a context for handling files
     private final Context mContext;
-
-    // Store an object that can "print" to a file
-    private PrintWriter mActivityWriter;
-
-    // Store a File handle
-    private File mLogFile;
-
-    // Store the shared preferences repository handle
     private SharedPreferences mPrefs;
 
-    // Store the current file number and name
-    private int mFileNumber;
+    private File mLogFileFolder;
+    private File mLogFile;
     private String mFileName;
+    private int mFileNumber;
+
+    private PrintWriter mLogWriter;
 
     // Store an sLogFileInstance of the log file
     private static LogFile sLogFileInstance = null;
@@ -67,47 +60,34 @@ public class LogFile {
      * @param context A Context for the current app
      */
     private LogFile(Context context) {
-
-        // Get the context from the caller
         mContext = context;
-
-        // Open the shared preferences repository
         mPrefs = context.getSharedPreferences(ActivityUtils.SHARED_PREFERENCES,
                 Context.MODE_PRIVATE);
 
-        // If it doesn't contain a file number, set the file number to 1
         if (!mPrefs.contains(ActivityUtils.KEY_LOG_FILE_NUMBER)) {
             mFileNumber = 1;
-
-            // Otherwise, get the last-used file number and increment it.
         } else {
             int fileNum = mPrefs.getInt(ActivityUtils.KEY_LOG_FILE_NUMBER, 0);
             mFileNumber = fileNum + 1;
         }
 
-        // Get a repository editor sLogFileInstance
-        Editor editor = mPrefs.edit();
-
-        // Put the file number in the repository
-        editor.putInt(ActivityUtils.KEY_LOG_FILE_NUMBER, mFileNumber);
-
-        // Create a timestamp
         String dateString = new SimpleDateFormat("yyyy_MM_dd", Locale.TAIWAN).format(new Date());
-
-        // Create the file name by sprintf'ing its parts into the filename string.
         mFileName = context.getString(
                 R.string.log_filename,
                 ActivityUtils.LOG_FILE_NAME_PREFIX,
                 dateString,
                 mFileNumber++,
                 ActivityUtils.LOG_FILE_NAME_SUFFIX);
+        mLogFileFolder = new File(Environment.getExternalStorageDirectory(), ActivityUtils.LOG_FILE_FOLDER);
+        if (!mLogFileFolder.exists()) {
+            mLogFileFolder.mkdir();
+        }
 
-        // Save the filename
+        Editor editor = mPrefs.edit();
+        editor.putInt(ActivityUtils.KEY_LOG_FILE_NUMBER, mFileNumber);
         editor.putString(ActivityUtils.KEY_LOG_FILE_NAME, mFileName);
-        // Commit the updates
         editor.commit();
 
-        // Create the log file
         mLogFile = createLogFile(mFileName);
     }
 
@@ -118,122 +98,61 @@ public class LogFile {
      * @return An sLogFileInstance of this class
      */
     public static LogFile getInstance(Context context) {
-
         if (sLogFileInstance == null) {
             sLogFileInstance = new LogFile(context);
         }
         return sLogFileInstance;
     }
 
-    /**
-     * Log a message to the log file
-     */
-    public void log(String message) {
-        // Start a print writer for the log file
-        initLogWriter();
-
-        // Print a log message
-        mActivityWriter.println(message);
-
-        // Flush buffers
-        mActivityWriter.flush();
-    }
-
-    /**
-     * Loads data from the log file.
-     */
-    public List<Spanned> loadLogFile() throws IOException {
-        // Get a new List of spanned strings
-        List<Spanned> content = new ArrayList<Spanned>();
-
-        // If no log file exists yet, return the empty List
-        if (!mLogFile.exists()) {
-            return content;
-        }
-
-        // Create a new buffered file reader based on the log file
-        BufferedReader reader = new BufferedReader(new FileReader(mLogFile));
-
-        // Get a String instance to hold input from the log file
-        String line;
-
-        /*
-         * Read until end-of-file from the log file, and store the input line as a
-         * spanned string in the List
-         */
-        while ((line = reader.readLine()) != null) {
-            content.add(new SpannedString(line));
-        }
-
-        // Close the file
-        reader.close();
-
-        // Return the data from the log file
-        return content;
-    }
-
-    /**
-     * Creates an object that writes human-readable lines of text to a file
-     */
     private void initLogWriter() {
-        // Catch IO exceptions
         try {
-            // If the writer is still open, close it
-            if (mActivityWriter != null) {
-                mActivityWriter.close();
+            if (mLogWriter != null) {
+                mLogWriter.close();
             }
-
-            // Create a new writer for the log file
-            mActivityWriter = new PrintWriter(new FileWriter(mLogFile, true));
-
-            // If an IO exception occurs, print a stack trace
+            mLogWriter = new PrintWriter(new FileWriter(mLogFile, true));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    /**
-     * Delete log files
-     */
+    private File createLogFile(String filename) {
+        File newFile = new File(mLogFileFolder, filename);
+        Log.d(ActivityUtils.APPTAG, newFile.getAbsolutePath() + " : " + newFile.getName());
+        return newFile;
+    }
+
     public boolean removeLogFiles() {
-        // Start with the "all files removed" flag set to true
         boolean removed = true;
-
-        // Iterate through all the files in the app's file directory
-//        for (File file : mContext.getFilesDir().listFiles()) {
-        for (File file : Environment.getExternalStorageDirectory().listFiles()) {
-
-            if (file.getName().contains("activity")) {
-            // If unable to delete the file
-            if (!file.delete()) {
-
-                // Log the file's name
-                Log.e(ActivityUtils.APPTAG, file.getAbsolutePath() + " : " + file.getName());
-
-                // Note that not all files were removed
-                removed = false;
-            }
+        if (mLogFileFolder.exists()) {
+            for (File file : mLogFileFolder.listFiles()) {
+                if (!file.delete()) {
+                    Log.e(ActivityUtils.APPTAG, file.getAbsolutePath() + " : " + file.getName());
+                    removed = false;
+                }
             }
         }
-
-        // Return true if all files were removed, otherwise false
         return removed;
     }
 
-    /**
-     * Returns a new file object for the specified filename.
-     *
-     * @return A File for the given file name
-     */
-    private File createLogFile(String filename) {
-        // Create a new file in the app's directory
-        File newFile = new File(Environment.getExternalStorageDirectory(), filename);
-//        File newFile = new File(mContext.getFilesDir(), filename);
+    public void log(String message) {
+        initLogWriter();
+        mLogWriter.println(message);
+        mLogWriter.flush();
+    }
 
-        // Log the file name
-        Log.d(ActivityUtils.APPTAG, newFile.getAbsolutePath() + " : " + newFile.getName());
+    public List<Spanned> loadLogFile() throws IOException {
+        List<Spanned> content = new ArrayList<Spanned>();
+        if (!mLogFile.exists()) {
+            return content;
+        }
 
-        // return the new file handle
-        return newFile;
+        BufferedReader reader = new BufferedReader(new FileReader(mLogFile));
+        String line;
+
+        while ((line = reader.readLine()) != null) {
+            content.add(new SpannedString(line));
+        }
+        reader.close();
+        return content;
     }
 }

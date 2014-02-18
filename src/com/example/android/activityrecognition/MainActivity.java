@@ -39,13 +39,14 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  * Sample application that demonstrates the use of
  * ActivityRecognitionClient}. It registers for activity detection updates
  * at a rate of 20 seconds, logs them to a file, and displays the detected
  * activities with their associated confidence levels.
- * <p>
+ * <p/>
  * An IntentService receives activity detection updates in the background
  * so that detection can continue even if the Activity is not visible.
  */
@@ -59,14 +60,11 @@ public class MainActivity extends Activity {
     // Store the current request type (ADD or REMOVE)
     private REQUEST_TYPE mRequestType;
 
-    // Holds the ListView object in the UI
     private ListView mStatusListView;
-
-    /*
-     * Holds activity recognition data, in the form of
-     * strings that can contain markup
-     */
     private ArrayAdapter<Spanned> mStatusAdapter;
+
+    int lat = 20;
+    int lng = 121;
 
     /*
      *  Intent filter for incoming broadcasts from the
@@ -74,52 +72,29 @@ public class MainActivity extends Activity {
      */
     IntentFilter mBroadcastFilter;
 
-    // Instance of a local broadcast manager
     private LocalBroadcastManager mBroadcastManager;
 
-    // The activity recognition update request object
     private DetectionRequester mDetectionRequester;
-
-    // The activity recognition update removal object
     private DetectionRemover mDetectionRemover;
 
-
-    /*
-     * Set main UI layout, get a handle to the ListView for logs, and create the broadcast
-     * receiver.
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Set the main layout
+        // Set UI components
         setContentView(R.layout.activity_main);
 
-        // Get a handle to the activity update list
         mStatusListView = (ListView) findViewById(R.id.log_listview);
-
-        // Instantiate an adapter to store update data from the log
-        mStatusAdapter = new ArrayAdapter<Spanned>(
-                this,
-                R.layout.item_layout,
-                R.id.log_text
-        );
-
-        // Bind the adapter to the status list
+        mStatusAdapter = new ArrayAdapter<Spanned>(this, R.layout.item_layout, R.id.log_text);
         mStatusListView.setAdapter(mStatusAdapter);
 
-        // Set the broadcast receiver intent filter
         mBroadcastManager = LocalBroadcastManager.getInstance(this);
-
-        // Create a new Intent filter for the broadcast receiver
         mBroadcastFilter = new IntentFilter(ActivityUtils.ACTION_REFRESH_STATUS_LIST);
         mBroadcastFilter.addCategory(ActivityUtils.CATEGORY_LOCATION_SERVICES);
 
-        // Get detection requester and remover objects
         mDetectionRequester = new DetectionRequester(this);
         mDetectionRemover = new DetectionRemover(this);
 
-        // Create a new LogFile object
         mLogFile = LogFile.getInstance(this);
     }
 
@@ -137,7 +112,7 @@ public class MainActivity extends Activity {
         switch (requestCode) {
 
             // If the request code matches the code sent in onConnectionFailed
-            case ActivityUtils.CONNECTION_FAILURE_RESOLUTION_REQUEST :
+            case ActivityUtils.CONNECTION_FAILURE_RESOLUTION_REQUEST:
 
                 switch (resultCode) {
                     // If Google Play services resolved the problem
@@ -149,18 +124,18 @@ public class MainActivity extends Activity {
                             // Restart the process of requesting activity recognition updates
                             mDetectionRequester.requestUpdates();
 
-                        // If the request was to remove activity recognition updates
-                        } else if (ActivityUtils.REQUEST_TYPE.REMOVE == mRequestType ){
+                            // If the request was to remove activity recognition updates
+                        } else if (ActivityUtils.REQUEST_TYPE.REMOVE == mRequestType) {
 
                                 /*
                                  * Restart the removal of all activity recognition updates for the 
                                  * PendingIntent.
                                  */
-                                mDetectionRemover.removeUpdates(
+                            mDetectionRemover.removeUpdates(
                                     mDetectionRequester.getRequestPendingIntent());
 
                         }
-                    break;
+                        break;
 
                     // If any other result was returned by Google Play services
                     default:
@@ -169,142 +144,78 @@ public class MainActivity extends Activity {
                         Log.d(ActivityUtils.APPTAG, getString(R.string.no_resolution));
                 }
 
-            // If any other request code was received
+                // If any other request code was received
             default:
-               // Report that this Activity received an unknown requestCode
-               Log.d(ActivityUtils.APPTAG,
-                       getString(R.string.unknown_activity_request_code, requestCode));
+                // Report that this Activity received an unknown requestCode
+                Log.d(ActivityUtils.APPTAG,
+                        getString(R.string.unknown_activity_request_code, requestCode));
 
-               break;
+                break;
         }
     }
 
-    /*
-     * Register the broadcast receiver and update the log of activity updates
-     */
     @Override
     protected void onResume() {
         super.onResume();
 
-        // Register the broadcast receiver
-        mBroadcastManager.registerReceiver(
-                updateListReceiver,
-                mBroadcastFilter);
+        mBroadcastManager.registerReceiver(updateListReceiver, mBroadcastFilter);
 
-        // Load updated activity history
-        updateActivityHistory();
+        updateLogs();
     }
 
-    /*
-     * Create the menu
-     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
-
     }
 
-    /*
-     * Handle selections from the menu
-     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        // Handle item selection
         switch (item.getItemId()) {
-
-            // Clear the log display and remove the log files
+            case R.id.menu_item_showlog:
+                updateLogs();
+                return true;
             case R.id.menu_item_clearlog:
-                // Clear the list adapter
                 mStatusAdapter.clear();
-
-                // Update the ListView from the empty adapter
                 mStatusAdapter.notifyDataSetChanged();
 
-                // Remove log files
                 if (!mLogFile.removeLogFiles()) {
                     Log.e(ActivityUtils.APPTAG, getString(R.string.log_file_deletion_error));
-
-                // Display the results to the user
                 } else {
-
-                    Toast.makeText(
-                            this,
-                            R.string.logs_deleted,
-                            Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.logs_deleted, Toast.LENGTH_LONG).show();
                 }
-                // Continue by passing true to the menu handler
                 return true;
-
-            // Display the update log
-            case R.id.menu_item_showlog:
-
-                // Update the ListView from log files
-                updateActivityHistory();
-
-                // Continue by passing true to the menu handler
-                return true;
-
-            // For any other choice, pass it to the super()
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    /*
-     * Unregister the receiver during a pause
-     */
     @Override
     protected void onPause() {
-
-        // Stop listening to broadcasts when the Activity isn't visible.
-        mBroadcastManager.unregisterReceiver(updateListReceiver);
-
         super.onPause();
+
+        mBroadcastManager.unregisterReceiver(updateListReceiver);
     }
 
-    /**
-     * Verify that Google Play services is available before making a request.
-     *
-     * @return true if Google Play services is available, otherwise false
-     */
-    private boolean servicesConnected() {
-
-        // Check that Google Play services is available
-        int resultCode =
-                GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-
-        // If Google Play services is available
-        if (ConnectionResult.SUCCESS == resultCode) {
-
-            // In debug mode, log the status
-            Log.d(ActivityUtils.APPTAG, getString(R.string.play_services_available));
-
-            // Continue
+    private boolean isServicesConnected() {
+        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if (resultCode == ConnectionResult.SUCCESS) {
             return true;
-
-        // Google Play services was not available for some reason
         } else {
-
-            // Display an error dialog
             GooglePlayServicesUtil.getErrorDialog(resultCode, this, 0).show();
             return false;
         }
     }
+
     /**
      * Respond to "Start" button by requesting activity recognition
      * updates.
+     *
      * @param view The view that triggered this method.
      */
     public void onStartUpdates(View view) {
-
-        // Check for Google Play services
-        if (!servicesConnected()) {
-
-            return;
-        }
+        if (!isServicesConnected()) return;
 
         /*
          * Set the request type. If a connection error occurs, and Google Play services can
@@ -318,15 +229,11 @@ public class MainActivity extends Activity {
 
     /**
      * Respond to "Stop" button by canceling updates.
+     *
      * @param view The view that triggered this method.
      */
     public void onStopUpdates(View view) {
-
-        // Check for Google Play services
-        if (!servicesConnected()) {
-
-            return;
-        }
+        if (!isServicesConnected()) return;
 
         /*
          * Set the request type. If a connection error occurs, and Google Play services can
@@ -346,40 +253,21 @@ public class MainActivity extends Activity {
         }
     }
 
-    /**
-     * Display the activity detection history stored in the
-     * log file
-     */
-    private void updateActivityHistory() {
-        // Try to load data from the history file
+    private void updateLogs() {
         try {
-            // Load log file records into the List
-            List<Spanned> activityDetectionHistory =
-                    mLogFile.loadLogFile();
-
-            // Clear the adapter of existing data
             mStatusAdapter.clear();
-
-            // Add each element of the history to the adapter
-            for (Spanned activity : activityDetectionHistory) {
-                mStatusAdapter.add(activity);
-            }
-
-            // If the number of loaded records is greater than the max log size
-            if (mStatusAdapter.getCount() > MAX_LOG_SIZE) {
-
-                // Delete the old log file
-                if (!mLogFile.removeLogFiles()) {
-
-                    // Log an error if unable to delete the log file
-                    Log.e(ActivityUtils.APPTAG, getString(R.string.log_file_deletion_error));
+            List<Spanned> appUsageLogs = mLogFile.loadLogFile();
+            ListIterator iterator = appUsageLogs.listIterator(appUsageLogs.size());
+            int count = 0;
+            while (iterator.hasPrevious()) {
+                Spanned log = (Spanned) iterator.previous();
+                mStatusAdapter.add(log);
+                count += 1;
+                if (count == 100) {
+                    break;
                 }
             }
-
-            // Trigger the adapter to update the display
             mStatusAdapter.notifyDataSetChanged();
-
-        // If an error occurs while reading the history file
         } catch (IOException e) {
             Log.e(ActivityUtils.APPTAG, e.getMessage(), e);
         }
@@ -399,7 +287,7 @@ public class MainActivity extends Activity {
              * When an Intent is received from the update listener IntentService, update
              * the displayed log.
              */
-            updateActivityHistory();
+            updateLogs();
         }
     };
 }

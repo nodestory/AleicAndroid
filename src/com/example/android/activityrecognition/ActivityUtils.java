@@ -9,7 +9,7 @@ public final class ActivityUtils {
     // Used to track what type of request is in process
     public enum REQUEST_TYPE {ADD, REMOVE}
 
-    public static final String APPTAG = "ActivitySample";
+    public static final String APPTAG = "Aleic";
 
     /*
      * Define a request code to send to Google Play services
@@ -62,8 +62,9 @@ public final class ActivityUtils {
             "com.example.android.activityrecognition.KEY_PREVIOUS_LOCATION_ACC";
 
     // Constants for constructing the log file name
-    public static final String LOG_FILE_NAME_PREFIX = "activityrecognition";
+    public static final String LOG_FILE_NAME_PREFIX = "app_usage";
     public static final String LOG_FILE_NAME_SUFFIX = ".log";
+    public static final String LOG_FILE_FOLDER = "Aleic";
 
     // Keys in the repository for storing the log file info
     public static final String KEY_LOG_FILE_NUMBER =

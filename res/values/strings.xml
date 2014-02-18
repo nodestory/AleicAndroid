@@ -48,7 +48,7 @@
         Activity recognition error, code %1$d message %2$s.
     </string>
     <string name="date_format_error">Internal error: date formatting exception.</string>
-    <string name="log_filename">%1$s%2$s%3$d%4$s</string>
+    <string name="log_filename">%1$s_%2$s_%3$d%4$s</string>
     <string name="no_resolution">Google Play services: unable to resolve connection error.</string>
     <string name="unknown_activity_request_code">
         Received an unknown activity request code %1$d in onActivityResult.

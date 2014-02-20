@@ -41,6 +41,9 @@ public final class ActivityUtils {
     public static final int DETECTION_INTERVAL_MILLISECONDS =
             MILLISECONDS_PER_SECOND * DETECTION_INTERVAL_SECONDS;
 
+    public static final int WIDGET_UPDATE_INTERVAL_SECONDS =
+            MILLISECONDS_PER_SECOND * DETECTION_INTERVAL_SECONDS;
+
     // Shared Preferences repository name
     public static final String SHARED_PREFERENCES =
             "com.example.android.activityrecognition.SHARED_PREFERENCES";

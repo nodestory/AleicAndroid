@@ -6,8 +6,6 @@ import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.util.Log;
@@ -54,7 +52,70 @@ public class UpdateWidgetService extends Service {
     }
 
     private void updateWidget(int[] widgetIds) {
+        String[] apps = getMostProbableApps();
+
+
+        RemoteViews views = new RemoteViews(getPackageName(), R.layout.widget);
+//        views.setTextViewText(R.id.textView_location,
+//                getString(R.string.widget_current_location,
+//                        AleicSharedPrefsUtil.getStringPref(this, AleicSharedPrefsUtil.KEY_LAST_LATITUDE),
+//                        AleicSharedPrefsUtil.getStringPref(this, AleicSharedPrefsUtil.KEY_LAST_LONGITUDE)));
+//        views.setTextViewText(R.id.textView_activity,
+//                getString(R.string.widget_current_activity,
+//                        AleicSharedPrefsUtil.getStringPref(this,
+//                        AleicSharedPrefsUtil.KEY_LAST_ACTIVITY_TYPE)));
         PackageManager pm = getPackageManager();
+//        for (int i = 0; i < 4; i++) {
+//            ApplicationInfo info = apps[i];
+//
+//            Drawable icon = pm.getApplicationIcon(info);
+//            views.setImageViewBitmap(SHORTCUT_IDS[i], ((BitmapDrawable) icon).getBitmap());
+//
+//            Intent startActivityIntent = pm.getLaunchIntentForPackage(info.packageName);
+//            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, startActivityIntent, 0);
+//            views.setOnClickPendingIntent(SHORTCUT_IDS[i], pendingIntent);
+//        }
+
+        for (int widgetId : widgetIds) {
+            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getApplicationContext());
+//            appWidgetManager.updateAppWidget(widgetId, views);
+
+            Intent serviceIntent = new Intent(this, UpdateWidgetRemoteViewsService.class);
+            serviceIntent.putExtra("apps", apps);
+            String temp = "";
+            for (int i = 0; i < 4; i++) {
+                temp += (apps[i] + " ");
+            }
+            Log.d(ActivityUtils.APPTAG, temp);
+            AleicSharedPrefsUtil.setStringPref(this, "test", temp);
+            views.setRemoteAdapter(R.id.gridView, serviceIntent);
+            appWidgetManager.notifyAppWidgetViewDataChanged(widgetIds, R.id.gridView);
+
+
+//            Intent gridIntent = new Intent();
+//            gridIntent.setAction("test");
+//            gridIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
+//
+//            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0 , gridIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//            views.setPendingIntentTemplate(R.id.gridView, pendingIntent);
+
+            Intent gridIntent = new Intent();
+            gridIntent.setAction("test");
+//            gridIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0 , gridIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            // 設置intent模板
+            views.setPendingIntentTemplate(R.id.gridView, pendingIntent);
+
+            appWidgetManager.updateAppWidget(widgetId, views);
+        }
+
+
+        Log.d(ActivityUtils.APPTAG, "Widget updated.");
+    }
+
+    private String[] getMostProbableApps() {
+        PackageManager pm = getPackageManager();
+
         List<ApplicationInfo> installedApps =
                 pm.getInstalledApplications(PackageManager.GET_META_DATA);
         List<ApplicationInfo> enabledApps = new ArrayList<ApplicationInfo>();
@@ -65,22 +126,10 @@ public class UpdateWidgetService extends Service {
         }
         Collections.shuffle(enabledApps);
 
-        RemoteViews views = new RemoteViews(getPackageName(), R.layout.widget);
+        String[] mostProbableApps = new String[4];
         for (int i = 0; i < 4; i++) {
-            ApplicationInfo info = enabledApps.get(i);
-            Drawable icon = pm.getApplicationIcon(info);
-            views.setImageViewBitmap(SHORTCUT_IDS[i], ((BitmapDrawable) icon).getBitmap());
-
-            Intent startActivityIntent = pm.getLaunchIntentForPackage(info.packageName);
-            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, startActivityIntent, 0);
-            views.setOnClickPendingIntent(SHORTCUT_IDS[i], pendingIntent);
+            mostProbableApps[i] = enabledApps.get(i).packageName;
         }
-
-        for (int widgetId : widgetIds) {
-            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getApplicationContext());
-            appWidgetManager.updateAppWidget(widgetId, views);
-        }
-
-        Log.d(ActivityUtils.APPTAG, "Widget updated.");
+        return mostProbableApps;
     }
 }

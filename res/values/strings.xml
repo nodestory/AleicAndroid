@@ -54,6 +54,6 @@
         Received an unknown activity request code %1$d in onActivityResult.
     </string>
 
-    <string name="widget_current_location">Location: %1$f, %2$</string>
+    <string name="widget_current_location">Location: %1$f, %2$f</string>
     <string name="widget_current_activity">Activity: %1$s</string>
 </resources>

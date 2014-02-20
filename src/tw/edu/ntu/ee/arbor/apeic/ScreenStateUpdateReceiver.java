@@ -21,21 +21,23 @@ public class ScreenStateUpdateReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
             Log.d(ActivityUtils.APPTAG, "Screen state changed: ON.");
-            startUpdateWidget(context);
+            if (isWidgetAlive(context))
+                startUpdateWidget(context);
         }
 
         if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
             Log.d(ActivityUtils.APPTAG, "Screen state changed: OFF.");
-            stopUpdateWidgetService(context);
+            if (isWidgetAlive(context))
+                stopUpdateWidgetService(context);
         }
     }
 
     private void startUpdateWidget(Context context) {
         PendingIntent pendingIntent = createUpdatePendingIntent(context);
         setUpdatePendingIntent(pendingIntent);
-        // TODO
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        manager.setRepeating(AlarmManager.RTC_WAKEUP, 0, 10000, getUpdatePendingIntent());
+        // TODO
+        manager.setRepeating(AlarmManager.RTC, 0, 10000, getUpdatePendingIntent());
     }
 
     private void stopUpdateWidgetService(Context context) {
@@ -47,13 +49,8 @@ public class ScreenStateUpdateReceiver extends BroadcastReceiver {
     }
 
     private PendingIntent createUpdatePendingIntent(Context context) {
-        // TODO
-        ComponentName widgetName = new ComponentName(context, AleicWidgetProvider.class);
-        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-        int[] allWidgetIds = appWidgetManager.getAppWidgetIds(widgetName);
-
         Intent intent = new Intent(context, UpdateWidgetService.class);
-        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, allWidgetIds);
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, getAllWidgetIDs(context));
         PendingIntent pendingIntent = PendingIntent.getService(
                 context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         return pendingIntent;
@@ -65,5 +62,16 @@ public class ScreenStateUpdateReceiver extends BroadcastReceiver {
 
     private void setUpdatePendingIntent(PendingIntent pendingIntent) {
         mUpdatePendingIntent = pendingIntent;
+    }
+
+    private boolean isWidgetAlive(Context context) {
+        return true ? getAllWidgetIDs(context).length > 0 : false;
+    }
+
+    private int[] getAllWidgetIDs(Context context) {
+        ComponentName widgetName = new ComponentName(context, AleicWidgetProvider.class);
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        int[] allWidgetIds = appWidgetManager.getAppWidgetIds(widgetName);
+        return allWidgetIds;
     }
 }

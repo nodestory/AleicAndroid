@@ -97,6 +97,7 @@ public class MainActivity extends Activity {
         IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         BroadcastReceiver mReceiver = new ScreenStateUpdateReceiver();
+        // TODO: remember to unregister
         registerReceiver(mReceiver, filter);
 
 //        mLogFile = LogFile.getInstance(this);

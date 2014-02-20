@@ -17,32 +17,33 @@ public class AleicWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onEnabled(Context context) {
-        Log.d(ActivityUtils.APPTAG, "Widget onEnabled.");
-    }
-
-    @Override
-    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        Log.d(ActivityUtils.APPTAG, "Widget onUpdate.");
-    }
-
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-
-        if (action.equals("test")) {
-            Log.d(ActivityUtils.APPTAG, "!!!");
-            String name = intent.getStringExtra("name");
-            if (intent != null){
-                context.startActivity(context.getPackageManager().getLaunchIntentForPackage(name));
-            }
-
-        }
-        super.onReceive(context, intent);
+        Log.d(ActivityUtils.APPTAG, "AleicWidgetProvider onEnabled.");
     }
 
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {
-        Log.d(ActivityUtils.APPTAG, "Widget onDeleted.");
+        Log.v(ActivityUtils.APPTAG, "AleicWidgetProvider onDeleted.");
+    }
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        Log.v(ActivityUtils.APPTAG, "AleicWidgetProvider onReceive.");
+
+        String action = intent.getAction();
+        if (action.equals(ActivityUtils.ACTION_ITEM_CLICKED)) {
+            startActivity(context, intent);
+        }
+    }
+
+    @Override
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        Log.v(ActivityUtils.APPTAG, "AleicWidgetProvider onUpdate.");
+    }
+
+    private void startActivity(Context context, Intent intent) {
+        String packageName = intent.getStringExtra("packageName");
+        if (packageName != null) {
+            context.startActivity(context.getPackageManager().getLaunchIntentForPackage(packageName));
+        }
     }
 }

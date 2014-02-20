@@ -76,4 +76,7 @@ public final class ActivityUtils {
             "com.example.android.activityrecognition.KEY_LOG_FILE_NAME";
 
 
+    // TODO
+    public static final String ACTION_ITEM_CLICKED =
+            "tw.edu.ntu.ee.arbor.apeic.action.ITEM_CLICKED";
 }

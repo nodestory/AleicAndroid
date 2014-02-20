@@ -107,10 +107,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="0" selection-start="3619" selection-end="3619" vertical-scroll-proportion="0.0" vertical-offset="835" max-vertical-offset="3859">
+            <state line="106" column="67" selection-start="3789" selection-end="3789" vertical-scroll-proportion="0.0881295" vertical-offset="1090" max-vertical-offset="3876">
               <folding>
                 <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
@@ -124,7 +124,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="17" selection-start="3013" selection-end="3013" vertical-scroll-proportion="0.0" vertical-offset="591" max-vertical-offset="1462">
+            <state line="71" column="38" selection-start="3034" selection-end="3079" vertical-scroll-proportion="0.0" vertical-offset="906" max-vertical-offset="1462">
               <folding>
                 <element signature="e#1475#1493#0" expanded="true" />
                 <element signature="e#1688#1727#0" expanded="true" />
@@ -136,11 +136,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AleicWidgetProvider.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AleicWidgetProvider.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AleicWidgetProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="54" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.6420863" vertical-offset="102" max-vertical-offset="782">
-              <folding />
+            <state line="43" column="63" selection-start="1377" selection-end="1388" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="663">
+              <folding>
+                <element signature="docComment;class#AleicWidgetProvider#0" expanded="false" />
+                <element signature="method#onEnabled#0;class#AleicWidgetProvider#0" expanded="false" />
+                <element signature="method#onDeleted#0;class#AleicWidgetProvider#0" expanded="false" />
+                <element signature="method#onUpdate#0;class#AleicWidgetProvider#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -148,8 +153,10 @@
       <file leaf-file-name="UpdateWidgetService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/UpdateWidgetService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="14" selection-start="2624" selection-end="2881" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2108">
-              <folding />
+            <state line="53" column="54" selection-start="1526" selection-end="1526" vertical-scroll-proportion="0.0" vertical-offset="430" max-vertical-offset="1343">
+              <folding>
+                <element signature="method#getMostProbableApps#0;class#UpdateWidgetService#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -157,59 +164,13 @@
       <file leaf-file-name="UpdateWidgetRemoteViewsService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/UpdateWidgetRemoteViewsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="19" selection-start="2388" selection-end="2388" vertical-scroll-proportion="0.0" vertical-offset="838" max-vertical-offset="2023">
+            <state line="57" column="49" selection-start="1768" selection-end="1768" vertical-scroll-proportion="0.0" vertical-offset="1093" max-vertical-offset="1649">
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="docComment;class#UpdateWidgetRemoteViewsService#0" expanded="false" />
-                <element signature="e#1557#1558#0" expanded="true" />
-                <element signature="e#1599#1600#0" expanded="true" />
+                <element signature="method#onCreate#0;class#GridRemoteViewsFactory#0;class#UpdateWidgetRemoteViewsService#0" expanded="false" />
+                <element signature="method#onDestroy#0;class#GridRemoteViewsFactory#0;class#UpdateWidgetRemoteViewsService#0" expanded="false" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AleicSharedPrefsUtil.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AleicSharedPrefsUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="1" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0" vertical-offset="73" max-vertical-offset="629">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;class#AleicSharedPrefsUtil#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appwidget_provider.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/xml/appwidget_provider.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="26" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widget.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/widget.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="0" selection-start="3194" selection-end="3211" vertical-scroll-proportion="-17.62963" vertical-offset="969" max-vertical-offset="1547">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item_widget.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/item_widget.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="27" selection-start="139" selection-end="139" vertical-scroll-proportion="-1.2592592" vertical-offset="0" max-vertical-offset="510">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -225,20 +186,20 @@
       <list>
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AppWidgetExample.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AleicLauncherWidgetProvider.java" />
-        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/ScreenStateUpdateReceiver.java" />
-        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java" />
-        <option value="$PROJECT_DIR$/res/xml/appwidget_provider.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/SharedPreferencesUtil.java" />
         <option value="$PROJECT_DIR$/res/layout/item_launcher.xml" />
-        <option value="$PROJECT_DIR$/res/layout/widget.xml" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AleicSharedPrefsUtil.java" />
         <option value="$PROJECT_DIR$/res/layout/item_widget.xml" />
-        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/UpdateWidgetService.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/UpdateWidgetRemoteViewsService.java" />
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AleicWidgetProvider.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/UpdateWidgetRemoteViewsService.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/UpdateWidgetService.java" />
+        <option value="$PROJECT_DIR$/res/layout/widget.xml" />
+        <option value="$PROJECT_DIR$/res/xml/appwidget_provider.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -720,13 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="60" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/AppUsageLogUpdateIntentService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="82" selection-start="3083" selection-end="3106" vertical-scroll-proportion="0.7715827" vertical-offset="302" max-vertical-offset="1428">
@@ -747,60 +701,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="0" selection-start="3619" selection-end="3619" vertical-scroll-proportion="0.0" vertical-offset="835" max-vertical-offset="3859">
-          <folding>
-            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#isServicesConnected#0;class#MainActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/xml/appwidget_provider.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="26" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AleicSharedPrefsUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="1" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0" vertical-offset="73" max-vertical-offset="629">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#AleicSharedPrefsUtil#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/widget.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="0" selection-start="3194" selection-end="3211" vertical-scroll-proportion="-17.62963" vertical-offset="969" max-vertical-offset="1547">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Scheduler/src/com/example/android/scheduler/SampleAlarmReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="33" selection-start="283" selection-end="283" vertical-scroll-proportion="0.2357019" vertical-offset="0" max-vertical-offset="2363">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/item_widget.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="27" selection-start="139" selection-end="139" vertical-scroll-proportion="-1.2592592" vertical-offset="0" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/ScreenStateUpdateReceiver.java">
@@ -815,9 +720,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/ActivityUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="50" selection-start="3325" selection-end="3344" vertical-scroll-proportion="0.7859712" vertical-offset="906" max-vertical-offset="1496">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AleicSharedPrefsUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="1" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.81654674" vertical-offset="73" max-vertical-offset="629">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#AleicSharedPrefsUtil#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AleicWidgetProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="63" selection-start="1377" selection-end="1388" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="663">
+          <folding>
+            <element signature="docComment;class#AleicWidgetProvider#0" expanded="false" />
+            <element signature="method#onEnabled#0;class#AleicWidgetProvider#0" expanded="false" />
+            <element signature="method#onDeleted#0;class#AleicWidgetProvider#0" expanded="false" />
+            <element signature="method#onUpdate#0;class#AleicWidgetProvider#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/UpdateWidgetService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="54" selection-start="1526" selection-end="1526" vertical-scroll-proportion="0.0" vertical-offset="430" max-vertical-offset="1343">
+          <folding>
+            <element signature="method#getMostProbableApps#0;class#UpdateWidgetService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/xml/appwidget_provider.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="21" selection-start="240" selection-end="240" vertical-scroll-proportion="0.1528777" vertical-offset="0" max-vertical-offset="556">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/widget.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="37" selection-start="445" selection-end="445" vertical-scroll-proportion="0.28922495" vertical-offset="34" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/item_widget.xml">
+      <provider editor-type-id="text-editor">
+        <state line="2" column="27" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/UpdateWidgetRemoteViewsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="49" selection-start="1768" selection-end="1768" vertical-scroll-proportion="0.0" vertical-offset="1093" max-vertical-offset="1649">
+          <folding>
+            <element signature="docComment;class#UpdateWidgetRemoteViewsService#0" expanded="false" />
+            <element signature="method#onCreate#0;class#GridRemoteViewsFactory#0;class#UpdateWidgetRemoteViewsService#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#GridRemoteViewsFactory#0;class#UpdateWidgetRemoteViewsService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="17" selection-start="3013" selection-end="3013" vertical-scroll-proportion="0.0" vertical-offset="591" max-vertical-offset="1462">
+        <state line="71" column="38" selection-start="3034" selection-end="3079" vertical-scroll-proportion="0.0" vertical-offset="744" max-vertical-offset="1462">
           <folding>
             <element signature="e#1475#1493#0" expanded="true" />
             <element signature="e#1688#1727#0" expanded="true" />
@@ -828,29 +809,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/UpdateWidgetService.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/activityrecognition/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="14" selection-start="2624" selection-end="2881" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2108">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/UpdateWidgetRemoteViewsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="19" selection-start="2388" selection-end="2388" vertical-scroll-proportion="0.0" vertical-offset="838" max-vertical-offset="2023">
+        <state line="106" column="67" selection-start="3789" selection-end="3789" vertical-scroll-proportion="0.0881295" vertical-offset="1090" max-vertical-offset="3876">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#UpdateWidgetRemoteViewsService#0" expanded="false" />
-            <element signature="e#1557#1558#0" expanded="true" />
-            <element signature="e#1599#1600#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#isServicesConnected#0;class#MainActivity#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/arbor/apeic/AleicWidgetProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="54" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.6420863" vertical-offset="102" max-vertical-offset="782">
-          <folding />
         </state>
       </provider>
     </entry>

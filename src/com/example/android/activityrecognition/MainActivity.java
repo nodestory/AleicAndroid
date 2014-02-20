@@ -41,6 +41,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ListIterator;
 
+import tw.edu.ntu.ee.arbor.apeic.ScreenStateUpdateReceiver;
+
 /**
  * Sample application that demonstrates the use of
  * ActivityRecognitionClient}. It registers for activity detection updates
@@ -92,7 +94,12 @@ public class MainActivity extends Activity {
         mDetectionRequester = new DetectionRequester(this);
         mDetectionRemover = new DetectionRemover(this);
 
-        mLogFile = LogFile.getInstance(this);
+        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        BroadcastReceiver mReceiver = new ScreenStateUpdateReceiver();
+        registerReceiver(mReceiver, filter);
+
+//        mLogFile = LogFile.getInstance(this);
     }
 
     /*
@@ -157,7 +164,7 @@ public class MainActivity extends Activity {
 
         mBroadcastManager.registerReceiver(updateListReceiver, mBroadcastFilter);
 
-        updateLogs();
+//        updateLogs();
     }
 
     @Override

@@ -15,7 +15,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.activityrecognition"
+    package="tw.edu.ntu.ee.arbor.apeic"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -41,7 +41,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="tw.edu.ntu.ee.apeic.log.MainActivity"
             android:label="@string/app_name"
             android:uiOptions="splitActionBarWhenNarrow"
             android:description="@string/app_description">
@@ -52,20 +52,20 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".AppUsageLogUpdateIntentService"></service>
-        <service android:name="tw.edu.ntu.ee.arbor.apeic.UpdateWidgetService"></service>
+        <service android:name="tw.edu.ntu.ee.apeic.log.AppUsageLogUpdateIntentService"></service>
+        <service android:name="tw.edu.ntu.ee.apeic.widget.UpdateWidgetService"></service>
         <service
-            android:name="tw.edu.ntu.ee.arbor.apeic.UpdateWidgetRemoteViewsService"
+            android:name="tw.edu.ntu.ee.apeic.widget.UpdateWidgetRemoteViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <receiver android:name=".LocationUpdateReceiver">
+        <receiver android:name="tw.edu.ntu.ee.apeic.log.LocationUpdateReceiver">
             <intent-filter>
                 <action android:name="android.location.LocationManager.KEY_LOCATION_CHANGED" />
             </intent-filter>
         </receiver>
 
         <receiver
-            android:name="tw.edu.ntu.ee.arbor.apeic.AleicWidgetProvider"
+            android:name="tw.edu.ntu.ee.apeic.widget.AleicWidgetProvider"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

@@ -29,7 +29,9 @@ import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallback
 import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.ActivityRecognitionClient;
+import com.google.android.gms.location.LocationClient;
 
+import tw.edu.ntu.ee.apeic.ApeicUtil;
 import tw.edu.ntu.ee.arbor.apeic.R;
 
 /**
@@ -43,14 +45,11 @@ import tw.edu.ntu.ee.arbor.apeic.R;
  * To use a DetectionRemover, instantiate it, then call removeUpdates().
  *
  */
-public class DetectionRemover
-        implements ConnectionCallbacks, OnConnectionFailedListener {
-
-    // Storage for a context from the calling client
+public class DetectionRemover implements ConnectionCallbacks, OnConnectionFailedListener {
     private Context mContext;
 
-    // Stores the current instantiation of the activity recognition client
     private ActivityRecognitionClient mActivityRecognitionClient;
+    private LocationClient mLocationClient;
 
     // The PendingIntent sent in removeUpdates()
     private PendingIntent mCurrentIntent;
@@ -62,11 +61,10 @@ public class DetectionRemover
      * @param context A valid Context
      */
     public DetectionRemover(Context context) {
-        // Save the context
         mContext = context;
 
-        // Initialize the globals to null
         mActivityRecognitionClient = null;
+        mLocationClient = null;
     }
 
     /**
@@ -144,7 +142,7 @@ public class DetectionRemover
     @Override
     public void onConnected(Bundle connectionData) {
         // If debugging, log the connection
-        Log.d(ActivityUtils.APPTAG, mContext.getString(R.string.connected));
+        Log.d(ApeicUtil.APPTAG, mContext.getString(R.string.connected));
         // Send a request to Location Services to remove activity recognition updates
         continueRemoveUpdates();
     }
@@ -155,6 +153,9 @@ public class DetectionRemover
     private void continueRemoveUpdates() {
         
         // Remove the updates
+        // TODO
+        Log.d(ApeicUtil.APPTAG, String.valueOf(getActivityRecognitionClient() == null));
+        Log.d(ApeicUtil.APPTAG, String.valueOf(mCurrentIntent == null));
         mActivityRecognitionClient.removeActivityUpdates(mCurrentIntent);
         
         /*
@@ -174,51 +175,26 @@ public class DetectionRemover
     public void onDisconnected() {
 
         // In debug mode, log the disconnection
-        Log.d(ActivityUtils.APPTAG, mContext.getString(R.string.disconnected));
+        Log.d(ApeicUtil.APPTAG, mContext.getString(R.string.disconnected));
 
         // Destroy the current activity recognition client
         mActivityRecognitionClient = null;
     }
 
-    /*
-     * Implementation of OnConnectionFailedListener.onConnectionFailed
-     * If a connection or disconnection request fails, report the error
-     * connectionResult is passed in from Location Services
-     */
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-
-        /*
-         * Google Play services can resolve some errors it detects.
-         * If the error has a resolution, try sending an Intent to
-         * start a Google Play services activity that can resolve
-         * error.
-         */
         if (connectionResult.hasResolution()) {
-
             try {
                 connectionResult.startResolutionForResult((Activity) mContext,
-                    ActivityUtils.CONNECTION_FAILURE_RESOLUTION_REQUEST);
-
-            /*
-             * Thrown if Google Play services canceled the original
-             * PendingIntent
-             */
+                        ApeicUtil.CONNECTION_FAILURE_RESOLUTION_REQUEST);
             } catch (SendIntentException e) {
-               // display an error or log it here.
+                Log.e(ApeicUtil.APPTAG, e.getMessage());
             }
-
-        /*
-         * If no resolution is available, display Google
-         * Play service error dialog. This may direct the
-         * user to Google Play Store if Google Play services
-         * is out of date.
-         */
         } else {
             Dialog dialog = GooglePlayServicesUtil.getErrorDialog(
-                            connectionResult.getErrorCode(),
-                            (Activity) mContext,
-                            ActivityUtils.CONNECTION_FAILURE_RESOLUTION_REQUEST);
+                    connectionResult.getErrorCode(),
+                    (Activity) mContext,
+                    ApeicUtil.CONNECTION_FAILURE_RESOLUTION_REQUEST);
             if (dialog != null) {
                 dialog.show();
             }

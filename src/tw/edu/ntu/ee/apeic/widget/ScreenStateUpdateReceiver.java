@@ -9,7 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import tw.edu.ntu.ee.apeic.log.ActivityUtils;
+import tw.edu.ntu.ee.apeic.ApeicUtil;
 
 /**
  * Created by Linzy on 2014/2/20.
@@ -20,13 +20,13 @@ public class ScreenStateUpdateReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
-            Log.d(ActivityUtils.APPTAG, "Screen state changed: ON.");
+            Log.d(ApeicUtil.APPTAG, "Screen state changed: ON.");
             if (isWidgetAlive(context))
                 startUpdateWidget(context);
         }
 
         if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-            Log.d(ActivityUtils.APPTAG, "Screen state changed: OFF.");
+            Log.d(ApeicUtil.APPTAG, "Screen state changed: OFF.");
             if (isWidgetAlive(context))
                 stopUpdateWidgetService(context);
         }

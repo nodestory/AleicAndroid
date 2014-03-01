@@ -26,6 +26,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
@@ -52,7 +53,8 @@
             </intent-filter>
         </activity>
 
-        <service android:name="tw.edu.ntu.ee.apeic.log.AppUsageLogUpdateIntentService"></service>
+        <service android:name="tw.edu.ntu.ee.apeic.log.LogUpdateIntentService"></service>
+        <service android:name="tw.edu.ntu.ee.apeic.log.LogsUploadCheckReceiver$LogUploadIntentService"></service>
         <service android:name="tw.edu.ntu.ee.apeic.widget.UpdateWidgetService"></service>
         <service
             android:name="tw.edu.ntu.ee.apeic.widget.UpdateWidgetRemoteViewsService"
@@ -61,6 +63,12 @@
         <receiver android:name="tw.edu.ntu.ee.apeic.log.LocationUpdateReceiver">
             <intent-filter>
                 <action android:name="android.location.LocationManager.KEY_LOCATION_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="tw.edu.ntu.ee.apeic.log.LogsUploadCheckReceiver">
+            <intent-filter>
+                <action android:name="tw.edu.ntu.ee.arbor.apeic.action.LOGS_UPLOAD_CHECK" />
             </intent-filter>
         </receiver>
 

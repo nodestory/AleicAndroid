@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import tw.edu.ntu.ee.apeic.log.ActivityUtils;
+import tw.edu.ntu.ee.apeic.ApeicUtil;
 
 /**
  * Created by Linzy on 2014/2/10.
@@ -17,27 +17,27 @@ public class AleicWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onEnabled(Context context) {
-        Log.d(ActivityUtils.APPTAG, "AleicWidgetProvider onEnabled.");
+        Log.d(ApeicUtil.APPTAG, "AleicWidgetProvider onEnabled.");
     }
 
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {
-        Log.v(ActivityUtils.APPTAG, "AleicWidgetProvider onDeleted.");
+        Log.v(ApeicUtil.APPTAG, "AleicWidgetProvider onDeleted.");
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.v(ActivityUtils.APPTAG, "AleicWidgetProvider onReceive.");
+        Log.v(ApeicUtil.APPTAG, "AleicWidgetProvider onReceive.");
 
         String action = intent.getAction();
-        if (action.equals(ActivityUtils.ACTION_ITEM_CLICKED)) {
+        if (action.equals(ApeicUtil.ACTION_ITEM_CLICKED)) {
             startActivity(context, intent);
         }
     }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        Log.v(ActivityUtils.APPTAG, "AleicWidgetProvider onUpdate.");
+        Log.v(ApeicUtil.APPTAG, "AleicWidgetProvider onUpdate.");
     }
 
     private void startActivity(Context context, Intent intent) {

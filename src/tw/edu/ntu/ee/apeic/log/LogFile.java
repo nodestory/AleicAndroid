@@ -17,8 +17,6 @@
 package tw.edu.ntu.ee.apeic.log;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Environment;
 import android.text.Spanned;
 import android.text.SpannedString;
@@ -36,6 +34,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import tw.edu.ntu.ee.apeic.ApeicPrefsUtil;
+import tw.edu.ntu.ee.apeic.ApeicUtil;
 import tw.edu.ntu.ee.arbor.apeic.R;
 
 /**
@@ -44,12 +44,10 @@ import tw.edu.ntu.ee.arbor.apeic.R;
  */
 public class LogFile {
     private final Context mContext;
-    private SharedPreferences mPrefs;
 
+    private File mPendingLogsFileFolder;
     private File mLogFileFolder;
     private File mLogFile;
-    private String mFileName;
-    private int mFileNumber;
 
     private PrintWriter mLogWriter;
 
@@ -63,34 +61,10 @@ public class LogFile {
      */
     private LogFile(Context context) {
         mContext = context;
-        mPrefs = context.getSharedPreferences(ActivityUtils.SHARED_PREFERENCES,
-                Context.MODE_PRIVATE);
 
-        if (!mPrefs.contains(ActivityUtils.KEY_LOG_FILE_NUMBER)) {
-            mFileNumber = 1;
-        } else {
-            int fileNum = mPrefs.getInt(ActivityUtils.KEY_LOG_FILE_NUMBER, 0);
-            mFileNumber = fileNum + 1;
-        }
-
-        String dateString = new SimpleDateFormat("yyyy_MM_dd", Locale.TAIWAN).format(new Date());
-        mFileName = context.getString(
-                R.string.log_filename,
-                ActivityUtils.LOG_FILE_NAME_PREFIX,
-                dateString,
-                mFileNumber++,
-                ActivityUtils.LOG_FILE_NAME_SUFFIX);
-        mLogFileFolder = new File(Environment.getExternalStorageDirectory(), ActivityUtils.LOG_FILE_FOLDER);
-        if (!mLogFileFolder.exists()) {
-            mLogFileFolder.mkdir();
-        }
-
-        Editor editor = mPrefs.edit();
-        editor.putInt(ActivityUtils.KEY_LOG_FILE_NUMBER, mFileNumber);
-        editor.putString(ActivityUtils.KEY_LOG_FILE_NAME, mFileName);
-        editor.commit();
-
-        mLogFile = createLogFile(mFileName);
+        mPendingLogsFileFolder = createLogFolder(ApeicUtil.PENDING_LOG_FILES_FOLDER);
+        mLogFileFolder = createLogFolder(ApeicUtil.LOG_FILE_FOLDER);
+        mLogFile = createLogFile();
     }
 
     /**
@@ -106,21 +80,35 @@ public class LogFile {
         return sLogFileInstance;
     }
 
-    private void initLogWriter() {
-        try {
-            if (mLogWriter != null) {
-                mLogWriter.close();
-            }
-            mLogWriter = new PrintWriter(new FileWriter(mLogFile, true));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private File createLogFile() {
+        File newFile = new File(mLogFileFolder, createFileName());
+        return newFile;
     }
 
-    private File createLogFile(String filename) {
-        File newFile = new File(mLogFileFolder, filename);
-        Log.d(ActivityUtils.APPTAG, newFile.getAbsolutePath() + " : " + newFile.getName());
-        return newFile;
+    private String createFileName() {
+        String dateString = new SimpleDateFormat("yyyy_MM_dd", Locale.TAIWAN).format(new Date());
+        String lastDateString = ApeicPrefsUtil.getInstance(mContext).getStringPref(ApeicPrefsUtil.KEY_DATE);
+        int fileNumber = (dateString != lastDateString) ?
+                1 : ApeicPrefsUtil.getInstance(mContext).getIntPref(ApeicUtil.KEY_LOG_FILE_NUMBER) + 1;
+        ApeicPrefsUtil.getInstance(mContext).setIntPref(ApeicUtil.KEY_LOG_FILE_NUMBER, fileNumber);
+
+        String fileName = mContext.getString(
+                R.string.log_filename,
+                ApeicUtil.LOG_FILE_NAME_PREFIX,
+                dateString,
+                fileNumber,
+                ApeicUtil.LOG_FILE_NAME_SUFFIX);
+        ApeicPrefsUtil.getInstance(mContext).setStringPref(ApeicUtil.KEY_LOG_FILE_NAME, fileName);
+
+        return fileName;
+    }
+
+    private File createLogFolder(String name) {
+        File folder = new File(Environment.getExternalStorageDirectory(), name);
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
+        return folder;
     }
 
     public boolean removeLogFiles() {
@@ -128,7 +116,17 @@ public class LogFile {
         if (mLogFileFolder.exists()) {
             for (File file : mLogFileFolder.listFiles()) {
                 if (!file.delete()) {
-                    Log.e(ActivityUtils.APPTAG, file.getAbsolutePath() + " : " + file.getName());
+                    Log.e(ApeicUtil.APPTAG, file.getAbsolutePath() + " : " + file.getName());
+                    removed = false;
+                }
+            }
+        }
+
+        if (mPendingLogsFileFolder.exists()) {
+            for (File file : mPendingLogsFileFolder.listFiles()) {
+                Log.d(ApeicUtil.APPTAG, file.getName());
+                if (!file.delete()) {
+                    Log.e(ApeicUtil.APPTAG, file.getAbsolutePath() + " : " + file.getName());
                     removed = false;
                 }
             }
@@ -140,6 +138,22 @@ public class LogFile {
         initLogWriter();
         mLogWriter.println(message);
         mLogWriter.flush();
+    }
+
+    private void initLogWriter() {
+        try {
+            if (mLogWriter != null) {
+                mLogWriter.close();
+            }
+
+            if (mLogFile.length() > ApeicUtil.MAX_FILE_SIZE) {
+                mLogFile.renameTo(new File(mPendingLogsFileFolder, mLogFile.getName()));
+                mLogFile = createLogFile();
+            }
+            mLogWriter = new PrintWriter(new FileWriter(mLogFile, true));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Spanned> loadLogFile() throws IOException {

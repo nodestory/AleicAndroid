@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import tw.edu.ntu.ee.apeic.log.ActivityUtils;
+import tw.edu.ntu.ee.apeic.ApeicPrefsUtil;
+import tw.edu.ntu.ee.apeic.ApeicUtil;
 import tw.edu.ntu.ee.arbor.apeic.R;
 
 /**
@@ -29,7 +30,7 @@ public class UpdateWidgetService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.v(ActivityUtils.APPTAG, "UpdateWidgetService onStartCommand.");
+        Log.v(ApeicUtil.APPTAG, "UpdateWidgetService onStartCommand.");
 
         int[] allWidgetIds = intent.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
         updateWidget(allWidgetIds);
@@ -40,7 +41,7 @@ public class UpdateWidgetService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.v(ActivityUtils.APPTAG, "UpdateWidgetService onDestroy.");
+        Log.v(ApeicUtil.APPTAG, "UpdateWidgetService onDestroy.");
     }
 
     // TODO
@@ -50,18 +51,18 @@ public class UpdateWidgetService extends Service {
         for (int i = 0; i < 4; i++) {
             temp += (apps[i] + " ");
         }
-        Log.d(ActivityUtils.APPTAG, temp);
-        AleicSharedPrefsUtil.setStringPref(this, "apps", temp);
+        Log.d(ApeicUtil.APPTAG, temp);
+        ApeicPrefsUtil.getInstance(this).setStringPref("apps", temp);
 
         RemoteViews views = new RemoteViews(getPackageName(), R.layout.widget);
 //        views.setTextViewText(R.id.textView_location,
 //                getString(R.string.widget_current_location,
-//                        AleicSharedPrefsUtil.getStringPref(this, AleicSharedPrefsUtil.KEY_LAST_LATITUDE),
-//                        AleicSharedPrefsUtil.getStringPref(this, AleicSharedPrefsUtil.KEY_LAST_LONGITUDE)));
+//                        ApeicPrefsUtil.getStringPref(this, ApeicPrefsUtil.KEY_LAST_LATITUDE),
+//                        ApeicPrefsUtil.getStringPref(this, ApeicPrefsUtil.KEY_LAST_LONGITUDE)));
 //        views.setTextViewText(R.id.textView_activity,
 //                getString(R.string.widget_current_activity,
-//                        AleicSharedPrefsUtil.getStringPref(this,
-//                        AleicSharedPrefsUtil.KEY_LAST_ACTIVITY_TYPE)));
+//                        ApeicPrefsUtil.getStringPref(this,
+//                                ApeicPrefsUtil.KEY_LAST_ACTIVITY_TYPE)));
 
         for (int widgetId : widgetIds) {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getApplicationContext());
@@ -73,7 +74,7 @@ public class UpdateWidgetService extends Service {
 
 
             Intent handleItemClickedIntent = new Intent();
-            handleItemClickedIntent.setAction(ActivityUtils.ACTION_ITEM_CLICKED);
+            handleItemClickedIntent.setAction(ApeicUtil.ACTION_ITEM_CLICKED);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,
                     handleItemClickedIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             views.setPendingIntentTemplate(R.id.gridView, pendingIntent);
@@ -82,7 +83,7 @@ public class UpdateWidgetService extends Service {
         }
 
 
-        Log.d(ActivityUtils.APPTAG, "Widget updated.");
+        Log.d(ApeicUtil.APPTAG, "Widget updated.");
     }
 
     private String[] getMostProbableApps() {

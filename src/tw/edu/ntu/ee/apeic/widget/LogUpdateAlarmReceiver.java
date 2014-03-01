@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import tw.edu.ntu.ee.apeic.log.ActivityUtils;
+import tw.edu.ntu.ee.apeic.ApeicUtil;
 
 import java.util.Calendar;
 
@@ -20,7 +20,7 @@ public class LogUpdateAlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d(ActivityUtils.APPTAG, "Log update received!!!!!");
+        Log.d(ApeicUtil.APPTAG, "Log update received!!!!!");
     }
 
     public void setAlarm(Context context) {

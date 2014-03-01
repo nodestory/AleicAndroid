@@ -34,6 +34,8 @@ import com.google.android.gms.location.ActivityRecognitionClient;
 import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationRequest;
 
+import tw.edu.ntu.ee.apeic.ApeicUtil;
+
 /**
  * Class for connecting to Location Services and activity recognition updates.
  * <b>
@@ -59,7 +61,7 @@ public class DetectionRequester implements OnConnectionFailedListener {
         mContext = context;
 
         mPrefs = context.getApplicationContext().getSharedPreferences(
-                ActivityUtils.SHARED_PREFERENCES, Context.MODE_PRIVATE);
+                ApeicUtil.SHARED_PREFERENCES, Context.MODE_PRIVATE);
 
         mActivityRecognitionPendingIntent = null;
         mActivityRecognitionClient = null;
@@ -92,8 +94,9 @@ public class DetectionRequester implements OnConnectionFailedListener {
             mActivityRecognitionClient = new ActivityRecognitionClient(mContext, new ConnectionCallbacks() {
                 @Override
                 public void onConnected(Bundle bundle) {
+                    Log.d(ApeicUtil.APPTAG, "ActivityRecognitionClient connected");
                     getActivityRecognitionClient().requestActivityUpdates(
-                            ActivityUtils.DETECTION_INTERVAL_MILLISECONDS,
+                            ApeicUtil.DETECTION_INTERVAL_MILLISECONDS,
                             createRequestPendingIntent());
                     getActivityRecognitionClient().disconnect();
                 }
@@ -112,7 +115,7 @@ public class DetectionRequester implements OnConnectionFailedListener {
             mLocationClient = new LocationClient(mContext, new ConnectionCallbacks() {
                 @Override
                 public void onConnected(Bundle bundle) {
-                    Log.d(ActivityUtils.APPTAG, "connected");
+                    Log.d(ApeicUtil.APPTAG, "LocationClient connected");
                     LocationRequest request = LocationRequest.create();
                     request.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
                     request.setInterval(60000);
@@ -134,15 +137,15 @@ public class DetectionRequester implements OnConnectionFailedListener {
     }
 
     private PendingIntent createRequestPendingIntent() {
-        if (getRequestPendingIntent() != null) {
-            return mActivityRecognitionPendingIntent;
-        } else {
-            Intent intent = new Intent(mContext, AppUsageLogUpdateIntentService.class);
+//        if (getRequestPendingIntent() != null) {
+//            return mActivityRecognitionPendingIntent;
+//        } else {
+            Intent intent = new Intent(mContext, LogUpdateIntentService.class);
             PendingIntent pendingIntent = PendingIntent.getService(
                     mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             setRequestPendingIntent(pendingIntent);
             return pendingIntent;
-        }
+//        }
     }
 
     @Override
@@ -150,15 +153,15 @@ public class DetectionRequester implements OnConnectionFailedListener {
         if (connectionResult.hasResolution()) {
             try {
                 connectionResult.startResolutionForResult((Activity) mContext,
-                        ActivityUtils.CONNECTION_FAILURE_RESOLUTION_REQUEST);
+                        ApeicUtil.CONNECTION_FAILURE_RESOLUTION_REQUEST);
             } catch (SendIntentException e) {
-                Log.e(ActivityUtils.APPTAG, e.getMessage());
+                Log.e(ApeicUtil.APPTAG, e.getMessage());
             }
         } else {
             Dialog dialog = GooglePlayServicesUtil.getErrorDialog(
                     connectionResult.getErrorCode(),
                     (Activity) mContext,
-                    ActivityUtils.CONNECTION_FAILURE_RESOLUTION_REQUEST);
+                    ApeicUtil.CONNECTION_FAILURE_RESOLUTION_REQUEST);
             if (dialog != null) {
                 dialog.show();
             }

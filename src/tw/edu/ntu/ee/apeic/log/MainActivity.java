@@ -17,6 +17,8 @@
 package tw.edu.ntu.ee.apeic.log;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -40,6 +42,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ListIterator;
 
+import tw.edu.ntu.ee.apeic.ApeicPrefsUtil;
+import tw.edu.ntu.ee.apeic.ApeicUtil;
 import tw.edu.ntu.ee.apeic.widget.ScreenStateUpdateReceiver;
 import tw.edu.ntu.ee.arbor.apeic.R;
 
@@ -60,7 +64,7 @@ public class MainActivity extends Activity {
     private LogFile mLogFile;
 
     // Store the current request type (ADD or REMOVE)
-    private ActivityUtils.REQUEST_TYPE mRequestType;
+    private ApeicUtil.REQUEST_TYPE mRequestType;
 
     private ListView mStatusListView;
     private ArrayAdapter<Spanned> mStatusAdapter;
@@ -88,8 +92,8 @@ public class MainActivity extends Activity {
         mStatusListView.setAdapter(mStatusAdapter);
 
         mBroadcastManager = LocalBroadcastManager.getInstance(this);
-        mBroadcastFilter = new IntentFilter(ActivityUtils.ACTION_REFRESH_STATUS_LIST);
-        mBroadcastFilter.addCategory(ActivityUtils.CATEGORY_LOCATION_SERVICES);
+        mBroadcastFilter = new IntentFilter(ApeicUtil.ACTION_REFRESH_STATUS_LIST);
+        mBroadcastFilter.addCategory(ApeicUtil.CATEGORY_LOCATION_SERVICES);
 
         mDetectionRequester = new DetectionRequester(this);
         mDetectionRemover = new DetectionRemover(this);
@@ -101,6 +105,13 @@ public class MainActivity extends Activity {
         registerReceiver(mReceiver, filter);
 
         mLogFile = LogFile.getInstance(this);
+
+        ApeicPrefsUtil.getInstance(this);
+
+        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent =  new Intent(this, LogsUploadCheckReceiver.class);
+        am.setRepeating(AlarmManager.RTC, 0, 5000,
+                PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
     }
 
     /*
@@ -117,20 +128,20 @@ public class MainActivity extends Activity {
         switch (requestCode) {
 
             // If the request code matches the code sent in onConnectionFailed
-            case ActivityUtils.CONNECTION_FAILURE_RESOLUTION_REQUEST:
+            case ApeicUtil.CONNECTION_FAILURE_RESOLUTION_REQUEST:
 
                 switch (resultCode) {
                     // If Google Play services resolved the problem
                     case Activity.RESULT_OK:
 
                         // If the request was to start activity recognition updates
-                        if (ActivityUtils.REQUEST_TYPE.ADD == mRequestType) {
+                        if (ApeicUtil.REQUEST_TYPE.ADD == mRequestType) {
 
                             // Restart the process of requesting activity recognition updates
                             mDetectionRequester.requestUpdates();
 
                             // If the request was to remove activity recognition updates
-                        } else if (ActivityUtils.REQUEST_TYPE.REMOVE == mRequestType) {
+                        } else if (ApeicUtil.REQUEST_TYPE.REMOVE == mRequestType) {
 
                                 /*
                                  * Restart the removal of all activity recognition updates for the 
@@ -146,13 +157,13 @@ public class MainActivity extends Activity {
                     default:
 
                         // Report that Google Play services was unable to resolve the problem.
-                        Log.d(ActivityUtils.APPTAG, getString(R.string.no_resolution));
+                        Log.d(ApeicUtil.APPTAG, getString(R.string.no_resolution));
                 }
 
                 // If any other request code was received
             default:
                 // Report that this Activity received an unknown requestCode
-                Log.d(ActivityUtils.APPTAG,
+                Log.d(ApeicUtil.APPTAG,
                         getString(R.string.unknown_activity_request_code, requestCode));
 
                 break;
@@ -186,7 +197,7 @@ public class MainActivity extends Activity {
                 mStatusAdapter.notifyDataSetChanged();
 
                 if (!mLogFile.removeLogFiles()) {
-                    Log.e(ActivityUtils.APPTAG, getString(R.string.log_file_deletion_error));
+                    Log.e(ApeicUtil.APPTAG, getString(R.string.log_file_deletion_error));
                 } else {
                     Toast.makeText(this, R.string.logs_deleted, Toast.LENGTH_LONG).show();
                 }
@@ -226,7 +237,7 @@ public class MainActivity extends Activity {
          * Set the request type. If a connection error occurs, and Google Play services can
          * handle it, then onActivityResult will use the request type to retry the request
          */
-        mRequestType = ActivityUtils.REQUEST_TYPE.ADD;
+        mRequestType = ApeicUtil.REQUEST_TYPE.ADD;
 
         // Pass the update request to the requester object
         mDetectionRequester.requestUpdates();
@@ -244,7 +255,7 @@ public class MainActivity extends Activity {
          * Set the request type. If a connection error occurs, and Google Play services can
          * handle it, then onActivityResult will use the request type to retry the request
          */
-        mRequestType = ActivityUtils.REQUEST_TYPE.REMOVE;
+        mRequestType = ApeicUtil.REQUEST_TYPE.REMOVE;
 
         // Pass the remove request to the remover object
         mDetectionRemover.removeUpdates(mDetectionRequester.getRequestPendingIntent());
@@ -274,7 +285,7 @@ public class MainActivity extends Activity {
             }
             mStatusAdapter.notifyDataSetChanged();
         } catch (IOException e) {
-            Log.e(ActivityUtils.APPTAG, e.getMessage(), e);
+            Log.e(ApeicUtil.APPTAG, e.getMessage(), e);
         }
     }
 

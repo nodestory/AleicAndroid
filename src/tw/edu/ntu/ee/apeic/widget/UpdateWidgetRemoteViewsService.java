@@ -11,7 +11,8 @@ import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-import tw.edu.ntu.ee.apeic.log.ActivityUtils;
+import tw.edu.ntu.ee.apeic.ApeicPrefsUtil;
+import tw.edu.ntu.ee.apeic.ApeicUtil;
 import tw.edu.ntu.ee.arbor.apeic.R;
 
 /**
@@ -21,7 +22,7 @@ public class UpdateWidgetRemoteViewsService extends RemoteViewsService {
 
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        Log.v(ActivityUtils.APPTAG, "UpdateWidgetRemoteViewsService onGetViewFactory");
+        Log.v(ApeicUtil.APPTAG, "UpdateWidgetRemoteViewsService onGetViewFactory");
         return new GridRemoteViewsFactory(this, intent);
     }
 
@@ -38,8 +39,8 @@ public class UpdateWidgetRemoteViewsService extends RemoteViewsService {
 
         @Override
         public void onDataSetChanged() {
-            Log.v(ActivityUtils.APPTAG, "GridRemoteViewsFactory onDataSetChanged");
-            String temp = AleicSharedPrefsUtil.getStringPref(getApplicationContext(), "apps");
+            Log.v(ApeicUtil.APPTAG, "GridRemoteViewsFactory onDataSetChanged");
+            String temp = ApeicPrefsUtil.getInstance(getApplicationContext()).getStringPref("apps");
             // TODO
             apps = temp.split(" ");
         }
@@ -55,7 +56,7 @@ public class UpdateWidgetRemoteViewsService extends RemoteViewsService {
 
         @Override
         public RemoteViews getViewAt(int i) {
-            Log.d(ActivityUtils.APPTAG, apps[i]);
+            Log.d(ApeicUtil.APPTAG, apps[i]);
             ApplicationInfo info = getApplicationInfo(apps[i]);
             RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.item_widget);
             remoteViews.setImageViewBitmap(R.id.imageView, getApplicationIcon(info));

@@ -7,17 +7,7 @@ import android.content.Intent;
 import android.os.Environment;
 import android.util.Log;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.impl.client.DefaultHttpClient;
-
 import java.io.File;
-import java.io.IOException;
 
 import tw.edu.ntu.ee.apeic.ApeicUtil;
 
@@ -50,31 +40,30 @@ public class LogsUploadCheckReceiver extends BroadcastReceiver {
         @Override
         protected void onHandleIntent(Intent intent) {
             String path = intent.getStringExtra("path");
-            File file = new File(path);
-
-            Log.v(ApeicUtil.APPTAG, "LogUploadIntentService onHandleIntent: start uploading " + file.getName());
+            Log.v(ApeicUtil.APPTAG, "LogUploadIntentService onHandleIntent: start uploading " + path);
+            upload(new File(path));
         }
 
-        private boolean upload(String path) {
-            // TODO
-            HttpClient client = new DefaultHttpClient();
-            HttpPost post = new HttpPost("upload_log");
-            MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-            builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
-            builder.addPart("log_file", new FileBody(new File(path)));
-            post.setEntity(builder.build());
-            HttpResponse response = null;
-            try {
-                response = client.execute(post);
-                response.getStatusLine();  // CONSIDER  Detect server complaints
-                HttpEntity entity = response.getEntity();
-                entity.consumeContent();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            client.getConnectionManager().shutdown();
-
-            return false;
+        private void upload(File file) {
+//            Log.v(ApeicUtil.APPTAG, "LogUploadIntentService onHandleIntent: start uploading.");
+//            HttpClient client = new DefaultHttpClient();
+//            HttpPost post = new HttpPost("http://192.168.17.230:8080/upload_log");
+//            MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+//            builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+//
+//            FileBody fb = new FileBody(file);
+//            builder.addPart("file", fb);
+//            final HttpEntity yourEntity = builder.build();
+//            Log.v(ApeicUtil.APPTAG, file.getName());
+//
+//            post.setEntity(yourEntity);
+//            try {
+//                HttpResponse response = client.execute(post);
+//            } catch (IOException e) {
+//                Log.e(ApeicUtil.APPTAG, e.getMessage());
+//                e.printStackTrace();
+//            }
         }
+
     }
 }

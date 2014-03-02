@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ApeicAndroid.iml" filepath="$PROJECT_DIR$/ApeicAndroid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../Scheduler/Scheduler.iml" filepath="$PROJECT_DIR$/../Scheduler/Scheduler.iml" />
       <module fileurl="file://$APPLICATION_HOME_DIR$/sdk/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" filepath="$APPLICATION_HOME_DIR$/sdk/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" />
     </modules>
   </component>

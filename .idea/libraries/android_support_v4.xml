@@ -2,6 +2,7 @@
   <library name="android-support-v4">
     <CLASSES>
       <root url="jar://$APPLICATION_HOME_DIR$/sdk/extras/android/support/v4/android-support-v4.jar!/" />
+      <root url="jar://C:/Users/Linzy/java libraries/httpcomponents-client-4.3.3/lib/httpmime-4.3.3.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -172,6 +172,17 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="LogsUploadCheckReceiver.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogsUploadCheckReceiver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="61" column="61" selection-start="2133" selection-end="2133" vertical-scroll-proportion="0.34972677" vertical-offset="488" max-vertical-offset="1088">
+              <folding>
+                <element signature="docComment;class#LogsUploadCheckReceiver#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DetectionRemover.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRemover.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -184,10 +195,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DetectionRequester.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DetectionRequester.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRequester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="5" selection-start="5893" selection-end="5893" vertical-scroll-proportion="6.105263" vertical-offset="1590" max-vertical-offset="2397">
+            <state line="148" column="5" selection-start="5893" selection-end="5893" vertical-scroll-proportion="-12.888889" vertical-offset="1590" max-vertical-offset="2397">
               <folding>
                 <element signature="e#2751#2752#0" expanded="true" />
                 <element signature="e#2809#2810#0" expanded="true" />
@@ -270,10 +281,10 @@
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicUtil.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicPrefsUtil.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogFile.java" />
-        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogsUploadCheckReceiver.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRemover.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogUpdateIntentService.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRequester.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogsUploadCheckReceiver.java" />
       </list>
     </option>
   </component>
@@ -336,6 +347,20 @@
     <panes>
       <pane id="ProjectPane">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AleicAndroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-support-v4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="AleicAndroid" />
@@ -425,8 +450,8 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Scheduler" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="C:/Users/Linzy/java libraries/httpcomponents-client-4.3.3/lib/httpmime-4.3.3.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -682,7 +707,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1512247" sideWeight="0.5005314" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32597622" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.811545" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.811545" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -919,15 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogsUploadCheckReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="42" selection-start="745" selection-end="758" vertical-scroll-proportion="0.0" vertical-offset="250" max-vertical-offset="799">
-          <folding>
-            <element signature="docComment;class#LogsUploadCheckReceiver#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="87" column="0" selection-start="3650" selection-end="3650" vertical-scroll-proportion="0.0" vertical-offset="1053" max-vertical-offset="1615">
@@ -986,6 +1002,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRequester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="5" selection-start="5893" selection-end="5893" vertical-scroll-proportion="-12.888889" vertical-offset="1590" max-vertical-offset="2397">
+          <folding>
+            <element signature="e#2751#2752#0" expanded="true" />
+            <element signature="e#2809#2810#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogUpdateIntentService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="71" column="105" selection-start="2740" selection-end="2740" vertical-scroll-proportion="0.0" vertical-offset="369" max-vertical-offset="1496">
@@ -1004,12 +1030,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRequester.java">
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogsUploadCheckReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="5" selection-start="5893" selection-end="5893" vertical-scroll-proportion="6.105263" vertical-offset="1590" max-vertical-offset="2397">
+        <state line="61" column="61" selection-start="2133" selection-end="2133" vertical-scroll-proportion="0.34972677" vertical-offset="488" max-vertical-offset="1088">
           <folding>
-            <element signature="e#2751#2752#0" expanded="true" />
-            <element signature="e#2809#2810#0" expanded="true" />
+            <element signature="docComment;class#LogsUploadCheckReceiver#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1067,7 +1092,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>AleicAndroid</last-edited>
+          <last-edited>ApeicAndroid</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

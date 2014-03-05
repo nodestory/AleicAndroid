@@ -22,7 +22,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -49,8 +48,6 @@ import tw.edu.ntu.ee.apeic.ApeicUtil;
 public class DetectionRequester implements OnConnectionFailedListener {
     private Context mContext;
 
-    private SharedPreferences mPrefs;
-
     private PendingIntent mActivityRecognitionPendingIntent;
     private PendingIntent mLocationPendingIntent;
 
@@ -59,9 +56,6 @@ public class DetectionRequester implements OnConnectionFailedListener {
 
     public DetectionRequester(Context context) {
         mContext = context;
-
-        mPrefs = context.getApplicationContext().getSharedPreferences(
-                ApeicUtil.SHARED_PREFERENCES, Context.MODE_PRIVATE);
 
         mActivityRecognitionPendingIntent = null;
         mActivityRecognitionClient = null;

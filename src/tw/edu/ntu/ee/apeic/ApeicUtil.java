@@ -44,26 +44,6 @@ public final class ApeicUtil {
     public static final int WIDGET_UPDATE_INTERVAL_SECONDS =
             MILLISECONDS_PER_SECOND * DETECTION_INTERVAL_SECONDS;
 
-    // Shared Preferences repository name
-    public static final String SHARED_PREFERENCES =
-            "com.example.android.activityrecognition.SHARED_PREFERENCES";
-
-    // Key in the repository for the previous activity
-    public static final String KEY_PREVIOUS_ACTIVITY_TYPE =
-            "com.example.android.activityrecognition.KEY_PREVIOUS_ACTIVITY_TYPE";
-
-    // Key in the repository for the previous latitude
-    public static final String KEY_PREVIOUS_LATITUDE =
-            "com.example.android.activityrecognition.KEY_PREVIOUS_LATITUDE";
-
-    // Key in the repository for the previous longitude
-    public static final String KEY_PREVIOUS_LONGITUDE =
-            "com.example.android.activityrecognition.KEY_PREVIOUS_LONGITUDE";
-
-    // Key in the repository for the previous location accuracy
-    public static final String KEY_PREVIOUS_LOCATION_ACC =
-            "com.example.android.activityrecognition.KEY_PREVIOUS_LOCATION_ACC";
-
     // Constants for constructing the log file name
     public static final String LOG_FILE_NAME_PREFIX = "app_usage";
     public static final String LOG_FILE_NAME_SUFFIX = ".log";

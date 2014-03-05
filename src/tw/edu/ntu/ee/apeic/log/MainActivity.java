@@ -17,8 +17,6 @@
 package tw.edu.ntu.ee.apeic.log;
 
 import android.app.Activity;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -47,31 +45,19 @@ import tw.edu.ntu.ee.apeic.ApeicUtil;
 import tw.edu.ntu.ee.apeic.widget.ScreenStateUpdateReceiver;
 import tw.edu.ntu.ee.arbor.apeic.R;
 
-/**
- * Sample application that demonstrates the use of
- * ActivityRecognitionClient}. It registers for activity detection updates
- * at a rate of 20 seconds, logs them to a file, and displays the detected
- * activities with their associated confidence levels.
- * <p/>
- * An IntentService receives activity detection updates in the background
- * so that detection can continue even if the Activity is not visible.
- */
 public class MainActivity extends Activity {
 
-    private static final int MAX_LOG_SIZE = 5000;
-
-    // Instantiates a log file utility object, used to log status updates
     private LogFile mLogFile;
 
-    // Store the current request type (ADD or REMOVE)
+
     private ApeicUtil.REQUEST_TYPE mRequestType;
 
+    // UI elements
     private ListView mStatusListView;
     private ArrayAdapter<Spanned> mStatusAdapter;
 
     /*
-     *  Intent filter for incoming broadcasts from the
-     *  IntentService.
+     *  Intent filter for incoming broadcasts from the IntentService.
      */
     IntentFilter mBroadcastFilter;
 
@@ -84,9 +70,7 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Set UI components
         setContentView(R.layout.activity_main);
-
         mStatusListView = (ListView) findViewById(R.id.log_listview);
         mStatusAdapter = new ArrayAdapter<Spanned>(this, R.layout.item_layout, R.id.log_text);
         mStatusListView.setAdapter(mStatusAdapter);
@@ -102,16 +86,16 @@ public class MainActivity extends Activity {
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         BroadcastReceiver mReceiver = new ScreenStateUpdateReceiver();
         // TODO: remember to unregister
-        registerReceiver(mReceiver, filter);
+//        registerReceiver(mReceiver, filter);
 
         mLogFile = LogFile.getInstance(this);
 
         ApeicPrefsUtil.getInstance(this);
 
-        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent =  new Intent(this, LogsUploadCheckReceiver.class);
-        am.setRepeating(AlarmManager.RTC, 0, 10000,
-                PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
+//        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+//        Intent intent =  new Intent(this, LogsUploadCheckReceiver.class);
+//        am.setRepeating(AlarmManager.RTC, 0, 10000,
+//                PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
     }
 
     /*

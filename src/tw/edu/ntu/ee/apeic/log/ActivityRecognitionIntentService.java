@@ -117,7 +117,7 @@ public class ActivityRecognitionIntentService extends IntentService {
             ActivityManager am = (ActivityManager) getSystemService(Activity.ACTIVITY_SERVICE);
             String packageName = am.getRunningTasks(1).get(0).topActivity.getPackageName();
 
-            LogFile.getInstance(getApplicationContext()).log(
+            LogFile.getInstance(getApplicationContext()).write(
                     timeStamp + LOG_DELIMITER +
                             getString(R.string.log_location, latitude, longitude, accuracy) + LOG_DELIMITER +
                             getString(R.string.log_activity, activityName, confidence) + LOG_DELIMITER +
@@ -247,7 +247,7 @@ public class ActivityRecognitionIntentService extends IntentService {
             String packageName = am.getRunningTasks(1).get(0).topActivity.getPackageName();
 
             // Get the current log file or create a new one, then log the activity
-            LogFile.getInstance(getApplicationContext()).log(
+            LogFile.getInstance(getApplicationContext()).write(
                     timeStamp + LOG_DELIMITER +
                             getString(R.string.log_location, latitude, longitude, accuracy) + LOG_DELIMITER +
                             getString(R.string.log_activity, activityName, confidence) + LOG_DELIMITER +

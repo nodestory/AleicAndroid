@@ -61,7 +61,6 @@ public class LogFile {
      */
     private LogFile(Context context) {
         mContext = context;
-
         mPendingLogsFileFolder = createLogFolder(ApeicUtil.PENDING_LOG_FILES_FOLDER);
         mLogFileFolder = createLogFolder(ApeicUtil.LOG_FILE_FOLDER);
         mLogFile = createLogFile();
@@ -134,7 +133,7 @@ public class LogFile {
         return removed;
     }
 
-    public void log(String message) {
+    public void write(String message) {
         initLogWriter();
         mLogWriter.println(message);
         mLogWriter.flush();

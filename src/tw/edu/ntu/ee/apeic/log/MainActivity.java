@@ -23,9 +23,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.Spanned;
 import android.util.Log;
@@ -40,16 +38,6 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.ListIterator;
@@ -122,7 +110,7 @@ public class MainActivity extends Activity {
 
         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent =  new Intent(this, LogsUploadCheckReceiver.class);
-        am.setRepeating(AlarmManager.RTC, 0, 5000,
+        am.setRepeating(AlarmManager.RTC, 0, 10000,
                 PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
     }
 
@@ -253,50 +241,8 @@ public class MainActivity extends Activity {
 
         // Pass the update request to the requester object
         // TODO
-//        mDetectionRequester.requestUpdates();
-
-        File logFileFolder = new File(Environment.getExternalStorageDirectory(),
-                ApeicUtil.PENDING_LOG_FILES_FOLDER);
-        if (logFileFolder.exists()) {
-            for (File file : logFileFolder.listFiles()) {
-                Log.d(ApeicUtil.APPTAG, file.getAbsolutePath());
-                Intent intent = new Intent(this, LogsUploadCheckReceiver.LogUploadIntentService.class);
-                intent.putExtra("path", file.getAbsolutePath());
-//                startService(intent);
-                new Get_User_Data().execute(file.getAbsolutePath());
-            }
-        }
+        mDetectionRequester.requestUpdates();
     }
-
-    public class Get_User_Data extends AsyncTask<String, Void, Void> {
-
-        @Override
-        protected Void doInBackground(String... params) {
-            HttpClient client = new DefaultHttpClient();
-            HttpPost post = new HttpPost("http://192.168.17.230:8080/upload_log");
-            MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-            builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
-
-            File file = new File(params[0]);
-            FileBody fb = new FileBody(file);
-            builder.addPart("file", fb);
-            final HttpEntity yourEntity = builder.build();
-            Log.d(ApeicUtil.APPTAG, "~~~" + file.getName());
-
-            post.setEntity(yourEntity);
-            try {
-                HttpResponse response = client.execute(post);
-                Log.d(ApeicUtil.APPTAG, String.valueOf(response.getStatusLine().getStatusCode()));
-                Log.d(ApeicUtil.APPTAG, "success" + file.getName());
-            } catch (IOException e) {
-                Log.d(ApeicUtil.APPTAG, "fail" + file.getName());
-                Log.e(ApeicUtil.APPTAG, e.getMessage());
-                e.printStackTrace();
-            }
-            return null;
-        }
-    }
-
 
     /**
      * Respond to "Stop" button by canceling updates.

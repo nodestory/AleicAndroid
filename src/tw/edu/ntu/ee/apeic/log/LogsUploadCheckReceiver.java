@@ -7,7 +7,17 @@ import android.content.Intent;
 import android.os.Environment;
 import android.util.Log;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import java.io.File;
+import java.io.IOException;
 
 import tw.edu.ntu.ee.apeic.ApeicUtil;
 
@@ -15,6 +25,7 @@ import tw.edu.ntu.ee.apeic.ApeicUtil;
  * Created by Linzy on 2014/3/1.
  */
 public class LogsUploadCheckReceiver extends BroadcastReceiver {
+    private static final String UPLOAD_URL = "http://140.112.170.196:8000/upload_log";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -45,25 +56,24 @@ public class LogsUploadCheckReceiver extends BroadcastReceiver {
         }
 
         private void upload(File file) {
-//            Log.v(ApeicUtil.APPTAG, "LogUploadIntentService onHandleIntent: start uploading.");
-//            HttpClient client = new DefaultHttpClient();
-//            HttpPost post = new HttpPost("http://192.168.17.230:8080/upload_log");
-//            MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-//            builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
-//
-//            FileBody fb = new FileBody(file);
-//            builder.addPart("file", fb);
-//            final HttpEntity yourEntity = builder.build();
-//            Log.v(ApeicUtil.APPTAG, file.getName());
-//
-//            post.setEntity(yourEntity);
-//            try {
-//                HttpResponse response = client.execute(post);
-//            } catch (IOException e) {
-//                Log.e(ApeicUtil.APPTAG, e.getMessage());
-//                e.printStackTrace();
-//            }
+            HttpClient client = new DefaultHttpClient();
+            HttpPost post = new HttpPost("http://140.112.170.196:8000/790203/upload_log");
+            MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+            builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+            FileBody fb = new FileBody(file);
+            builder.addPart("log_file", fb);
+            HttpEntity entity = builder.build();
+            post.setEntity(entity);
+            try {
+                HttpResponse response = client.execute(post);
+                int statusCode = response.getStatusLine().getStatusCode();
+                Log.d(ApeicUtil.APPTAG, file.getName() + " uploaded: " + String.valueOf(statusCode));
+                if (statusCode == 200) {
+                    file.delete();
+                }
+            } catch (IOException e) {
+                Log.e(ApeicUtil.APPTAG, e.getMessage());
+            }
         }
-
     }
 }

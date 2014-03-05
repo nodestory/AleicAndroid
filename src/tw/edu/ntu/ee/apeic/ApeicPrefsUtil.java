@@ -3,6 +3,8 @@ package tw.edu.ntu.ee.apeic;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.UUID;
+
 /**
  * Created by Linzy on 2014/2/20.
  */
@@ -14,6 +16,7 @@ public class ApeicPrefsUtil {
 
     // Keys in the repository
     // Location related
+    public static final String KEY_UUID = PACKAGE_NAME + ".KEY_UUID";
     public static final String KEY_DATE = PACKAGE_NAME + ".KEY_DATE";
     public static final String KEY_LAST_LATITUDE = PACKAGE_NAME + ".KEY_LAST_LATITUDE";
     public static final String KEY_LAST_LONGITUDE = PACKAGE_NAME + ".KEY_LAST_LONGITUDE";
@@ -76,5 +79,13 @@ public class ApeicPrefsUtil {
         final SharedPreferences.Editor editor = mPrefs.edit();
         editor.putFloat(keyName, newValue);
         editor.commit();
+    }
+
+    public String getUUID() {
+        if (!mPrefs.contains(KEY_UUID)) {
+            String uuid = UUID.randomUUID().toString();
+            setStringPref(KEY_UUID, uuid);
+        }
+        return getStringPref(KEY_UUID);
     }
 }

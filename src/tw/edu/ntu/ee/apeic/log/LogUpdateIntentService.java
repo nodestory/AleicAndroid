@@ -97,7 +97,7 @@ public class LogUpdateIntentService extends IntentService {
             format.applyLocalizedPattern(format.toLocalizedPattern());
             return format.format(new Date());
         } catch (Exception e) {
-            Log.e(ActivityUtils.APPTAG, getString(R.string.date_format_error));
+            Log.e(ApeicUtil.APPTAG, getString(R.string.date_format_error));
             return "";
         }
     }

@@ -19,13 +19,15 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import java.io.File;
 import java.io.IOException;
 
+import tw.edu.ntu.ee.apeic.ApeicPrefsUtil;
 import tw.edu.ntu.ee.apeic.ApeicUtil;
 
 /**
  * Created by Linzy on 2014/3/1.
  */
 public class LogsUploadCheckReceiver extends BroadcastReceiver {
-    private static final String UPLOAD_URL = "http://140.112.170.196:8000/upload_log";
+    private static final String API_PREFIX = "http://140.112.170.196:8000";
+    private static final String SUFFIX_UPLOAD = "upload_log";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -57,7 +59,7 @@ public class LogsUploadCheckReceiver extends BroadcastReceiver {
 
         private void upload(File file) {
             HttpClient client = new DefaultHttpClient();
-            HttpPost post = new HttpPost("http://140.112.170.196:8000/790203/upload_log");
+            HttpPost post = new HttpPost(getUploadUrl());
             MultipartEntityBuilder builder = MultipartEntityBuilder.create();
             builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
             FileBody fb = new FileBody(file);
@@ -74,6 +76,10 @@ public class LogsUploadCheckReceiver extends BroadcastReceiver {
             } catch (IOException e) {
                 Log.e(ApeicUtil.APPTAG, e.getMessage());
             }
+        }
+
+        private String getUploadUrl() {
+            return API_PREFIX + "/" + ApeicPrefsUtil.getInstance(this).getUUID() + "/" + SUFFIX_UPLOAD;
         }
     }
 }

@@ -17,7 +17,6 @@
 package tw.edu.ntu.ee.apeic.log;
 
 import android.content.Context;
-import android.os.Environment;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.util.Log;
@@ -103,7 +102,8 @@ public class LogFile {
     }
 
     private File createLogFolder(String name) {
-        File folder = new File(Environment.getExternalStorageDirectory(), name);
+        File folder = new File(mContext.getFilesDir(), name);
+//        File folder = new File(Environment.getExternalStorageDirectory(), name);
         if (!folder.exists()) {
             folder.mkdir();
         }
@@ -145,14 +145,23 @@ public class LogFile {
                 mLogWriter.close();
             }
 
-            if (mLogFile.length() > ApeicUtil.MAX_FILE_SIZE) {
-                mLogFile.renameTo(new File(mPendingLogsFileFolder, mLogFile.getName()));
+            if (shouldCreateNewFile()) {
+                for (File file : mLogFileFolder.listFiles()) {
+                    file.renameTo(new File(mPendingLogsFileFolder, file.getName()));
+                }
                 mLogFile = createLogFile();
             }
             mLogWriter = new PrintWriter(new FileWriter(mLogFile, true));
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private boolean shouldCreateNewFile() {
+        String dateString = new SimpleDateFormat("yyyy_MM_dd", Locale.TAIWAN).format(new Date());
+        String lastDateString = ApeicPrefsUtil.getInstance(mContext).getStringPref(ApeicPrefsUtil.KEY_DATE);
+        return dateString != lastDateString;
+//        return mLogFile.length() > ApeicUtil.MAX_FILE_SIZE;
     }
 
     public List<Spanned> loadLogFile() throws IOException {

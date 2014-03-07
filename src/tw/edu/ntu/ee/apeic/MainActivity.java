@@ -17,6 +17,8 @@
 package tw.edu.ntu.ee.apeic;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -43,6 +45,7 @@ import java.util.ListIterator;
 import tw.edu.ntu.ee.apeic.log.DetectionRemover;
 import tw.edu.ntu.ee.apeic.log.DetectionRequester;
 import tw.edu.ntu.ee.apeic.log.LogFile;
+import tw.edu.ntu.ee.apeic.log.LogsUploadCheckReceiver;
 import tw.edu.ntu.ee.apeic.widget.ScreenStateUpdateReceiver;
 import tw.edu.ntu.ee.arbor.apeic.R;
 
@@ -93,10 +96,10 @@ public class MainActivity extends Activity {
 
         ApeicPrefsUtil.getInstance(this);
 
-//        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-//        Intent intent =  new Intent(this, LogsUploadCheckReceiver.class);
-//        am.setRepeating(AlarmManager.RTC, 0, 10000,
-//                PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
+        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent =  new Intent(this, LogsUploadCheckReceiver.class);
+        am.setRepeating(AlarmManager.RTC, 0, 6*60*60*1000,
+                PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
     }
 
     /*

@@ -19,6 +19,8 @@ public class LocationUpdateReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.v(ApeicUtil.APPTAG, "LocationUpdateReceiver onReceive.");
+
         mPrefsUtil = ApeicPrefsUtil.getInstance(context);
 
         if (intent.hasExtra(LocationClient.KEY_LOCATION_CHANGED)) {

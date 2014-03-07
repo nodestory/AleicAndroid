@@ -36,6 +36,8 @@ public class LogsUploadCheckReceiver extends BroadcastReceiver {
         File logFileFolder = new File(Environment.getExternalStorageDirectory(),
                 ApeicUtil.PENDING_LOG_FILES_FOLDER);
         if (logFileFolder.exists()) {
+            Log.d(ApeicUtil.APPTAG, "Num of files to be uploaded: " +
+                    String.valueOf(logFileFolder.listFiles().length));
             for (File file : logFileFolder.listFiles()) {
                 Intent uploadIntent = new Intent(context, LogUploadIntentService.class);
                 uploadIntent.putExtra("path", file.getAbsolutePath());

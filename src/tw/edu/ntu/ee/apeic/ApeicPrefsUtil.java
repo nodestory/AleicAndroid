@@ -16,6 +16,7 @@ public class ApeicPrefsUtil {
 
     // Keys in the repository
     // Location related
+    public static final String KEY_LOG_FILE_NUMBER = PACKAGE_NAME + ".LOG_FILE_NUMBER";
     public static final String KEY_UUID = PACKAGE_NAME + ".KEY_UUID";
     public static final String KEY_DATE = PACKAGE_NAME + ".KEY_DATE";
     public static final String KEY_LAST_LATITUDE = PACKAGE_NAME + ".KEY_LAST_LATITUDE";

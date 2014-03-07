@@ -4,7 +4,6 @@ import android.app.IntentService;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Environment;
 import android.util.Log;
 
 import org.apache.http.HttpEntity;
@@ -31,12 +30,12 @@ public class LogsUploadCheckReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.v(ApeicUtil.APPTAG, "LogsUploadCheckReceiver onReceive.");
+        Log.v(ApeicUtil.TAG, "LogsUploadCheckReceiver onReceive.");
 
-        File logFileFolder = new File(Environment.getExternalStorageDirectory(),
+        File logFileFolder = new File(context.getFilesDir(),
                 ApeicUtil.PENDING_LOG_FILES_FOLDER);
         if (logFileFolder.exists()) {
-            Log.d(ApeicUtil.APPTAG, "Num of files to be uploaded: " +
+            Log.d(ApeicUtil.TAG, "Num of files to be uploaded: " +
                     String.valueOf(logFileFolder.listFiles().length));
             for (File file : logFileFolder.listFiles()) {
                 Intent uploadIntent = new Intent(context, LogUploadIntentService.class);
@@ -55,7 +54,7 @@ public class LogsUploadCheckReceiver extends BroadcastReceiver {
         @Override
         protected void onHandleIntent(Intent intent) {
             String path = intent.getStringExtra("path");
-            Log.v(ApeicUtil.APPTAG, "LogUploadIntentService onHandleIntent: start uploading " + path);
+            Log.v(ApeicUtil.TAG, "LogUploadIntentService onHandleIntent: start uploading " + path);
             upload(new File(path));
         }
 
@@ -71,12 +70,12 @@ public class LogsUploadCheckReceiver extends BroadcastReceiver {
             try {
                 HttpResponse response = client.execute(post);
                 int statusCode = response.getStatusLine().getStatusCode();
-                Log.d(ApeicUtil.APPTAG, file.getName() + " uploaded: " + String.valueOf(statusCode));
+                Log.d(ApeicUtil.TAG, file.getName() + " uploaded: " + String.valueOf(statusCode));
                 if (statusCode == 200) {
                     file.delete();
                 }
             } catch (IOException e) {
-                Log.e(ApeicUtil.APPTAG, e.getMessage());
+                Log.e(ApeicUtil.TAG, e.getMessage());
             }
         }
 

@@ -14,7 +14,7 @@ public class BootBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.v(ApeicUtil.APPTAG, "BootBroadcastReceiver onReceive.");
+        Log.v(ApeicUtil.TAG, "BootBroadcastReceiver onReceive.");
 
         DetectionRequester requester = new DetectionRequester(context);
         requester.requestUpdates();

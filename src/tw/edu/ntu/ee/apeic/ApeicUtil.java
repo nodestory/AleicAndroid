@@ -9,7 +9,7 @@ public final class ApeicUtil {
     // Used to track what type of request is in process
     public enum REQUEST_TYPE {ADD, REMOVE}
 
-    public static final String APPTAG = "Aleic";
+    public static final String TAG = "Apeic";
 
     /*
      * Define a request code to send to Google Play services
@@ -19,19 +19,19 @@ public final class ApeicUtil {
 
     // Intent actions and extras for sending information from the IntentService to the Activity
     public static final String ACTION_CONNECTION_ERROR =
-            "com.example.android.activityrecognition.ACTION_CONNECTION_ERROR";
+            "tw.edu.ntu.ee.apeic.ACTION_CONNECTION_ERROR";
 
     public static final String ACTION_REFRESH_STATUS_LIST =
-                    "com.example.android.activityrecognition.ACTION_REFRESH_STATUS_LIST";
+                    "tw.edu.ntu.ee.apeic.ACTION_REFRESH_STATUS_LIST";
 
     public static final String CATEGORY_LOCATION_SERVICES =
-            "com.example.android.activityrecognition.CATEGORY_LOCATION_SERVICES";
+            "tw.edu.ntu.ee.apeic.CATEGORY_LOCATION_SERVICES";
 
     public static final String EXTRA_CONNECTION_ERROR_CODE =
-            "com.example.android.activityrecognition.EXTRA_CONNECTION_ERROR_CODE";
+            "tw.edu.ntu.ee.apeic.EXTRA_CONNECTION_ERROR_CODE";
 
     public static final String EXTRA_CONNECTION_ERROR_MESSAGE =
-            "com.example.android.activityrecognition.EXTRA_CONNECTION_ERROR_MESSAGE";
+            "tw.edu.ntu.ee.apeic.EXTRA_CONNECTION_ERROR_MESSAGE";
 
     // Constants used to establish the activity update interval
     public static final int MILLISECONDS_PER_SECOND = 1000;
@@ -41,6 +41,8 @@ public final class ApeicUtil {
     public static final int DETECTION_INTERVAL_MILLISECONDS =
             MILLISECONDS_PER_SECOND * DETECTION_INTERVAL_SECONDS;
 
+    public static final int LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS = 6*60*60*1000;
+
     public static final int WIDGET_UPDATE_INTERVAL_SECONDS =
             MILLISECONDS_PER_SECOND * DETECTION_INTERVAL_SECONDS;
 
@@ -49,21 +51,11 @@ public final class ApeicUtil {
     public static final String LOG_FILE_NAME_SUFFIX = ".log";
     public static final String LOG_FILE_FOLDER = "apeic";
     public static final String PENDING_LOG_FILES_FOLDER = LOG_FILE_FOLDER + "/pending";
-    public static final int MAX_FILE_SIZE = 640000;
-
-    // Keys in the repository for storing the log file info
-    public static final String KEY_LOG_FILE_NUMBER =
-            "com.example.android.activityrecognition.KEY_LOG_FILE_NUMBER";
-    public static final String KEY_LOG_FILE_NAME =
-            "com.example.android.activityrecognition.KEY_LOG_FILE_NAME";
-
 
     // TODO
     public static final String ACTION_ITEM_CLICKED =
             "tw.edu.ntu.ee.arbor.apeic.action.ITEM_CLICKED";
     public static final String ACTION_LOGS_UPLOAD_CHECK =
             "tw.edu.ntu.ee.arbor.apeic.action.LOGS_UPLOAD_CHECK";
-
-
 
 }

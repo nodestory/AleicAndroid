@@ -22,7 +22,7 @@ public class UpdateWidgetRemoteViewsService extends RemoteViewsService {
 
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        Log.v(ApeicUtil.APPTAG, "UpdateWidgetRemoteViewsService onGetViewFactory");
+        Log.v(ApeicUtil.TAG, "UpdateWidgetRemoteViewsService onGetViewFactory");
         return new GridRemoteViewsFactory(this, intent);
     }
 
@@ -39,7 +39,7 @@ public class UpdateWidgetRemoteViewsService extends RemoteViewsService {
 
         @Override
         public void onDataSetChanged() {
-            Log.v(ApeicUtil.APPTAG, "GridRemoteViewsFactory onDataSetChanged");
+            Log.v(ApeicUtil.TAG, "GridRemoteViewsFactory onDataSetChanged");
             String temp = ApeicPrefsUtil.getInstance(getApplicationContext()).getStringPref("apps");
             // TODO
             apps = temp.split(" ");
@@ -56,7 +56,7 @@ public class UpdateWidgetRemoteViewsService extends RemoteViewsService {
 
         @Override
         public RemoteViews getViewAt(int i) {
-            Log.d(ApeicUtil.APPTAG, apps[i]);
+            Log.d(ApeicUtil.TAG, apps[i]);
             ApplicationInfo info = getApplicationInfo(apps[i]);
             RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.item_widget);
             remoteViews.setImageViewBitmap(R.id.imageView, getApplicationIcon(info));

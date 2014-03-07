@@ -19,7 +19,7 @@ public class LocationUpdateReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.v(ApeicUtil.APPTAG, "LocationUpdateReceiver onReceive.");
+        Log.v(ApeicUtil.TAG, "LocationUpdateReceiver onReceive.");
 
         mPrefsUtil = ApeicPrefsUtil.getInstance(context);
 
@@ -30,7 +30,7 @@ public class LocationUpdateReceiver extends BroadcastReceiver {
     }
 
     private void updateLocation(Location loc) {
-        Log.d(ApeicUtil.APPTAG, "Location update received: " + loc.toString());
+        Log.d(ApeicUtil.TAG, "Location update received: " + loc.toString());
         mPrefsUtil.setLongPref(ApeicPrefsUtil.KEY_LAST_LATITUDE, Double.doubleToRawLongBits(loc.getLatitude()));
         mPrefsUtil.setLongPref(ApeicPrefsUtil.KEY_LAST_LONGITUDE, Double.doubleToRawLongBits(loc.getLongitude()));
         mPrefsUtil.setFloatPref(ApeicPrefsUtil.KEY_LAST_SPEED, loc.getSpeed());

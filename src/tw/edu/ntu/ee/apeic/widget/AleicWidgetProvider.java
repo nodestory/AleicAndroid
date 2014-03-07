@@ -17,17 +17,17 @@ public class AleicWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onEnabled(Context context) {
-        Log.d(ApeicUtil.APPTAG, "AleicWidgetProvider onEnabled.");
+        Log.d(ApeicUtil.TAG, "AleicWidgetProvider onEnabled.");
     }
 
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {
-        Log.v(ApeicUtil.APPTAG, "AleicWidgetProvider onDeleted.");
+        Log.v(ApeicUtil.TAG, "AleicWidgetProvider onDeleted.");
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.v(ApeicUtil.APPTAG, "AleicWidgetProvider onReceive.");
+        Log.v(ApeicUtil.TAG, "AleicWidgetProvider onReceive.");
 
         String action = intent.getAction();
         if (action.equals(ApeicUtil.ACTION_ITEM_CLICKED)) {
@@ -37,7 +37,7 @@ public class AleicWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        Log.v(ApeicUtil.APPTAG, "AleicWidgetProvider onUpdate.");
+        Log.v(ApeicUtil.TAG, "AleicWidgetProvider onUpdate.");
     }
 
     private void startActivity(Context context, Intent intent) {

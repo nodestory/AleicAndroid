@@ -69,7 +69,7 @@ public class LogUpdateIntentService extends IntentService {
         String activityName = getActivityName(activityType);
         int confidence = mostProbableActivity.getConfidence();
         mPrefsUtil.setIntPref(ApeicPrefsUtil.KEY_LAST_ACTIVITY_TYPE, activityType);
-        Log.d(ApeicUtil.APPTAG, "ActivityRecognitionResult received: " +
+        Log.d(ApeicUtil.TAG, "ActivityRecognitionResult received: " +
                 "Activity[" + activityName + " confidence=" + String.valueOf(confidence) + "]");
 
         // application
@@ -81,7 +81,7 @@ public class LogUpdateIntentService extends IntentService {
 
         String log = getString(R.string.log, dateTime, latitude, longitude, locationAcc,
                 speed, activityName, confidence, (pm.isScreenOn() ? packageName : "null"));
-        Log.d(ApeicUtil.APPTAG, log);
+        Log.d(ApeicUtil.TAG, log);
         LogFile.getInstance(getApplicationContext()).write(log);
 
         if (isMoving(activityType) && isActivityChanged(activityType) && (confidence >= 50)) {
@@ -97,7 +97,7 @@ public class LogUpdateIntentService extends IntentService {
             format.applyLocalizedPattern(format.toLocalizedPattern());
             return format.format(new Date());
         } catch (Exception e) {
-            Log.e(ApeicUtil.APPTAG, getString(R.string.date_format_error));
+            Log.e(ApeicUtil.TAG, getString(R.string.date_format_error));
             return "";
         }
     }

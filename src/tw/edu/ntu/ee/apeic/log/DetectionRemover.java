@@ -91,6 +91,7 @@ public class DetectionRemover implements ConnectionCallbacks, OnConnectionFailed
      */
     private void requestConnection() {
         getActivityRecognitionClient().connect();
+        getLocationClient().connect();
     }
 
     /**
@@ -104,13 +105,51 @@ public class DetectionRemover implements ConnectionCallbacks, OnConnectionFailed
          * return the existing one. This allows multiple attempts to send
          * a request without causing memory leaks by constantly creating
          * new clients.
-         *
          */
         if (mActivityRecognitionClient == null) {
-            // Create a new one
-            setActivityRecognitionClient(new ActivityRecognitionClient(mContext, this, this));
+            setActivityRecognitionClient(new ActivityRecognitionClient(mContext, new ConnectionCallbacks() {
+                @Override
+                public void onConnected(Bundle bundle) {
+                    mActivityRecognitionClient.removeActivityUpdates(mCurrentIntent);
+                    mCurrentIntent.cancel();
+                    getActivityRecognitionClient().disconnect();
+                    setActivityRecognitionClient(null);
+                }
+
+                @Override
+                public void onDisconnected() {
+                    mActivityRecognitionClient = null;
+                }
+            }, this));
         }
         return mActivityRecognitionClient;
+    }
+
+    public LocationClient getLocationClient() {
+        /*
+         * If a client doesn't already exist, create a new one, otherwise
+         * return the existing one. This allows multiple attempts to send
+         * a request without causing memory leaks by constantly creating
+         * new clients.
+         *
+         */
+        if (mLocationClient == null) {
+            // Create a new one
+            mLocationClient = new LocationClient(mContext, new ConnectionCallbacks() {
+                @Override
+                public void onConnected(Bundle bundle) {
+                    
+                    mLocationClient.disconnect();
+
+                }
+
+                @Override
+                public void onDisconnected() {
+
+                }
+            }, this);
+        }
+        return mLocationClient;
     }
 
     /**
@@ -142,7 +181,7 @@ public class DetectionRemover implements ConnectionCallbacks, OnConnectionFailed
     @Override
     public void onConnected(Bundle connectionData) {
         // If debugging, log the connection
-        Log.d(ApeicUtil.APPTAG, mContext.getString(R.string.connected));
+        Log.d(ApeicUtil.TAG, mContext.getString(R.string.connected));
         // Send a request to Location Services to remove activity recognition updates
         continueRemoveUpdates();
     }
@@ -154,8 +193,8 @@ public class DetectionRemover implements ConnectionCallbacks, OnConnectionFailed
         
         // Remove the updates
         // TODO
-        Log.d(ApeicUtil.APPTAG, String.valueOf(getActivityRecognitionClient() == null));
-        Log.d(ApeicUtil.APPTAG, String.valueOf(mCurrentIntent == null));
+        Log.d(ApeicUtil.TAG, String.valueOf(getActivityRecognitionClient() == null));
+        Log.d(ApeicUtil.TAG, String.valueOf(mCurrentIntent == null));
         mActivityRecognitionClient.removeActivityUpdates(mCurrentIntent);
         
         /*
@@ -168,16 +207,9 @@ public class DetectionRemover implements ConnectionCallbacks, OnConnectionFailed
         requestDisconnection();
     }
 
-    /*
-     * Called by Location Services once the activity recognition client is disconnected.
-     */
     @Override
     public void onDisconnected() {
-
-        // In debug mode, log the disconnection
-        Log.d(ApeicUtil.APPTAG, mContext.getString(R.string.disconnected));
-
-        // Destroy the current activity recognition client
+        Log.d(ApeicUtil.TAG, mContext.getString(R.string.disconnected));
         mActivityRecognitionClient = null;
     }
 
@@ -188,7 +220,7 @@ public class DetectionRemover implements ConnectionCallbacks, OnConnectionFailed
                 connectionResult.startResolutionForResult((Activity) mContext,
                         ApeicUtil.CONNECTION_FAILURE_RESOLUTION_REQUEST);
             } catch (SendIntentException e) {
-                Log.e(ApeicUtil.APPTAG, e.getMessage());
+                Log.e(ApeicUtil.TAG, e.getMessage());
             }
         } else {
             Dialog dialog = GooglePlayServicesUtil.getErrorDialog(

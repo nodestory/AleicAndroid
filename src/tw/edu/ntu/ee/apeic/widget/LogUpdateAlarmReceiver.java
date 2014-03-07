@@ -20,7 +20,7 @@ public class LogUpdateAlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d(ApeicUtil.APPTAG, "Log update received!!!!!");
+        Log.d(ApeicUtil.TAG, "Log update received!!!!!");
     }
 
     public void setAlarm(Context context) {

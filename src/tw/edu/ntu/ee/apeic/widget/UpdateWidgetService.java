@@ -30,7 +30,7 @@ public class UpdateWidgetService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.v(ApeicUtil.APPTAG, "UpdateWidgetService onStartCommand.");
+        Log.v(ApeicUtil.TAG, "UpdateWidgetService onStartCommand.");
 
         int[] allWidgetIds = intent.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
         updateWidget(allWidgetIds);
@@ -41,7 +41,7 @@ public class UpdateWidgetService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.v(ApeicUtil.APPTAG, "UpdateWidgetService onDestroy.");
+        Log.v(ApeicUtil.TAG, "UpdateWidgetService onDestroy.");
     }
 
     // TODO
@@ -51,7 +51,7 @@ public class UpdateWidgetService extends Service {
         for (int i = 0; i < 4; i++) {
             temp += (apps[i] + " ");
         }
-        Log.d(ApeicUtil.APPTAG, temp);
+        Log.d(ApeicUtil.TAG, temp);
         ApeicPrefsUtil.getInstance(this).setStringPref("apps", temp);
 
         RemoteViews views = new RemoteViews(getPackageName(), R.layout.widget);
@@ -83,7 +83,7 @@ public class UpdateWidgetService extends Service {
         }
 
 
-        Log.d(ApeicUtil.APPTAG, "Widget updated.");
+        Log.d(ApeicUtil.TAG, "Widget updated.");
     }
 
     private String[] getMostProbableApps() {

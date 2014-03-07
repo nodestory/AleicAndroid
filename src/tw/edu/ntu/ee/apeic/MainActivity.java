@@ -46,7 +46,6 @@ import tw.edu.ntu.ee.apeic.log.DetectionRemover;
 import tw.edu.ntu.ee.apeic.log.DetectionRequester;
 import tw.edu.ntu.ee.apeic.log.LogFile;
 import tw.edu.ntu.ee.apeic.log.LogsUploadCheckReceiver;
-import tw.edu.ntu.ee.apeic.widget.ScreenStateUpdateReceiver;
 import tw.edu.ntu.ee.arbor.apeic.R;
 
 public class MainActivity extends Activity {
@@ -86,20 +85,15 @@ public class MainActivity extends Activity {
         mDetectionRequester = new DetectionRequester(this);
         mDetectionRemover = new DetectionRemover(this);
 
-        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
-        filter.addAction(Intent.ACTION_SCREEN_OFF);
-        BroadcastReceiver mReceiver = new ScreenStateUpdateReceiver();
-        // TODO: remember to unregister
+//        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
+//        filter.addAction(Intent.ACTION_SCREEN_OFF);
+//        BroadcastReceiver mReceiver = new ScreenStateUpdateReceiver();
+//        TODO: remember to unregister
 //        registerReceiver(mReceiver, filter);
 
         mLogFile = LogFile.getInstance(this);
 
-        ApeicPrefsUtil.getInstance(this);
-
-        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent =  new Intent(this, LogsUploadCheckReceiver.class);
-        am.setRepeating(AlarmManager.RTC, 0, 6*60*60*1000,
-                PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
+        startUploadChecking();
     }
 
     /*
@@ -111,49 +105,21 @@ public class MainActivity extends Activity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-
-        // Choose what to do based on the request code
         switch (requestCode) {
-
-            // If the request code matches the code sent in onConnectionFailed
             case ApeicUtil.CONNECTION_FAILURE_RESOLUTION_REQUEST:
-
-                switch (resultCode) {
-                    // If Google Play services resolved the problem
-                    case Activity.RESULT_OK:
-
-                        // If the request was to start activity recognition updates
-                        if (ApeicUtil.REQUEST_TYPE.ADD == mRequestType) {
-
-                            // Restart the process of requesting activity recognition updates
-                            mDetectionRequester.requestUpdates();
-
-                            // If the request was to remove activity recognition updates
-                        } else if (ApeicUtil.REQUEST_TYPE.REMOVE == mRequestType) {
-
-                                /*
-                                 * Restart the removal of all activity recognition updates for the 
-                                 * PendingIntent.
-                                 */
-                            mDetectionRemover.removeUpdates(
-                                    mDetectionRequester.getRequestPendingIntent());
-
-                        }
-                        break;
-
-                    // If any other result was returned by Google Play services
-                    default:
-
-                        // Report that Google Play services was unable to resolve the problem.
-                        Log.d(ApeicUtil.APPTAG, getString(R.string.no_resolution));
+                if (resultCode == Activity.RESULT_OK) {
+                    if (ApeicUtil.REQUEST_TYPE.ADD == mRequestType) {
+                        mDetectionRequester.requestUpdates();
+                    } else if (ApeicUtil.REQUEST_TYPE.REMOVE == mRequestType) {
+                        mDetectionRemover.removeUpdates(
+                                mDetectionRequester.getRequestPendingIntent());
+                    } else {
+                    }
+                } else {
+                    Log.d(ApeicUtil.TAG, getString(R.string.no_resolution));
                 }
-
-                // If any other request code was received
             default:
-                // Report that this Activity received an unknown requestCode
-                Log.d(ApeicUtil.APPTAG,
-                        getString(R.string.unknown_activity_request_code, requestCode));
-
+                Log.d(ApeicUtil.TAG, getString(R.string.unknown_activity_request_code, requestCode));
                 break;
         }
     }
@@ -163,8 +129,7 @@ public class MainActivity extends Activity {
         super.onResume();
 
         mBroadcastManager.registerReceiver(updateListReceiver, mBroadcastFilter);
-
-//        updateLogs();
+        updateLogs();
     }
 
     @Override
@@ -185,7 +150,7 @@ public class MainActivity extends Activity {
                 mStatusAdapter.notifyDataSetChanged();
 
                 if (!mLogFile.removeLogFiles()) {
-                    Log.e(ApeicUtil.APPTAG, getString(R.string.log_file_deletion_error));
+                    Log.e(ApeicUtil.TAG, getString(R.string.log_file_deletion_error));
                 } else {
                     Toast.makeText(this, R.string.logs_deleted, Toast.LENGTH_LONG).show();
                 }
@@ -198,8 +163,48 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-
         mBroadcastManager.unregisterReceiver(updateListReceiver);
+    }
+
+    /**
+     * Respond to "Start" button by requesting activity recognition
+     * updates.
+     *
+     * @param view The view that triggered this method.
+     */
+    public void onStartUpdates(View view) {
+        if (!isServicesConnected()) return;
+
+//        // Set the request type. If a connection error occurs, and Google Play services can
+//        // handle it, then onActivityResult will use the request type to retry the request
+        mRequestType = ApeicUtil.REQUEST_TYPE.ADD;
+//
+//        mDetectionRequester.requestUpdates();
+        Log.d(ApeicUtil.TAG, "update!");
+        DetectionRequester.getInstance(getApplicationContext()).requestUpdates();
+    }
+
+    /**
+     * Respond to "Stop" button by canceling updates.
+     *
+     * @param view The view that triggered this method.
+     */
+    public void onStopUpdates(View view) {
+        if (!isServicesConnected()) return;
+
+//        // Set the request type. If a connection error occurs, and Google Play services can
+//        // handle it, then onActivityResult will use the request type to retry the request
+//        mRequestType = ApeicUtil.REQUEST_TYPE.REMOVE;
+//
+//        // Pass the remove request to the remover object
+//        mDetectionRemover.removeUpdates(mDetectionRequester.getRequestPendingIntent());
+//
+//        // Cancel the PendingIntent. Even if the removal request fails, canceling the PendingIntent
+//        // will stop the updates.
+//        if (mDetectionRequester.getRequestPendingIntent() != null) {
+//            mDetectionRequester.getRequestPendingIntent().cancel();
+//        }
+        DetectionRequester.getInstance(getApplicationContext()).removeUpdates();
     }
 
     private boolean isServicesConnected() {
@@ -212,50 +217,12 @@ public class MainActivity extends Activity {
         }
     }
 
-    /**
-     * Respond to "Start" button by requesting activity recognition
-     * updates.
-     *
-     * @param view The view that triggered this method.
-     */
-    public void onStartUpdates(View view) {
-        if (!isServicesConnected()) return;
 
-        /*
-         * Set the request type. If a connection error occurs, and Google Play services can
-         * handle it, then onActivityResult will use the request type to retry the request
-         */
-        mRequestType = ApeicUtil.REQUEST_TYPE.ADD;
-
-        // Pass the update request to the requester object
-        // TODO
-        mDetectionRequester.requestUpdates();
-    }
-
-    /**
-     * Respond to "Stop" button by canceling updates.
-     *
-     * @param view The view that triggered this method.
-     */
-    public void onStopUpdates(View view) {
-        if (!isServicesConnected()) return;
-
-        /*
-         * Set the request type. If a connection error occurs, and Google Play services can
-         * handle it, then onActivityResult will use the request type to retry the request
-         */
-        mRequestType = ApeicUtil.REQUEST_TYPE.REMOVE;
-
-        // Pass the remove request to the remover object
-        mDetectionRemover.removeUpdates(mDetectionRequester.getRequestPendingIntent());
-
-        /*
-         * Cancel the PendingIntent. Even if the removal request fails, canceling the PendingIntent
-         * will stop the updates.
-         */
-        if (mDetectionRequester.getRequestPendingIntent() != null) {
-            mDetectionRequester.getRequestPendingIntent().cancel();
-        }
+    private void startUploadChecking() {
+        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, LogsUploadCheckReceiver.class);
+        am.setRepeating(AlarmManager.RTC, 0, ApeicUtil.LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS,
+                PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
     }
 
     private void updateLogs() {
@@ -274,7 +241,7 @@ public class MainActivity extends Activity {
             }
             mStatusAdapter.notifyDataSetChanged();
         } catch (IOException e) {
-            Log.e(ApeicUtil.APPTAG, e.getMessage(), e);
+            Log.e(ApeicUtil.TAG, e.getMessage(), e);
         }
     }
 
@@ -287,11 +254,6 @@ public class MainActivity extends Activity {
     BroadcastReceiver updateListReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-
-            /*
-             * When an Intent is received from the update listener IntentService, update
-             * the displayed log.
-             */
             updateLogs();
         }
     };

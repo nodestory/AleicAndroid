@@ -48,6 +48,9 @@ import tw.edu.ntu.ee.apeic.ApeicUtil;
 public class DetectionRequester implements OnConnectionFailedListener {
     private Context mContext;
 
+    private ApeicUtil.REQUEST_TYPE mRequestType;
+    private static DetectionRequester sDetectionRequester;
+
     private PendingIntent mActivityRecognitionPendingIntent;
     private PendingIntent mLocationPendingIntent;
 
@@ -62,6 +65,13 @@ public class DetectionRequester implements OnConnectionFailedListener {
         mLocationClient = null;
     }
 
+    public static DetectionRequester getInstance(Context context) {
+        if (sDetectionRequester == null) {
+            sDetectionRequester = new DetectionRequester(context);
+        }
+        return sDetectionRequester;
+    }
+
     public PendingIntent getRequestPendingIntent() {
         return mActivityRecognitionPendingIntent;
     }
@@ -71,6 +81,14 @@ public class DetectionRequester implements OnConnectionFailedListener {
     }
 
     public void requestUpdates() {
+        Log.d(ApeicUtil.TAG, "update!");
+        mRequestType = ApeicUtil.REQUEST_TYPE.ADD;
+        getActivityRecognitionClient().connect();
+        getLocationClient().connect();
+    }
+
+    public void removeUpdates() {
+        mRequestType = ApeicUtil.REQUEST_TYPE.REMOVE;
         getActivityRecognitionClient().connect();
         getLocationClient().connect();
     }
@@ -88,11 +106,17 @@ public class DetectionRequester implements OnConnectionFailedListener {
             mActivityRecognitionClient = new ActivityRecognitionClient(mContext, new ConnectionCallbacks() {
                 @Override
                 public void onConnected(Bundle bundle) {
-                    Log.d(ApeicUtil.APPTAG, "ActivityRecognitionClient connected");
-                    getActivityRecognitionClient().requestActivityUpdates(
-                            ApeicUtil.DETECTION_INTERVAL_MILLISECONDS,
-                            createRequestPendingIntent());
-                    getActivityRecognitionClient().disconnect();
+                    Log.d(ApeicUtil.TAG, "ActivityRecognitionClient connected");
+                    if (mRequestType == ApeicUtil.REQUEST_TYPE.ADD) {
+                        getActivityRecognitionClient().requestActivityUpdates(
+                                ApeicUtil.DETECTION_INTERVAL_MILLISECONDS,
+                                createRequestPendingIntent());
+                        getActivityRecognitionClient().disconnect();
+                    } else if (mRequestType == ApeicUtil.REQUEST_TYPE.REMOVE) {
+                        getActivityRecognitionClient().removeActivityUpdates(mActivityRecognitionPendingIntent);
+                        mActivityRecognitionPendingIntent.cancel();
+                        getActivityRecognitionClient().disconnect();
+                    }
                 }
 
                 @Override
@@ -109,16 +133,22 @@ public class DetectionRequester implements OnConnectionFailedListener {
             mLocationClient = new LocationClient(mContext, new ConnectionCallbacks() {
                 @Override
                 public void onConnected(Bundle bundle) {
-                    Log.d(ApeicUtil.APPTAG, "LocationClient connected");
-                    LocationRequest request = LocationRequest.create();
-                    request.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-                    request.setInterval(60000);
+                    Log.d(ApeicUtil.TAG, "LocationClient connected");
+                    if (mRequestType == ApeicUtil.REQUEST_TYPE.ADD) {
+                        LocationRequest request = LocationRequest.create();
+                        request.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+                        request.setInterval(60000);
 
-                    Intent intent = new Intent(mContext, LocationUpdateReceiver.class);
-                    mLocationPendingIntent = PendingIntent.getBroadcast(
-                            mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-                    getLocationClient().requestLocationUpdates(request, mLocationPendingIntent);
-                    getLocationClient().disconnect();
+                        Intent intent = new Intent(mContext, LocationUpdateReceiver.class);
+                        mLocationPendingIntent = PendingIntent.getBroadcast(
+                                mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                        getLocationClient().requestLocationUpdates(request, mLocationPendingIntent);
+                        getLocationClient().disconnect();
+                    } else if (mRequestType == ApeicUtil.REQUEST_TYPE.REMOVE) {
+                        getLocationClient().removeLocationUpdates(mLocationPendingIntent);
+                        mLocationPendingIntent.cancel();
+                        getLocationClient().disconnect();
+                    }
                 }
 
                 @Override
@@ -131,15 +161,15 @@ public class DetectionRequester implements OnConnectionFailedListener {
     }
 
     private PendingIntent createRequestPendingIntent() {
-//        if (getRequestPendingIntent() != null) {
-//            return mActivityRecognitionPendingIntent;
-//        } else {
+        if (getRequestPendingIntent() != null) {
+            return mActivityRecognitionPendingIntent;
+        } else {
             Intent intent = new Intent(mContext, LogUpdateIntentService.class);
             PendingIntent pendingIntent = PendingIntent.getService(
                     mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             setRequestPendingIntent(pendingIntent);
             return pendingIntent;
-//        }
+        }
     }
 
     @Override
@@ -149,7 +179,7 @@ public class DetectionRequester implements OnConnectionFailedListener {
                 connectionResult.startResolutionForResult((Activity) mContext,
                         ApeicUtil.CONNECTION_FAILURE_RESOLUTION_REQUEST);
             } catch (SendIntentException e) {
-                Log.e(ApeicUtil.APPTAG, e.getMessage());
+                Log.e(ApeicUtil.TAG, e.getMessage());
             }
         } else {
             Dialog dialog = GooglePlayServicesUtil.getErrorDialog(

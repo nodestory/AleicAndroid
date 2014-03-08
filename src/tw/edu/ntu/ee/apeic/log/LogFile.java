@@ -86,7 +86,7 @@ public class LogFile {
     private String createFileName() {
         String dateString = new SimpleDateFormat("yyyy_MM_dd", Locale.TAIWAN).format(new Date());
         String lastDateString = ApeicPrefsUtil.getInstance(mContext).getStringPref(ApeicPrefsUtil.KEY_DATE);
-        int fileNumber = (dateString != lastDateString) ?
+        int fileNumber = (dateString.equals(lastDateString)) ?
                 1 : ApeicPrefsUtil.getInstance(mContext).getIntPref(ApeicPrefsUtil.KEY_LOG_FILE_NUMBER) + 1;
         ApeicPrefsUtil.getInstance(mContext).setIntPref(ApeicPrefsUtil.KEY_LOG_FILE_NUMBER, fileNumber);
 
@@ -165,8 +165,8 @@ public class LogFile {
             ApeicPrefsUtil.getInstance(mContext).setStringPref(ApeicPrefsUtil.KEY_DATE, dateString);
             return true;
         }
-        return !dateString.equals(lastDateString);
-//        return mLogFile.length() > ApeicUtil.MAX_FILE_SIZE;
+//        return !dateString.equals(lastDateString);
+        return mLogFile.length() > ApeicUtil.MAX_FILE_SIZE;
     }
 
     public List<Spanned> loadLogFile() throws IOException {

@@ -32,7 +32,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -42,38 +44,43 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ListIterator;
 
-import tw.edu.ntu.ee.apeic.log.DetectionRemover;
-import tw.edu.ntu.ee.apeic.log.DetectionRequester;
 import tw.edu.ntu.ee.apeic.log.LogFile;
-import tw.edu.ntu.ee.apeic.log.LogsUploadCheckReceiver;
+import tw.edu.ntu.ee.apeic.log.LogService;
+import tw.edu.ntu.ee.apeic.log.UploadCheckReceiver;
 import tw.edu.ntu.ee.arbor.apeic.R;
 
 public class MainActivity extends Activity {
-
-    private LogFile mLogFile;
-
-
-    private ApeicUtil.REQUEST_TYPE mRequestType;
-
     // UI elements
+    private Switch mSwitch;
     private ListView mStatusListView;
     private ArrayAdapter<Spanned> mStatusAdapter;
 
-    /*
-     *  Intent filter for incoming broadcasts from the IntentService.
-     */
-    IntentFilter mBroadcastFilter;
-
+    // For updating Lists
+    private IntentFilter mBroadcastFilter;
     private LocalBroadcastManager mBroadcastManager;
 
-    private DetectionRequester mDetectionRequester;
-    private DetectionRemover mDetectionRemover;
+    // For logging
+    private ApeicUtil.REQUEST_TYPE mRequestType;
+    private LogFile mLogFile;
+//    private DetectionRequester mDetectionRequester;
+//    private DetectionRemover mDetectionRemover;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        mSwitch = (Switch) findViewById(R.id.log_service_switch);
+        mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    startLogging();
+                } else {
+                    stopLogging();
+                }
+            }
+        });
         mStatusListView = (ListView) findViewById(R.id.log_listview);
         mStatusAdapter = new ArrayAdapter<Spanned>(this, R.layout.item_layout, R.id.log_text);
         mStatusListView.setAdapter(mStatusAdapter);
@@ -82,8 +89,8 @@ public class MainActivity extends Activity {
         mBroadcastFilter = new IntentFilter(ApeicUtil.ACTION_REFRESH_STATUS_LIST);
         mBroadcastFilter.addCategory(ApeicUtil.CATEGORY_LOCATION_SERVICES);
 
-        mDetectionRequester = new DetectionRequester(this);
-        mDetectionRemover = new DetectionRemover(this);
+//        mDetectionRequester = new DetectionRequester(this);
+//        mDetectionRemover = new DetectionRemover(this);
 
 //        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
 //        filter.addAction(Intent.ACTION_SCREEN_OFF);
@@ -93,10 +100,10 @@ public class MainActivity extends Activity {
 
         mLogFile = LogFile.getInstance(this);
 
-        startUploadChecking();
+        startUploadRoutine();
     }
 
-    /*
+    /**
      * Handle results returned to this Activity by other Activities started with
      * startActivityForResult(). In particular, the method onConnectionFailed() in
      * DetectionRemover and DetectionRequester may call startResolutionForResult() to
@@ -109,10 +116,9 @@ public class MainActivity extends Activity {
             case ApeicUtil.CONNECTION_FAILURE_RESOLUTION_REQUEST:
                 if (resultCode == Activity.RESULT_OK) {
                     if (ApeicUtil.REQUEST_TYPE.ADD == mRequestType) {
-                        mDetectionRequester.requestUpdates();
+                        startLogging();
                     } else if (ApeicUtil.REQUEST_TYPE.REMOVE == mRequestType) {
-                        mDetectionRemover.removeUpdates(
-                                mDetectionRequester.getRequestPendingIntent());
+                        stopLogging();
                     } else {
                     }
                 } else {
@@ -175,14 +181,14 @@ public class MainActivity extends Activity {
     public void onStartUpdates(View view) {
         if (!isServicesConnected()) return;
 
-//        // Set the request type. If a connection error occurs, and Google Play services can
-//        // handle it, then onActivityResult will use the request type to retry the request
+        // Set the request type. If a connection error occurs, and Google Play services can
+        // handle it, then onActivityResult will use the request type to retry the request
         mRequestType = ApeicUtil.REQUEST_TYPE.ADD;
-//
+
+        startLogging();
 //        mDetectionRequester.requestUpdates();
-        Log.d(ApeicUtil.TAG, "update!");
-        DetectionRequester.getInstance(getApplicationContext()).requestUpdates();
     }
+
 
     /**
      * Respond to "Stop" button by canceling updates.
@@ -192,19 +198,19 @@ public class MainActivity extends Activity {
     public void onStopUpdates(View view) {
         if (!isServicesConnected()) return;
 
-//        // Set the request type. If a connection error occurs, and Google Play services can
-//        // handle it, then onActivityResult will use the request type to retry the request
-//        mRequestType = ApeicUtil.REQUEST_TYPE.REMOVE;
-//
-//        // Pass the remove request to the remover object
-//        mDetectionRemover.removeUpdates(mDetectionRequester.getRequestPendingIntent());
-//
-//        // Cancel the PendingIntent. Even if the removal request fails, canceling the PendingIntent
-//        // will stop the updates.
-//        if (mDetectionRequester.getRequestPendingIntent() != null) {
-//            mDetectionRequester.getRequestPendingIntent().cancel();
+        // Set the request type. If a connection error occurs, and Google Play services can
+        // handle it, then onActivityResult will use the request type to retry the request
+        mRequestType = ApeicUtil.REQUEST_TYPE.REMOVE;
+
+        stopLogging();
+        // Pass the remove request to the remover object
+//        mDetectionRemover.removeUpdates(mDetectionRequester.getActivityRequestPendingIntent());
+
+        // Cancel the PendingIntent. Even if the removal request fails, canceling the PendingIntent
+        // will stop the updates.
+//        if (mDetectionRequester.getActivityRequestPendingIntent() != null) {
+//            mDetectionRequester.getActivityPendingIntent().cancel();
 //        }
-        DetectionRequester.getInstance(getApplicationContext()).removeUpdates();
     }
 
     private boolean isServicesConnected() {
@@ -217,10 +223,21 @@ public class MainActivity extends Activity {
         }
     }
 
+    private void startLogging() {
+        mRequestType = ApeicUtil.REQUEST_TYPE.ADD;
+        Intent intent = new Intent(this, LogService.class);
+        startService(intent);
+    }
 
-    private void startUploadChecking() {
+    private void stopLogging() {
+        mRequestType = ApeicUtil.REQUEST_TYPE.REMOVE;
+        Intent intent = new Intent(this, LogService.class);
+        stopService(intent);
+    }
+
+    private void startUploadRoutine() {
         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, LogsUploadCheckReceiver.class);
+        Intent intent = new Intent(this, UploadCheckReceiver.class);
         am.setRepeating(AlarmManager.RTC, 0, ApeicUtil.LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS,
                 PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
     }

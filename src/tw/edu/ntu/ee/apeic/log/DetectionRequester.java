@@ -49,39 +49,25 @@ public class DetectionRequester implements OnConnectionFailedListener {
     private Context mContext;
 
     private ApeicUtil.REQUEST_TYPE mRequestType;
-    private static DetectionRequester sDetectionRequester;
 
-    private PendingIntent mActivityRecognitionPendingIntent;
-    private PendingIntent mLocationPendingIntent;
-
+    // Activity
     private ActivityRecognitionClient mActivityRecognitionClient;
+    private PendingIntent mActivityRecognitionPendingIntent;
+
+    // Location
     private LocationClient mLocationClient;
+    private PendingIntent mLocationPendingIntent;
 
     public DetectionRequester(Context context) {
         mContext = context;
 
-        mActivityRecognitionPendingIntent = null;
         mActivityRecognitionClient = null;
+        mActivityRecognitionPendingIntent = null;
         mLocationClient = null;
-    }
-
-    public static DetectionRequester getInstance(Context context) {
-        if (sDetectionRequester == null) {
-            sDetectionRequester = new DetectionRequester(context);
-        }
-        return sDetectionRequester;
-    }
-
-    public PendingIntent getRequestPendingIntent() {
-        return mActivityRecognitionPendingIntent;
-    }
-
-    public void setRequestPendingIntent(PendingIntent intent) {
-        mActivityRecognitionPendingIntent = intent;
+        mLocationPendingIntent = null;
     }
 
     public void requestUpdates() {
-        Log.d(ApeicUtil.TAG, "update!");
         mRequestType = ApeicUtil.REQUEST_TYPE.ADD;
         getActivityRecognitionClient().connect();
         getLocationClient().connect();
@@ -106,11 +92,11 @@ public class DetectionRequester implements OnConnectionFailedListener {
             mActivityRecognitionClient = new ActivityRecognitionClient(mContext, new ConnectionCallbacks() {
                 @Override
                 public void onConnected(Bundle bundle) {
-                    Log.d(ApeicUtil.TAG, "ActivityRecognitionClient connected");
+                    Log.d(ApeicUtil.TAG, "ActivityRecognitionClient connected: " + mRequestType.name());
                     if (mRequestType == ApeicUtil.REQUEST_TYPE.ADD) {
                         getActivityRecognitionClient().requestActivityUpdates(
                                 ApeicUtil.DETECTION_INTERVAL_MILLISECONDS,
-                                createRequestPendingIntent());
+                                createActivityRequestPendingIntent());
                         getActivityRecognitionClient().disconnect();
                     } else if (mRequestType == ApeicUtil.REQUEST_TYPE.REMOVE) {
                         getActivityRecognitionClient().removeActivityUpdates(mActivityRecognitionPendingIntent);
@@ -133,16 +119,13 @@ public class DetectionRequester implements OnConnectionFailedListener {
             mLocationClient = new LocationClient(mContext, new ConnectionCallbacks() {
                 @Override
                 public void onConnected(Bundle bundle) {
-                    Log.d(ApeicUtil.TAG, "LocationClient connected");
+                    Log.d(ApeicUtil.TAG, "LocationClient connected: " + mRequestType.name());
                     if (mRequestType == ApeicUtil.REQUEST_TYPE.ADD) {
                         LocationRequest request = LocationRequest.create();
                         request.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
                         request.setInterval(60000);
 
-                        Intent intent = new Intent(mContext, LocationUpdateReceiver.class);
-                        mLocationPendingIntent = PendingIntent.getBroadcast(
-                                mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-                        getLocationClient().requestLocationUpdates(request, mLocationPendingIntent);
+                        getLocationClient().requestLocationUpdates(request, createLocationRequestPendingIntent());
                         getLocationClient().disconnect();
                     } else if (mRequestType == ApeicUtil.REQUEST_TYPE.REMOVE) {
                         getLocationClient().removeLocationUpdates(mLocationPendingIntent);
@@ -160,16 +143,22 @@ public class DetectionRequester implements OnConnectionFailedListener {
         return mLocationClient;
     }
 
-    private PendingIntent createRequestPendingIntent() {
-        if (getRequestPendingIntent() != null) {
-            return mActivityRecognitionPendingIntent;
-        } else {
-            Intent intent = new Intent(mContext, LogUpdateIntentService.class);
-            PendingIntent pendingIntent = PendingIntent.getService(
+    private PendingIntent createActivityRequestPendingIntent() {
+        if (mActivityRecognitionPendingIntent == null) {
+            Intent intent = new Intent(mContext, AddLogService.class);
+            mActivityRecognitionPendingIntent = PendingIntent.getService(
                     mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            setRequestPendingIntent(pendingIntent);
-            return pendingIntent;
         }
+        return mActivityRecognitionPendingIntent;
+    }
+
+    private PendingIntent createLocationRequestPendingIntent() {
+        if (mLocationPendingIntent == null) {
+            Intent intent = new Intent(mContext, LocationUpdateReceiver.class);
+            mLocationPendingIntent = PendingIntent.getBroadcast(
+                    mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        }
+        return mLocationPendingIntent;
     }
 
     @Override

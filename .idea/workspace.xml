@@ -3,18 +3,10 @@
   <component name="AndroidConfiguredLogFilters">
     <filters>
       <filter>
-        <option name="logLevel" value="info" />
-        <option name="logMessagePattern" value="" />
-        <option name="logTagPattern" value="LOG" />
-        <option name="name" value="LOG" />
-        <option name="packageNamePattern" value="" />
-        <option name="pid" value="" />
-      </filter>
-      <filter>
         <option name="logLevel" value="verbose" />
         <option name="logMessagePattern" value="" />
-        <option name="logTagPattern" value="Aleic" />
-        <option name="name" value="Aleic" />
+        <option name="logTagPattern" value="Apeic" />
+        <option name="name" value="Apeic" />
         <option name="packageNamePattern" value="" />
         <option name="pid" value="" />
       </filter>
@@ -33,7 +25,7 @@
     </shared>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRequester.java" line="162" />
+    <bookmark url="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRequester.java" line="145" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d99bf34-d622-49f8-b9d8-de26a881e6ab" name="Default" comment="" />
@@ -104,85 +96,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="174" column="13" selection-start="6055" selection-end="6055" vertical-scroll-proportion="0.2611465" vertical-offset="1577" max-vertical-offset="2805">
+            <state line="227" column="49" selection-start="8198" selection-end="8198" vertical-scroll-proportion="0.0" vertical-offset="2584" max-vertical-offset="3315">
               <folding>
-                <element signature="e#4403#4436#0" expanded="true" />
-                <element signature="e#4515#4577#0" expanded="true" />
-                <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#5431#5474#0" expanded="true" />
-                <element signature="e#5543#5564#0" expanded="true" />
+                <element signature="e#3239#3300#0" expanded="false" />
+                <element signature="docComment;method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#4733#4766#0" expanded="true" />
+                <element signature="e#4845#4907#0" expanded="true" />
+                <element signature="e#5761#5804#0" expanded="true" />
+                <element signature="e#5873#5894#0" expanded="true" />
                 <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#isServicesConnected#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#updateLogs#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#9279#9428#0" expanded="true" />
-                <element signature="e#9421#9422#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DetectionRemover.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRemover.java">
+      <file leaf-file-name="ApeicUtil.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="170" column="16" selection-start="5815" selection-end="5815" vertical-scroll-proportion="0.0" vertical-offset="1869" max-vertical-offset="3570">
-              <folding>
-                <element signature="e#5878#5879#0" expanded="true" />
-                <element signature="e#5930#5931#0" expanded="true" />
-                <element signature="e#6239#6277#0" expanded="true" />
-                <element signature="e#7198#7239#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DetectionRequester.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRequester.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="13" selection-start="1834" selection-end="1834" vertical-scroll-proportion="3.7692308" vertical-offset="370" max-vertical-offset="2856">
-              <folding>
-                <element signature="e#2748#2749#0" expanded="true" />
-                <element signature="e#2804#2805#0" expanded="true" />
-                <element signature="e#2869#2870#0" expanded="true" />
-                <element signature="e#2927#2928#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BootBroadcastReceiver.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/BootBroadcastReceiver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="69" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-              <folding>
-                <element signature="docComment;class#BootBroadcastReceiver#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApeicPrefsUtil.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicPrefsUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="4" selection-start="1595" selection-end="1824" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
+            <state line="35" column="46" selection-start="1252" selection-end="1252" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1190">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <file leaf-file-name="LogFile.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="28" selection-start="1188" selection-end="1188" vertical-scroll-proportion="-5.4444447" vertical-offset="346" max-vertical-offset="1054">
+            <state line="95" column="27" selection-start="3317" selection-end="3317" vertical-scroll-proportion="0.0" vertical-offset="798" max-vertical-offset="2703">
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="LogService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="12" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+              <folding>
+                <element signature="docComment;class#LogService#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UploadCheckReceiver.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/UploadCheckReceiver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="46" selection-start="1709" selection-end="1731" vertical-scroll-proportion="0.35675675" vertical-offset="310" max-vertical-offset="1190">
+              <folding>
+                <element signature="docComment;class#UploadCheckReceiver#0" expanded="false" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -198,20 +166,30 @@
       <list>
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/AppUsageLogUpdateIntentService.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/MainActivity.java" />
-        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogUpdateIntentService.java" />
-        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/UploadLogFileService.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LocationUpdateReceiver.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogsUploadCheckReceiver.java" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicPrefsUtil.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRemover.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/RecoredLogService.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/RecordLogService.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/StartLoggingService.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/ControlLogService.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/BootBroadcastReceiver.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/BootCompletedReceiver.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRequester.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/UploadLogFileService.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/UploadFileService.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogUpdateIntentService.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/AddLogIntentService.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/AddLogService.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogsUploadCheckReceiver.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/UploadCheckReceiver.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogService.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicUtil.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogFile.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/BootBroadcastReceiver.java" />
-        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRemover.java" />
-        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRequester.java" />
-        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -221,8 +199,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -235,14 +213,9 @@
             <id>Android Lint</id>
           </State>
           <State>
-            <id>Probable bugs</id>
+            <id>Portability issues</id>
           </State>
         </expanded-state>
-        <selected-state>
-          <State>
-            <id>ConstantConditions</id>
-          </State>
-        </selected-state>
       </profile-state>
     </entry>
   </component>
@@ -272,16 +245,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ActivityRecognition" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -350,36 +313,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ApeicAndroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ApeicAndroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ApeicAndroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ApeicAndroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="ActivityRecognition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -398,10 +339,10 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.34183082" />
-    <property name="last_opened_file_path" value="$APPLICATION_HOME_DIR$/sdk/extras/google/google_play_services/libproject" />
+    <property name="last_opened_file_path" value="C:/Users/Linzy/java libraries/httpcomponents-client-4.3.3/lib/httpmime-4.3.3.jar!/" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
-    <property name="options.lastSelected" value="appearance" />
+    <property name="options.lastSelected" value="Errors" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -516,6 +457,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
@@ -534,6 +476,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
@@ -612,7 +555,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -621,23 +564,23 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32703003" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32597622" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.811545" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61120546" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1512247" sideWeight="0.5005314" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4160178" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32427844" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61120546" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26414087" sideWeight="0.49946865" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259177" sideWeight="0.41993958" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2326284" sideWeight="0.49946865" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31748727" sideWeight="0.45619336" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="149" y="94" width="1182" height="544" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -690,62 +633,88 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../ActivityRecognition/src/com/example/android/activityrecognition/LogFile.java">
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="232" column="54" selection-start="6929" selection-end="6951" vertical-scroll-proportion="0.0" vertical-offset="2818" max-vertical-offset="3689">
+        <state line="50" column="0" selection-start="1679" selection-end="1679" vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="2771">
           <folding>
-            <element signature="e#0#7158#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#4564#4573#0" expanded="false" />
+            <element signature="e#3239#3300#0" expanded="false" />
+            <element signature="docComment;method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#4733#4766#0" expanded="true" />
+            <element signature="e#4845#4907#0" expanded="true" />
+            <element signature="e#5761#5804#0" expanded="true" />
+            <element signature="e#5873#5894#0" expanded="true" />
+            <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#updateLogs#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogFile.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="40" selection-start="5132" selection-end="5145" vertical-scroll-proportion="2.3940828" vertical-offset="0" max-vertical-offset="2703">
+        <state line="43" column="44" selection-start="1687" selection-end="1687" vertical-scroll-proportion="0.0" vertical-offset="531" max-vertical-offset="1190">
           <folding>
-            <element signature="e#3178#3388#0" expanded="true" />
+            <element signature="e#1222#1245#0" expanded="true" />
+            <element signature="e#1594#1616#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogUpdateIntentService.java">
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="0" selection-start="3455" selection-end="3455" vertical-scroll-proportion="0.3065442" vertical-offset="549" max-vertical-offset="1649">
+        <state line="174" column="13" selection-start="6055" selection-end="6055" vertical-scroll-proportion="0.0" vertical-offset="2805" max-vertical-offset="2805">
           <folding>
-            <element signature="method#getActivityName#0;class#LogUpdateIntentService#0" expanded="false" />
-            <element signature="method#isActivityChanged#0;class#LogUpdateIntentService#0" expanded="false" />
-            <element signature="method#isMoving#0;class#LogUpdateIntentService#0" expanded="false" />
+            <element signature="e#3239#3300#0" expanded="false" />
+            <element signature="docComment;method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#4733#4766#0" expanded="true" />
+            <element signature="e#4845#4907#0" expanded="true" />
+            <element signature="e#5761#5804#0" expanded="true" />
+            <element signature="e#5873#5894#0" expanded="true" />
+            <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#updateLogs#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogsUploadCheckReceiver.java">
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRemover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="59" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.078071184" vertical-offset="153" max-vertical-offset="1190">
+        <state line="170" column="16" selection-start="5815" selection-end="5815" vertical-scroll-proportion="0.0" vertical-offset="2890" max-vertical-offset="4080" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRequester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="13" selection-start="1834" selection-end="1834" vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="3383">
           <folding>
-            <element signature="docComment;class#LogsUploadCheckReceiver#0" expanded="false" />
+            <element signature="method#requestUpdates#0;class#DetectionRequester#0" expanded="false" />
+            <element signature="method#removeUpdates#0;class#DetectionRequester#0" expanded="false" />
+            <element signature="docComment;method#getActivityRecognitionClient#0;class#DetectionRequester#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/BootCompletedReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="31" selection-start="858" selection-end="858" vertical-scroll-proportion="0.33295062" vertical-offset="152" max-vertical-offset="1139">
+        <state line="18" column="69" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="459" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicPrefsUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="4" selection-start="1595" selection-end="1824" vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="1649">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="38" selection-start="686" selection-end="711" vertical-scroll-proportion="0.33180252" vertical-offset="0" max-vertical-offset="1734">
+        <state line="29" column="28" selection-start="1188" selection-end="1188" vertical-scroll-proportion="0.0" vertical-offset="346" max-vertical-offset="1054">
           <folding>
-            <element signature="e#1609#1627#0" expanded="true" />
-            <element signature="e#1822#1861#0" expanded="true" />
-            <element signature="e#1970#1988#0" expanded="true" />
-            <element signature="e#2078#2103#0" expanded="true" />
-            <element signature="e#3744#3762#0" expanded="true" />
+            <element signature="e#1222#1245#0" expanded="true" />
+            <element signature="e#1594#1616#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -757,99 +726,133 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../ActivityRecognition/src/com/example/android/activityrecognition/DetectionRemover.java">
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRemover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="17" selection-start="4141" selection-end="4141" vertical-scroll-proportion="0.0" vertical-offset="1291" max-vertical-offset="3502">
-          <folding>
-            <element signature="e#0#7617#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/BootBroadcastReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="69" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <folding>
-            <element signature="docComment;class#BootBroadcastReceiver#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LocationUpdateReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="55" selection-start="612" selection-end="612" vertical-scroll-proportion="0.19517796" vertical-offset="0" max-vertical-offset="871">
-          <folding>
-            <element signature="docComment;class#LocationUpdateReceiver#0" expanded="false" />
-            <element signature="method#updateLocation#0;class#LocationUpdateReceiver#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ActivityRecognition/src/com/example/android/activityrecognition/DetectionRequester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3723">
-          <folding />
-        </state>
+        <state line="170" column="16" selection-start="5815" selection-end="5815" vertical-scroll-proportion="-1.424581" vertical-offset="2890" max-vertical-offset="3519" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicPrefsUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="4" selection-start="1595" selection-end="1824" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
+        <state line="37" column="4" selection-start="1595" selection-end="1824" vertical-scroll-proportion="-0.13746631" vertical-offset="629" max-vertical-offset="1598">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="28" selection-start="1188" selection-end="1188" vertical-scroll-proportion="-5.4444447" vertical-offset="346" max-vertical-offset="1054">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRemover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="16" selection-start="5815" selection-end="5815" vertical-scroll-proportion="0.0" vertical-offset="1869" max-vertical-offset="3570">
+        <state line="48" column="77" selection-start="2329" selection-end="2350" vertical-scroll-proportion="-0.85714287" vertical-offset="1122" max-vertical-offset="1479">
           <folding>
-            <element signature="e#5878#5879#0" expanded="true" />
-            <element signature="e#5930#5931#0" expanded="true" />
-            <element signature="e#6239#6277#0" expanded="true" />
-            <element signature="e#7198#7239#0" expanded="true" />
+            <element signature="e#1005#1023#0" expanded="true" />
+            <element signature="e#1218#1257#0" expanded="true" />
+            <element signature="e#1366#1384#0" expanded="true" />
+            <element signature="e#1474#1499#0" expanded="true" />
+            <element signature="e#3252#3270#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/DetectionRequester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="13" selection-start="1834" selection-end="1834" vertical-scroll-proportion="3.7692308" vertical-offset="370" max-vertical-offset="2856">
+        <state line="68" column="0" selection-start="2477" selection-end="2477" vertical-scroll-proportion="1.119217" vertical-offset="0" max-vertical-offset="2414">
           <folding>
-            <element signature="e#2748#2749#0" expanded="true" />
-            <element signature="e#2804#2805#0" expanded="true" />
-            <element signature="e#2869#2870#0" expanded="true" />
-            <element signature="e#2927#2928#0" expanded="true" />
+            <element signature="method#requestUpdates#0;class#DetectionRequester#0" expanded="false" />
+            <element signature="method#removeUpdates#0;class#DetectionRequester#0" expanded="false" />
+            <element signature="docComment;method#getActivityRecognitionClient#0;class#DetectionRequester#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/BootCompletedReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="308" selection-end="308" vertical-scroll-proportion="0.35675675" vertical-offset="4" max-vertical-offset="374" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/AddLogService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="19" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.27567568" vertical-offset="0" max-vertical-offset="1666">
+          <folding>
+            <element signature="e#3233#3391#0" expanded="true" />
+            <element signature="e#4070#4107#0" expanded="true" />
+            <element signature="method#getActivityName#0;class#AddLogService#0" expanded="false" />
+            <element signature="method#isActivityChanged#0;class#AddLogService#0" expanded="false" />
+            <element signature="method#isMoving#0;class#AddLogService#0" expanded="false" />
+            <element signature="e#5426#5454#0" expanded="true" />
+            <element signature="e#5488#5519#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LocationUpdateReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="35" selection-start="392" selection-end="414" vertical-scroll-proportion="0.22972973" vertical-offset="0" max-vertical-offset="459" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="45" column="31" selection-start="1780" selection-end="1780" vertical-scroll-proportion="0.0" vertical-offset="654" max-vertical-offset="1241">
+          <folding>
+            <element signature="e#1222#1245#0" expanded="true" />
+            <element signature="e#1594#1616#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="13" selection-start="6055" selection-end="6055" vertical-scroll-proportion="0.2611465" vertical-offset="1577" max-vertical-offset="2805">
+        <state line="227" column="49" selection-start="8198" selection-end="8198" vertical-scroll-proportion="0.0" vertical-offset="2584" max-vertical-offset="3315">
           <folding>
-            <element signature="e#4403#4436#0" expanded="true" />
-            <element signature="e#4515#4577#0" expanded="true" />
-            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#5431#5474#0" expanded="true" />
-            <element signature="e#5543#5564#0" expanded="true" />
+            <element signature="e#3239#3300#0" expanded="false" />
+            <element signature="docComment;method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#4733#4766#0" expanded="true" />
+            <element signature="e#4845#4907#0" expanded="true" />
+            <element signature="e#5761#5804#0" expanded="true" />
+            <element signature="e#5873#5894#0" expanded="true" />
             <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#isServicesConnected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#updateLogs#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9279#9428#0" expanded="true" />
-            <element signature="e#9421#9422#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="12" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <folding>
+            <element signature="docComment;class#LogService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="27" selection-start="3317" selection-end="3317" vertical-scroll-proportion="0.0" vertical-offset="798" max-vertical-offset="2703">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/UploadFileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="23" selection-start="661" selection-end="661" vertical-scroll-proportion="-0.010810811" vertical-offset="395" max-vertical-offset="969">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="46" selection-start="1252" selection-end="1252" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1190">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/UploadCheckReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="46" selection-start="1709" selection-end="1731" vertical-scroll-proportion="0.35675675" vertical-offset="310" max-vertical-offset="1190">
+          <folding>
+            <element signature="docComment;class#UploadCheckReceiver#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -883,7 +886,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>src</last-edited>
+          <last-edited>commons-codec-1.6</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -931,7 +934,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>google-play-services</last-edited>
+          <last-edited>android-support-v4</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

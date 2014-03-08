@@ -33,6 +33,8 @@ public final class ApeicUtil {
     public static final String EXTRA_CONNECTION_ERROR_MESSAGE =
             "tw.edu.ntu.ee.apeic.EXTRA_CONNECTION_ERROR_MESSAGE";
 
+    public static final int MAX_FILE_SIZE = 1600;
+
     // Constants used to establish the activity update interval
     public static final int MILLISECONDS_PER_SECOND = 1000;
 
@@ -41,7 +43,8 @@ public final class ApeicUtil {
     public static final int DETECTION_INTERVAL_MILLISECONDS =
             MILLISECONDS_PER_SECOND * DETECTION_INTERVAL_SECONDS;
 
-    public static final int LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS = 6*60*60*1000;
+    public static final int LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS = 60*1000;
+//    6*60*60*1000
 
     public static final int WIDGET_UPDATE_INTERVAL_SECONDS =
             MILLISECONDS_PER_SECOND * DETECTION_INTERVAL_SECONDS;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.activityrecognition;
+package tw.edu.ntu.ee.apeic.log;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -23,8 +23,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
@@ -37,66 +35,70 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AppUsageLogUpdateIntentService extends IntentService {
-    private static final String DATE_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ssZ";
-    private static final String LOG_DELIMITER = ";;";
+import tw.edu.ntu.ee.apeic.ApeicPrefsUtil;
+import tw.edu.ntu.ee.apeic.ApeicUtil;
+import tw.edu.ntu.ee.arbor.apeic.R;
 
-    private SharedPreferences mPrefs;
+public class AddLogService extends IntentService {
+    private static final String DATE_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    private ApeicPrefsUtil mPrefsUtil;
 
-    private SimpleDateFormat mDateFormat;
-
-    public AppUsageLogUpdateIntentService() {
+    public AddLogService() {
         // Set the label for the service's background thread
-        super("AppUsageLogUpdateIntentService");
+        super("AddLogService");
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        mPrefs = getApplicationContext().getSharedPreferences(
-                ActivityUtils.SHARED_PREFERENCES, Context.MODE_PRIVATE);
+        mPrefsUtil = ApeicPrefsUtil.getInstance(this);
 
-        if (ActivityRecognitionResult.hasResult(intent)) {
-            // TODO: refactor
-            String timeStamp = "";
-            try {
-                mDateFormat = (SimpleDateFormat) DateFormat.getDateTimeInstance();
-                mDateFormat.applyPattern(DATE_FORMAT_PATTERN);
-                mDateFormat.applyLocalizedPattern(mDateFormat.toLocalizedPattern());
-                timeStamp = mDateFormat.format(new Date());
-            } catch (Exception e) {
-                Log.e(ActivityUtils.APPTAG, getString(R.string.date_format_error));
-            }
+        // datetime
+        String dateTime = getDateTime();
 
-            double latitude = Double.longBitsToDouble(
-                    mPrefs.getLong(ActivityUtils.KEY_PREVIOUS_LATITUDE, -1));
-            double longitude = Double.longBitsToDouble(
-                    mPrefs.getLong(ActivityUtils.KEY_PREVIOUS_LONGITUDE, -1));
-            float accuracy = mPrefs.getFloat(ActivityUtils.KEY_PREVIOUS_LOCATION_ACC, -1);
+        // location: lat, lng, acc
+        double latitude = Double.longBitsToDouble(mPrefsUtil.getLongPref(ApeicPrefsUtil.KEY_LAST_LATITUDE));
+        double longitude = Double.longBitsToDouble(mPrefsUtil.getLongPref(ApeicPrefsUtil.KEY_LAST_LONGITUDE));
+        float locationAcc = mPrefsUtil.getFloatPref(ApeicPrefsUtil.KEY_LAST_LOCATION_ACC);
+        float speed = mPrefsUtil.getFloatPref(ApeicPrefsUtil.KEY_LAST_SPEED);
 
-            ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
-            DetectedActivity mostProbableActivity = result.getMostProbableActivity();
-            int activityType = mostProbableActivity.getType();
-            String activityName = getActivityName(activityType);
-            int confidence = mostProbableActivity.getConfidence();
-            Editor editor = mPrefs.edit();
-            editor.putInt(ActivityUtils.KEY_PREVIOUS_ACTIVITY_TYPE, activityType);
-            editor.commit();
 
-            PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
+        // activity: type, acc
+        ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
+        DetectedActivity mostProbableActivity = result.getMostProbableActivity();
+        int activityType = mostProbableActivity.getType();
+        String activityName = getActivityName(activityType);
+        int confidence = mostProbableActivity.getConfidence();
+        mPrefsUtil.setIntPref(ApeicPrefsUtil.KEY_LAST_ACTIVITY_TYPE, activityType);
+        Log.d(ApeicUtil.TAG, "ActivityRecognitionResult received: " +
+                "Activity[" + activityName + " confidence=" + String.valueOf(confidence) + "]");
 
-            ActivityManager am = (ActivityManager) getSystemService(Activity.ACTIVITY_SERVICE);
-            String packageName = am.getRunningTasks(1).get(0).topActivity.getPackageName();
+        // application
+        ActivityManager am = (ActivityManager) getSystemService(Activity.ACTIVITY_SERVICE);
+        String packageName = am.getRunningTasks(1).get(0).topActivity.getPackageName();
 
-            LogFile.getInstance(getApplicationContext()).log(
-                    timeStamp + LOG_DELIMITER +
-                            getString(R.string.log_location, latitude, longitude, accuracy) + LOG_DELIMITER +
-                            getString(R.string.log_activity, activityName, confidence) + LOG_DELIMITER +
-                            (pm.isScreenOn() ? packageName : "null")
-            );
+        // screen state
+        PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
 
-            if (isMoving(activityType) && isActivityChanged(activityType) && (confidence >= 50)) {
-                sendNotification();
-            }
+        String log = getString(R.string.log, dateTime, latitude, longitude, locationAcc,
+                speed, activityName, confidence, (pm.isScreenOn() ? packageName : "null"));
+        Log.d(ApeicUtil.TAG, log);
+        LogFile.getInstance(getApplicationContext()).write(log);
+
+        if (isMoving(activityType) && isActivityChanged(activityType) && (confidence >= 50)) {
+            // TODO: check if notification is activated
+            sendNotification();
+        }
+    }
+
+    private String getDateTime() {
+        try {
+            SimpleDateFormat format = (SimpleDateFormat) DateFormat.getDateTimeInstance();
+            format.applyPattern(DATE_FORMAT_PATTERN);
+            format.applyLocalizedPattern(format.toLocalizedPattern());
+            return format.format(new Date());
+        } catch (Exception e) {
+            Log.e(ApeicUtil.TAG, getString(R.string.date_format_error));
+            return "";
         }
     }
 
@@ -120,8 +122,7 @@ public class AppUsageLogUpdateIntentService extends IntentService {
     }
 
     private boolean isActivityChanged(int currentType) {
-        int previousType = mPrefs.getInt(ActivityUtils.KEY_PREVIOUS_ACTIVITY_TYPE,
-                DetectedActivity.UNKNOWN);
+        int previousType = mPrefsUtil.getIntPref(ApeicPrefsUtil.KEY_LAST_ACTIVITY_TYPE);
         return (currentType != previousType) ? true : false;
     }
 

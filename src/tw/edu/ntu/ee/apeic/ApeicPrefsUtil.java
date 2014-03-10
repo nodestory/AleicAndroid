@@ -9,24 +9,22 @@ import java.util.UUID;
  * Created by Linzy on 2014/2/20.
  */
 public class ApeicPrefsUtil {
-    public static final String PACKAGE_NAME = "tw.edu.ntu.ee.arbor.apeic";
-
     // Shared preferences name
-    public static final String SHARED_PREFERENCES_NAME = PACKAGE_NAME + ".SHARED_PREFERENCES";
+    public static final String SHARED_PREFERENCES_NAME = ApeicUtil.PACKAGE_NAME + ".SHARED_PREFERENCES";
 
     // Keys in the repository
     // Location related
-    public static final String KEY_LOG_FILE_NUMBER = PACKAGE_NAME + ".LOG_FILE_NUMBER";
-    public static final String KEY_UUID = PACKAGE_NAME + ".KEY_UUID";
-    public static final String KEY_DATE = PACKAGE_NAME + ".KEY_DATE";
-    public static final String KEY_LAST_LATITUDE = PACKAGE_NAME + ".KEY_LAST_LATITUDE";
-    public static final String KEY_LAST_LONGITUDE = PACKAGE_NAME + ".KEY_LAST_LONGITUDE";
-    public static final String KEY_LAST_LOCATION_ACC = PACKAGE_NAME + ".KEY_LAST_LOCATION_ACC";
-    public static final String KEY_LAST_SPEED = PACKAGE_NAME + ".KEY_LAST_SPEED";
+    public static final String KEY_LOG_FILE_NUMBER = ApeicUtil.PACKAGE_NAME + ".LOG_FILE_NUMBER";
+    public static final String KEY_UUID = ApeicUtil.PACKAGE_NAME + ".KEY_UUID";
+    public static final String KEY_DATE = ApeicUtil.PACKAGE_NAME + ".KEY_DATE";
+    public static final String KEY_LAST_LATITUDE = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_LATITUDE";
+    public static final String KEY_LAST_LONGITUDE = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_LONGITUDE";
+    public static final String KEY_LAST_LOCATION_ACC = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_LOCATION_ACC";
+    public static final String KEY_LAST_SPEED = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_SPEED";
     // Activity related
-    public static final String KEY_LAST_ACTIVITY_TYPE = PACKAGE_NAME + ".KEY_LAST_ACTIVITY_TYPE";
-    public static final String KEY_LAST_ACTIVITY_ACC = PACKAGE_NAME + ".KEY_LAST_ACTIVITY_ACC";
-    public static final String KEY_LAST_APP = PACKAGE_NAME + ".KEY_LAST_APP";
+    public static final String KEY_LAST_ACTIVITY_TYPE = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_ACTIVITY_TYPE";
+    public static final String KEY_LAST_ACTIVITY_ACC = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_ACTIVITY_ACC";
+    public static final String KEY_LAST_APP = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_APP";
 
     private static ApeicPrefsUtil sApeicPrefsUtilInstance = null;
     private SharedPreferences mPrefs;

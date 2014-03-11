@@ -242,6 +242,7 @@ public class MainActivity extends Activity {
                 PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
     }
 
+
     private void updateLogs() {
         try {
             mStatusAdapter.clear();

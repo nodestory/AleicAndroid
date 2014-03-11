@@ -3,6 +3,8 @@ package tw.edu.ntu.ee.apeic;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -13,6 +15,7 @@ public class ApeicPrefsUtil {
     public static final String SHARED_PREFERENCES_NAME = ApeicUtil.PACKAGE_NAME + ".SHARED_PREFERENCES";
 
     // Keys in the repository
+    public static final String INSTALLED_APPS = ApeicUtil.PACKAGE_NAME + ".INSTALLED_APPS";
     // Location related
     public static final String KEY_LOG_FILE_NUMBER = ApeicUtil.PACKAGE_NAME + ".LOG_FILE_NUMBER";
     public static final String KEY_UUID = ApeicUtil.PACKAGE_NAME + ".KEY_UUID";
@@ -38,6 +41,10 @@ public class ApeicPrefsUtil {
             sApeicPrefsUtilInstance = new ApeicPrefsUtil(context);
         }
         return sApeicPrefsUtilInstance;
+    }
+
+    public SharedPreferences getPrefs() {
+        return mPrefs;
     }
 
     public String getStringPref(String keyName) {
@@ -77,6 +84,16 @@ public class ApeicPrefsUtil {
     public void setFloatPref(String keyName, Float newValue) {
         final SharedPreferences.Editor editor = mPrefs.edit();
         editor.putFloat(keyName, newValue);
+        editor.commit();
+    }
+
+    public Set<String> getStringSetPref(String keyName) {
+        return mPrefs.getStringSet(keyName, new HashSet<String>());
+    }
+
+    public void setStringSetPref(String keyName, Set<String> newValue) {
+        final SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putStringSet(keyName, newValue);
         editor.commit();
     }
 

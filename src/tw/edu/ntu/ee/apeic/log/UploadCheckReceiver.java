@@ -106,8 +106,8 @@ public class UploadCheckReceiver extends BroadcastReceiver {
             }
 
             ApeicPrefsUtil prefsUtil = ApeicPrefsUtil.getInstance(this);
-            if (prefsUtil.getPrefs().contains(ApeicPrefsUtil.INSTALLED_APPS)) {
-                Set<String> lastInstalledApps = prefsUtil.getStringSetPref(ApeicPrefsUtil.INSTALLED_APPS);
+            if (prefsUtil.getPrefs().contains(ApeicPrefsUtil.KEY_INSTALLED_APPS)) {
+                Set<String> lastInstalledApps = prefsUtil.getStringSetPref(ApeicPrefsUtil.KEY_INSTALLED_APPS);
                 Set<String> newlyInstalledApps = getNewlyInstalledApps(currInstalledApps, lastInstalledApps);
                 Log.d(ApeicUtil.TAG, "Installed Apps: ");
                 for (String app : newlyInstalledApps) {
@@ -123,7 +123,7 @@ public class UploadCheckReceiver extends BroadcastReceiver {
                 for (String app : currInstalledApps) {
                     Log.d(ApeicUtil.TAG, app);
                 }
-                ApeicPrefsUtil.getInstance(this).setStringSetPref(ApeicPrefsUtil.INSTALLED_APPS, currInstalledApps);
+                ApeicPrefsUtil.getInstance(this).setStringSetPref(ApeicPrefsUtil.KEY_INSTALLED_APPS, currInstalledApps);
             }
         }
 

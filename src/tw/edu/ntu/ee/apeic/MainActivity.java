@@ -50,6 +50,8 @@ import tw.edu.ntu.ee.apeic.log.UploadCheckReceiver;
 import tw.edu.ntu.ee.arbor.apeic.R;
 
 public class MainActivity extends Activity {
+    private ApeicPrefsUtil mPrefsUtil;
+
     // UI elements
     private Switch mSwitch;
     private ListView mStatusListView;
@@ -69,18 +71,27 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mPrefsUtil = ApeicPrefsUtil.getInstance(this);
+
         setContentView(R.layout.activity_main);
         mSwitch = (Switch) findViewById(R.id.log_service_switch);
         mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
+                    mPrefsUtil.setBooleanPref(ApeicPrefsUtil.KEY_IS_LOGGING, true);
                     startLogging();
                 } else {
+                    mPrefsUtil.setBooleanPref(ApeicPrefsUtil.KEY_IS_LOGGING, false);
                     stopLogging();
                 }
             }
         });
+        if (mPrefsUtil.getPrefs().contains(ApeicPrefsUtil.KEY_IS_LOGGING)) {
+            mSwitch.setChecked(mPrefsUtil.getBooleanPref(ApeicPrefsUtil.KEY_IS_LOGGING));
+        } else {
+            mSwitch.setChecked(false);
+        }
         mStatusListView = (ListView) findViewById(R.id.log_listview);
         mStatusAdapter = new ArrayAdapter<Spanned>(this, R.layout.item_layout, R.id.log_text);
         mStatusListView.setAdapter(mStatusAdapter);

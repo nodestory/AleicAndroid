@@ -99,8 +99,13 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="29" selection-start="3725" selection-end="3725" vertical-scroll-proportion="1.6334519" vertical-offset="0" max-vertical-offset="3910">
-              <folding />
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4097">
+              <folding>
+                <element signature="e#5231#5264#0" expanded="true" />
+                <element signature="e#5343#5405#0" expanded="true" />
+                <element signature="e#6259#6302#0" expanded="true" />
+                <element signature="e#6371#6392#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,7 +113,16 @@
       <file leaf-file-name="ApeicUtil.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="45" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+            <state line="26" column="30" selection-start="1280" selection-end="1280" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="697">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApeicPrefsUtil.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicPrefsUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="91" column="47" selection-start="3466" selection-end="3466" vertical-scroll-proportion="0.0" vertical-offset="1211" max-vertical-offset="1972">
               <folding />
             </state>
           </provider>
@@ -117,7 +131,7 @@
       <file leaf-file-name="UploadCheckReceiver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/UploadCheckReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="13" selection-start="5198" selection-end="5198" vertical-scroll-proportion="0.0" vertical-offset="2142" max-vertical-offset="2533">
+            <state line="126" column="13" selection-start="5210" selection-end="5210" vertical-scroll-proportion="0.0" vertical-offset="2142" max-vertical-offset="2533">
               <folding />
             </state>
           </provider>
@@ -159,10 +173,10 @@
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogService.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/LogFile.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/BootCompletedReceiver.java" />
-        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicPrefsUtil.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/UploadCheckReceiver.java" />
-        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicUtil.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicPrefsUtil.java" />
+        <option value="$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -557,6 +571,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7843803" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32597622" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61120546" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -576,7 +591,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32597622" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32427844" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -630,7 +644,12 @@
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="102" column="29" selection-start="3725" selection-end="3725" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4811">
-          <folding />
+          <folding>
+            <element signature="e#5231#5264#0" expanded="true" />
+            <element signature="e#5343#5405#0" expanded="true" />
+            <element signature="e#6259#6302#0" expanded="true" />
+            <element signature="e#6371#6392#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -651,7 +670,12 @@
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="227" column="49" selection-start="8198" selection-end="8198" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4794">
-          <folding />
+          <folding>
+            <element signature="e#5231#5264#0" expanded="true" />
+            <element signature="e#5343#5405#0" expanded="true" />
+            <element signature="e#6259#6302#0" expanded="true" />
+            <element signature="e#6371#6392#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -686,7 +710,12 @@
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="0" selection-start="1679" selection-end="1679" vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="2771">
-          <folding />
+          <folding>
+            <element signature="e#5231#5264#0" expanded="true" />
+            <element signature="e#5343#5405#0" expanded="true" />
+            <element signature="e#6259#6302#0" expanded="true" />
+            <element signature="e#6371#6392#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -706,7 +735,12 @@
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="174" column="13" selection-start="6055" selection-end="6055" vertical-scroll-proportion="0.0" vertical-offset="2805" max-vertical-offset="2805">
-          <folding />
+          <folding>
+            <element signature="e#5231#5264#0" expanded="true" />
+            <element signature="e#5343#5405#0" expanded="true" />
+            <element signature="e#6259#6302#0" expanded="true" />
+            <element signature="e#6371#6392#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -734,10 +768,7 @@
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicPrefsUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="4" selection-start="1595" selection-end="1824" vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="1649">
-          <folding>
-            <element signature="e#2040#2041#0" expanded="true" />
-            <element signature="e#2069#2070#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -853,16 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicPrefsUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="22" selection-start="2064" selection-end="2064" vertical-scroll-proportion="1.2402135" vertical-offset="0" max-vertical-offset="1819">
-          <folding>
-            <element signature="e#2040#2041#0" expanded="true" />
-            <element signature="e#2069#2070#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/widget/UpdateWidgetService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="22" selection-start="3451" selection-end="3451" vertical-scroll-proportion="1.1797153" vertical-offset="663" max-vertical-offset="1649">
@@ -872,22 +893,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/log/UploadCheckReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="13" selection-start="5198" selection-end="5198" vertical-scroll-proportion="0.0" vertical-offset="1206" max-vertical-offset="2125">
+        <state line="126" column="13" selection-start="5210" selection-end="5210" vertical-scroll-proportion="0.0" vertical-offset="2142" max-vertical-offset="2533">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="45" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+        <state line="26" column="30" selection-start="1280" selection-end="1280" vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/ApeicPrefsUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="47" selection-start="3466" selection-end="3466" vertical-scroll-proportion="0.0" vertical-offset="1211" max-vertical-offset="1972">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tw/edu/ntu/ee/apeic/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="29" selection-start="3725" selection-end="3725" vertical-scroll-proportion="1.6334519" vertical-offset="0" max-vertical-offset="3910">
-          <folding />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4097">
+          <folding>
+            <element signature="e#5231#5264#0" expanded="true" />
+            <element signature="e#5343#5405#0" expanded="true" />
+            <element signature="e#6259#6302#0" expanded="true" />
+            <element signature="e#6371#6392#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

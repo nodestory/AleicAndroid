@@ -15,7 +15,8 @@ public class ApeicPrefsUtil {
     public static final String SHARED_PREFERENCES_NAME = ApeicUtil.PACKAGE_NAME + ".SHARED_PREFERENCES";
 
     // Keys in the repository
-    public static final String INSTALLED_APPS = ApeicUtil.PACKAGE_NAME + ".INSTALLED_APPS";
+    public static final String KEY_IS_LOGGING = ApeicUtil.PACKAGE_NAME + ".IS_LOGGING";
+    public static final String KEY_INSTALLED_APPS = ApeicUtil.PACKAGE_NAME + ".KEY_INSTALLED_APPS";
     // Location related
     public static final String KEY_LOG_FILE_NUMBER = ApeicUtil.PACKAGE_NAME + ".LOG_FILE_NUMBER";
     public static final String KEY_UUID = ApeicUtil.PACKAGE_NAME + ".KEY_UUID";
@@ -84,6 +85,16 @@ public class ApeicPrefsUtil {
     public void setFloatPref(String keyName, Float newValue) {
         final SharedPreferences.Editor editor = mPrefs.edit();
         editor.putFloat(keyName, newValue);
+        editor.commit();
+    }
+
+    public boolean getBooleanPref(String keyName) {
+        return mPrefs.getBoolean(keyName, false);
+    }
+
+    public void setBooleanPref(String keyName, boolean newValue) {
+        final SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putBoolean(keyName, newValue);
         editor.commit();
     }
 

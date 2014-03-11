@@ -34,7 +34,8 @@
     <string name="log_message">Log: timestamp: %1$s type %2$s confidence %3$d</string>
     <string name="log_location">lat: %1$f lng: %2$f acc: %3$f</string>
     <string name="log_activity">type: %1$s confidence: %2$d</string>
-    <string name="log">\"%1$s\", \"%2$f\", \"%3$f\", \"%4$f\", \"%5$f\", \"%6$s\", \"%7$d\", \"%8$s\"</string>
+    <string name="log">\"%1$s\", \"%2$f\", \"%3$f\", \"%4$f\", \"%5$f\", \"%6$s\", \"%7$d\",
+        \"%8$f\", \"%9$s\", \"%10$s\", \"%11$d\", \"%12$f\", \"%13$s\"</string>
     <string name="menu_item_clearlog">Clear Log</string>
     <string name="menu_item_showlog">Show Log</string>
     <string name="logs_deleted">Log file(s) deleted</string>

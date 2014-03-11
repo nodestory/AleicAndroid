@@ -35,6 +35,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -53,6 +54,7 @@ public class MainActivity extends Activity {
     private ApeicPrefsUtil mPrefsUtil;
 
     // UI elements
+    private TextView mTextView;
     private Switch mSwitch;
     private ListView mStatusListView;
     private ArrayAdapter<Spanned> mStatusAdapter;
@@ -74,6 +76,8 @@ public class MainActivity extends Activity {
         mPrefsUtil = ApeicPrefsUtil.getInstance(this);
 
         setContentView(R.layout.activity_main);
+        mTextView = (TextView) findViewById(R.id.textView_uuid);
+        mTextView.setText("UUID: " + mPrefsUtil.getUUID());
         mSwitch = (Switch) findViewById(R.id.log_service_switch);
         mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

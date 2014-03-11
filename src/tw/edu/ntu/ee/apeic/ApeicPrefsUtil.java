@@ -28,6 +28,10 @@ public class ApeicPrefsUtil {
     // Activity related
     public static final String KEY_LAST_ACTIVITY_TYPE = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_ACTIVITY_TYPE";
     public static final String KEY_LAST_ACTIVITY_ACC = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_ACTIVITY_ACC";
+    // Illumination related
+    public static final String KEY_ILLUMINATION = ApeicUtil.PACKAGE_NAME + ".KEY_ILLUMINATION";
+    public static final String KEY_MAX_ILLUMINATION = ApeicUtil.PACKAGE_NAME + ".KEY_MAX_ILLUMINATION";
+    // Application related
     public static final String KEY_LAST_APP = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_APP";
 
     private static ApeicPrefsUtil sApeicPrefsUtilInstance = null;

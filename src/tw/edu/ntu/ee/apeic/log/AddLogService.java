@@ -23,6 +23,10 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.wifi.WifiManager;
+import android.os.BatteryManager;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
@@ -61,16 +65,33 @@ public class AddLogService extends IntentService {
         float locationAcc = mPrefsUtil.getFloatPref(ApeicPrefsUtil.KEY_LAST_LOCATION_ACC);
         float speed = mPrefsUtil.getFloatPref(ApeicPrefsUtil.KEY_LAST_SPEED);
 
-
         // activity: type, acc
         ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
         DetectedActivity mostProbableActivity = result.getMostProbableActivity();
         int activityType = mostProbableActivity.getType();
         String activityName = getActivityName(activityType);
         int confidence = mostProbableActivity.getConfidence();
-        mPrefsUtil.setIntPref(ApeicPrefsUtil.KEY_LAST_ACTIVITY_TYPE, activityType);
         Log.d(ApeicUtil.TAG, "ActivityRecognitionResult received: " +
                 "Activity[" + activityName + " confidence=" + String.valueOf(confidence) + "]");
+
+        // illumination
+        float illumination = mPrefsUtil.getFloatPref(ApeicPrefsUtil.KEY_ILLUMINATION);
+
+        // network status
+        ConnectivityManager connManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        String mobileConnection = (connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)
+                .isConnectedOrConnecting()) ? "1" : "0";
+        String wifiConnection = (connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+                .isConnectedOrConnecting()) ? "1" : "0";
+        WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        int wifiAPNum = wifiManager.getScanResults().size();
+
+        // battery
+        IntentFilter filter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent batteryStatus = registerReceiver(null, filter);
+        int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+        float batteryPower = level / (float) scale;
 
         // application
         ActivityManager am = (ActivityManager) getSystemService(Activity.ACTIVITY_SERVICE);
@@ -80,14 +101,16 @@ public class AddLogService extends IntentService {
         PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
 
         String log = getString(R.string.log, dateTime, latitude, longitude, locationAcc,
-                speed, activityName, confidence, (pm.isScreenOn() ? packageName : "null"));
+                speed, activityName, confidence, illumination,
+                mobileConnection, wifiConnection, wifiAPNum,
+                batteryPower, (pm.isScreenOn() ? packageName : "null"));
         Log.d(ApeicUtil.TAG, log);
         LogFile.getInstance(getApplicationContext()).write(log);
 
         if (isMoving(activityType) && isActivityChanged(activityType) && (confidence >= 50)) {
-            // TODO: check if notification is activated
             sendNotification();
         }
+        mPrefsUtil.setIntPref(ApeicPrefsUtil.KEY_LAST_ACTIVITY_TYPE, activityType);
     }
 
     private String getDateTime() {

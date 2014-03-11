@@ -20,12 +20,14 @@ public final class ApeicUtil {
     public static final String EXTRA_CONNECTION_ERROR_CODE = PACKAGE_NAME + ".EXTRA_CONNECTION_ERROR_CODE";
     public static final String EXTRA_CONNECTION_ERROR_MESSAGE = PACKAGE_NAME + ".EXTRA_CONNECTION_ERROR_MESSAGE";
 
-    public static final int MAX_FILE_SIZE = 10000;
+//    public static final int MAX_FILE_SIZE = 10000;
+public static final int MAX_FILE_SIZE = 1000;
 
     // Constants used to establish the interval of each update
     public static final int MILLISECONDS_PER_SECOND = 1000;
     public static final int DETECTION_INTERVAL_MILLISECONDS = 10*MILLISECONDS_PER_SECOND;
-    public static final int LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS = 6*60*60*MILLISECONDS_PER_SECOND;
+//    public static final int LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS = 6*60*60*MILLISECONDS_PER_SECOND;
+    public static final int LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS = 60*MILLISECONDS_PER_SECOND;
     public static final int WIDGET_UPDATE_INTERVAL_MILLISECONDS = 10*MILLISECONDS_PER_SECOND;
 
     // Constants for constructing the log file name

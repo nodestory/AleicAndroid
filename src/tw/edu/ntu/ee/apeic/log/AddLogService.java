@@ -71,7 +71,7 @@ public class AddLogService extends IntentService {
         int activityType = mostProbableActivity.getType();
         String activityName = getActivityName(activityType);
         int confidence = mostProbableActivity.getConfidence();
-        Log.d(ApeicUtil.TAG, "ActivityRecognitionResult received: " +
+        Log.v(ApeicUtil.TAG, "ActivityRecognitionResult received: " +
                 "Activity[" + activityName + " confidence=" + String.valueOf(confidence) + "]");
 
         // illumination

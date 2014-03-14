@@ -107,7 +107,7 @@ public class LogService extends Service implements SensorEventListener {
             float illumination =
                     sensorEvent.values[0]/prefsUtil.getFloatPref(ApeicPrefsUtil.KEY_MAX_ILLUMINATION);
             prefsUtil.setFloatPref(ApeicPrefsUtil.KEY_ILLUMINATION, illumination);
-            Log.d(ApeicUtil.TAG, "onSensorChanged: " + illumination);
+            Log.v(ApeicUtil.TAG, "LogService onSensorChanged: " + illumination);
         }
     }
 

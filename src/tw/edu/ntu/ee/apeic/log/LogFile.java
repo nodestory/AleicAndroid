@@ -60,9 +60,21 @@ public class LogFile {
      */
     private LogFile(Context context) {
         mContext = context;
-        mPendingLogsFileFolder = createLogFolder(ApeicUtil.PENDING_LOG_FILES_FOLDER);
         mLogFileFolder = createLogFolder(ApeicUtil.LOG_FILE_FOLDER);
+        mPendingLogsFileFolder = createLogFolder(ApeicUtil.PENDING_LOG_FILES_FOLDER);
+        File[] existingLogFiles = mLogFileFolder.listFiles();
+        if (existingLogFiles.length > 1) {
+            for (File file: mLogFileFolder.listFiles()) {
+                if (!file.isDirectory()) {
+                    mLogFile = file;
+                    break;
+                }
+            }
+        }
         mLogFile = createLogFile();
+
+        String dateString = new SimpleDateFormat("yyyy_MM_dd", Locale.TAIWAN).format(new Date());
+        ApeicPrefsUtil.getInstance(mContext).setStringPref(ApeicPrefsUtil.KEY_DATE, dateString);
     }
 
     /**
@@ -79,15 +91,16 @@ public class LogFile {
     }
 
     private File createLogFile() {
-        File newFile = new File(mLogFileFolder, createFileName());
-        return newFile;
+        File logFile = new File(mLogFileFolder, createFileName());
+        return logFile;
     }
 
     private String createFileName() {
         String dateString = new SimpleDateFormat("yyyy_MM_dd", Locale.TAIWAN).format(new Date());
         String lastDateString = ApeicPrefsUtil.getInstance(mContext).getStringPref(ApeicPrefsUtil.KEY_DATE);
         int fileNumber = (dateString.equals(lastDateString)) ?
-                1 : ApeicPrefsUtil.getInstance(mContext).getIntPref(ApeicPrefsUtil.KEY_LOG_FILE_NUMBER) + 1;
+                ApeicPrefsUtil.getInstance(mContext).getIntPref(ApeicPrefsUtil.KEY_LOG_FILE_NUMBER) + 1 : 1;
+        ApeicPrefsUtil.getInstance(mContext).setStringPref(ApeicPrefsUtil.KEY_DATE, dateString);
         ApeicPrefsUtil.getInstance(mContext).setIntPref(ApeicPrefsUtil.KEY_LOG_FILE_NUMBER, fileNumber);
 
         String fileName = mContext.getString(
@@ -113,9 +126,11 @@ public class LogFile {
         boolean removed = true;
         if (mLogFileFolder.exists()) {
             for (File file : mLogFileFolder.listFiles()) {
-                if (!file.delete()) {
-                    Log.e(ApeicUtil.TAG, file.getAbsolutePath() + " : " + file.getName());
-                    removed = false;
+                if (!file.isDirectory()) {
+                    if (!file.delete()) {
+                        Log.e(ApeicUtil.TAG, file.getAbsolutePath() + " : " + file.getName());
+                        removed = false;
+                    }
                 }
             }
         }
@@ -147,8 +162,14 @@ public class LogFile {
             }
 
             if (shouldCreateNewFile()) {
+                if (!mPendingLogsFileFolder.exists()) {
+                    mPendingLogsFileFolder = createLogFolder(ApeicUtil.PENDING_LOG_FILES_FOLDER);
+                }
+
                 for (File file : mLogFileFolder.listFiles()) {
-                    file.renameTo(new File(mPendingLogsFileFolder, file.getName()));
+                    if (!file.isDirectory()) {
+                        file.renameTo(new File(mPendingLogsFileFolder, file.getName()));
+                    }
                 }
                 mLogFile = createLogFile();
             }
@@ -159,13 +180,6 @@ public class LogFile {
     }
 
     private boolean shouldCreateNewFile() {
-        String dateString = new SimpleDateFormat("yyyy_MM_dd", Locale.TAIWAN).format(new Date());
-        String lastDateString = ApeicPrefsUtil.getInstance(mContext).getStringPref(ApeicPrefsUtil.KEY_DATE);
-        if (lastDateString == "NULL") {
-            ApeicPrefsUtil.getInstance(mContext).setStringPref(ApeicPrefsUtil.KEY_DATE, dateString);
-            return true;
-        }
-//        return !dateString.equals(lastDateString);
         return mLogFile.length() > ApeicUtil.MAX_FILE_SIZE;
     }
 

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
 import android.util.Log;
 
 import org.apache.http.HttpEntity;
@@ -35,12 +36,11 @@ public class UploadCheckReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.v(ApeicUtil.TAG, "UploadCheckReceiver onReceive.");
-
+        Log.v(ApeicUtil.UPLOAD_FILE_TAG, "UploadCheckReceiver onReceive");
         File logFileFolder = new File(context.getFilesDir(),
                 ApeicUtil.PENDING_LOG_FILES_FOLDER);
         if (logFileFolder.exists()) {
-            Log.d(ApeicUtil.TAG, "Num of files to be uploaded: " +
+            Log.d(ApeicUtil.UPLOAD_FILE_TAG, "Num of files to be uploaded: " +
                     String.valueOf(logFileFolder.listFiles().length));
             for (File file : logFileFolder.listFiles()) {
                 Intent uploadIntent = new Intent(context, LogUploadIntentService.class);
@@ -58,9 +58,16 @@ public class UploadCheckReceiver extends BroadcastReceiver {
 
         @Override
         protected void onHandleIntent(Intent intent) {
+            Log.v(ApeicUtil.UPLOAD_FILE_TAG, "LogUploadIntentService onHandleIntent");
             String path = intent.getStringExtra("path");
-            Log.v(ApeicUtil.TAG, "LogUploadIntentService onHandleIntent: start uploading " + path);
-            upload(new File(path));
+            ConnectivityManager connManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+            if (connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnected() ||
+                    connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected()) {
+                Log.d(ApeicUtil.UPLOAD_FILE_TAG, "start uploading " + path);
+                upload(new File(path));
+            } else {
+                Log.d(ApeicUtil.UPLOAD_FILE_TAG, "postpone uploading ");
+            }
         }
 
         private void upload(File file) {
@@ -75,12 +82,13 @@ public class UploadCheckReceiver extends BroadcastReceiver {
             try {
                 HttpResponse response = client.execute(post);
                 int statusCode = response.getStatusLine().getStatusCode();
-                Log.d(ApeicUtil.TAG, file.getName() + " uploaded: " + String.valueOf(statusCode));
+                Log.d(ApeicUtil.UPLOAD_FILE_TAG, "Status code of uploading " + file.getName() + ": "
+                        + String.valueOf(statusCode));
                 if (statusCode == 200) {
                     file.delete();
                 }
             } catch (IOException e) {
-                Log.e(ApeicUtil.TAG, e.getMessage());
+                Log.e(ApeicUtil.UPLOAD_FILE_TAG, e.getMessage());
             }
         }
 
@@ -97,7 +105,7 @@ public class UploadCheckReceiver extends BroadcastReceiver {
 
         @Override
         protected void onHandleIntent(Intent intent) {
-            Log.v(ApeicUtil.TAG, "UploadInstalledAppsIntentService onHandleIntent");
+            Log.v(ApeicUtil.UPLOAD_FILE_TAG, "UploadInstalledAppsIntentService onHandleIntent");
 
             PackageManager pm = getPackageManager();
             Set<String> currInstalledApps = new HashSet<String>();
@@ -109,19 +117,19 @@ public class UploadCheckReceiver extends BroadcastReceiver {
             if (prefsUtil.getPrefs().contains(ApeicPrefsUtil.KEY_INSTALLED_APPS)) {
                 Set<String> lastInstalledApps = prefsUtil.getStringSetPref(ApeicPrefsUtil.KEY_INSTALLED_APPS);
                 Set<String> newlyInstalledApps = getNewlyInstalledApps(currInstalledApps, lastInstalledApps);
-                Log.d(ApeicUtil.TAG, "Installed Apps: ");
+                Log.d(ApeicUtil.UPLOAD_FILE_TAG, "Installed Apps: ");
                 for (String app : newlyInstalledApps) {
-                    Log.d(ApeicUtil.TAG, app);
+                    Log.d(ApeicUtil.UPLOAD_FILE_TAG, app);
                 }
-                Log.d(ApeicUtil.TAG, "Removed Apps: ");
+                Log.d(ApeicUtil.UPLOAD_FILE_TAG, "Removed Apps: ");
                 Set<String> removedApps = getRemovedApps(currInstalledApps, lastInstalledApps);
                 for (String app : removedApps) {
-                    Log.d(ApeicUtil.TAG, app);
+                    Log.d(ApeicUtil.UPLOAD_FILE_TAG, app);
                 }
             } else {
-                Log.d(ApeicUtil.TAG, "Current installed Apps: ");
+                Log.d(ApeicUtil.UPLOAD_FILE_TAG, "Current installed Apps: ");
                 for (String app : currInstalledApps) {
-                    Log.d(ApeicUtil.TAG, app);
+                    Log.d(ApeicUtil.UPLOAD_FILE_TAG, app);
                 }
                 ApeicPrefsUtil.getInstance(this).setStringSetPref(ApeicPrefsUtil.KEY_INSTALLED_APPS, currInstalledApps);
             }

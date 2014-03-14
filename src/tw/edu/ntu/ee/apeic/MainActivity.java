@@ -253,7 +253,9 @@ public class MainActivity extends Activity {
     private void startUploadRoutine() {
         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, UploadCheckReceiver.class);
-        am.setRepeating(AlarmManager.RTC, 0, ApeicUtil.LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS,
+        am.setRepeating(AlarmManager.RTC,
+                ApeicUtil.LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS,
+                ApeicUtil.LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS,
                 PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
     }
 

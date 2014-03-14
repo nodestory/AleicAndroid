@@ -71,7 +71,7 @@ public class AddLogService extends IntentService {
         int activityType = mostProbableActivity.getType();
         String activityName = getActivityName(activityType);
         int confidence = mostProbableActivity.getConfidence();
-        Log.v(ApeicUtil.TAG, "ActivityRecognitionResult received: " +
+        Log.v(ApeicUtil.TAG_DATA, "ActivityRecognitionResult received: " +
                 "Activity[" + activityName + " confidence=" + String.valueOf(confidence) + "]");
 
         // illumination
@@ -104,7 +104,7 @@ public class AddLogService extends IntentService {
                 speed, activityName, confidence, illumination,
                 mobileConnection, wifiConnection, wifiAPNum,
                 batteryPower, (pm.isScreenOn() ? packageName : "null"));
-        Log.d(ApeicUtil.TAG, log);
+        Log.d(ApeicUtil.TAG_DATA, log);
         LogFile.getInstance(getApplicationContext()).write(log);
 
         if (isMoving(activityType) && isActivityChanged(activityType) && (confidence >= 50)) {
@@ -120,7 +120,7 @@ public class AddLogService extends IntentService {
             format.applyLocalizedPattern(format.toLocalizedPattern());
             return format.format(new Date());
         } catch (Exception e) {
-            Log.e(ApeicUtil.TAG, getString(R.string.date_format_error));
+            Log.e(ApeicUtil.TAG_DATA, getString(R.string.date_format_error));
             return "";
         }
     }

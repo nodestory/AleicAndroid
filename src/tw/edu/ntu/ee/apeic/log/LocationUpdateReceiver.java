@@ -28,7 +28,7 @@ public class LocationUpdateReceiver extends BroadcastReceiver {
     }
 
     private void updateLocation(Location loc) {
-        Log.v(ApeicUtil.TAG, "Location update received: " + loc.toString());
+        Log.v(ApeicUtil.TAG_DATA, "Location update received: " + loc.toString());
         mPrefsUtil.setLongPref(ApeicPrefsUtil.KEY_LAST_LATITUDE, Double.doubleToRawLongBits(loc.getLatitude()));
         mPrefsUtil.setLongPref(ApeicPrefsUtil.KEY_LAST_LONGITUDE, Double.doubleToRawLongBits(loc.getLongitude()));
         mPrefsUtil.setFloatPref(ApeicPrefsUtil.KEY_LAST_SPEED, loc.getSpeed());

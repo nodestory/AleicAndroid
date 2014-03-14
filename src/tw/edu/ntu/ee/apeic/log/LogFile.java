@@ -128,7 +128,7 @@ public class LogFile {
             for (File file : mLogFileFolder.listFiles()) {
                 if (!file.isDirectory()) {
                     if (!file.delete()) {
-                        Log.e(ApeicUtil.TAG, file.getAbsolutePath() + " : " + file.getName());
+                        Log.e(ApeicUtil.TAG_FILE, file.getAbsolutePath() + " : " + file.getName());
                         removed = false;
                     }
                 }
@@ -137,9 +137,9 @@ public class LogFile {
 
         if (mPendingLogsFileFolder.exists()) {
             for (File file : mPendingLogsFileFolder.listFiles()) {
-                Log.d(ApeicUtil.TAG, file.getName());
+                Log.d(ApeicUtil.TAG_FILE, file.getName());
                 if (!file.delete()) {
-                    Log.e(ApeicUtil.TAG, file.getAbsolutePath() + " : " + file.getName());
+                    Log.e(ApeicUtil.TAG_FILE, file.getAbsolutePath() + " : " + file.getName());
                     removed = false;
                 }
             }
@@ -148,8 +148,8 @@ public class LogFile {
     }
 
     public void write(String message) {
-        Log.d(ApeicUtil.TAG, mLogFile.getAbsolutePath());
-        Log.d(ApeicUtil.TAG, String.valueOf(mLogFile.length()));
+        Log.d(ApeicUtil.TAG_FILE, "Size of " + mLogFile.getAbsolutePath() + ": " +
+                String.valueOf(mLogFile.length()));
         initLogWriter();
         mLogWriter.println(message);
         mLogWriter.flush();

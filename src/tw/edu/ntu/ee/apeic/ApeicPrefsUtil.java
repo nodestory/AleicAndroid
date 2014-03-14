@@ -2,24 +2,27 @@ package tw.edu.ntu.ee.apeic;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.provider.Settings;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 /**
  * Created by Linzy on 2014/2/20.
  */
 public class ApeicPrefsUtil {
+
     // Shared preferences name
     public static final String SHARED_PREFERENCES_NAME = ApeicUtil.PACKAGE_NAME + ".SHARED_PREFERENCES";
 
     // Keys in the repository
     public static final String KEY_IS_LOGGING = ApeicUtil.PACKAGE_NAME + ".IS_LOGGING";
     public static final String KEY_INSTALLED_APPS = ApeicUtil.PACKAGE_NAME + ".KEY_INSTALLED_APPS";
+    public static final String KEY_REGISTERING_APPS = ApeicUtil.PACKAGE_NAME + ".KEY_REGISTERING_APPS";
+    public static final String KEY_UNREGISTERING_APPS = ApeicUtil.PACKAGE_NAME + ".KEY_UNREGISTERING_APPS";
     // Location related
     public static final String KEY_LOG_FILE_NUMBER = ApeicUtil.PACKAGE_NAME + ".LOG_FILE_NUMBER";
-    public static final String KEY_UUID = ApeicUtil.PACKAGE_NAME + ".KEY_UUID";
+    public static final String KEY_ANDROID_ID = ApeicUtil.PACKAGE_NAME + ".KEY_ANDROID_ID";
     public static final String KEY_DATE = ApeicUtil.PACKAGE_NAME + ".KEY_DATE";
     public static final String KEY_LAST_LATITUDE = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_LATITUDE";
     public static final String KEY_LAST_LONGITUDE = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_LONGITUDE";
@@ -35,9 +38,11 @@ public class ApeicPrefsUtil {
     public static final String KEY_LAST_APP = ApeicUtil.PACKAGE_NAME + ".KEY_LAST_APP";
 
     private static ApeicPrefsUtil sApeicPrefsUtilInstance = null;
+    private Context mContext;
     private SharedPreferences mPrefs;
 
     private ApeicPrefsUtil(Context context) {
+        mContext = context;
         mPrefs = context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 
@@ -112,11 +117,11 @@ public class ApeicPrefsUtil {
         editor.commit();
     }
 
-    public String getUUID() {
-        if (!mPrefs.contains(KEY_UUID)) {
-            String uuid = UUID.randomUUID().toString();
-            setStringPref(KEY_UUID, uuid);
+    public String getAndroidID() {
+        if (!mPrefs.contains(KEY_ANDROID_ID)) {
+            String id = Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID);
+            setStringPref(KEY_ANDROID_ID, id);
         }
-        return getStringPref(KEY_UUID);
+        return getStringPref(KEY_ANDROID_ID);
     }
 }

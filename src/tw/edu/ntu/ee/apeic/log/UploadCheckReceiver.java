@@ -12,6 +12,7 @@ import android.util.Log;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -22,7 +23,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 import tw.edu.ntu.ee.apeic.ApeicPrefsUtil;
 import tw.edu.ntu.ee.apeic.ApeicUtil;
@@ -33,14 +33,24 @@ import tw.edu.ntu.ee.apeic.ApeicUtil;
 public class UploadCheckReceiver extends BroadcastReceiver {
     private static final String API_PREFIX = "http://140.112.170.196:8000";
     private static final String SUFFIX_UPLOAD = "upload_log";
+    private static final String SUFFIX_REGISTER = "register_app";
+    private static final String SUFFIX_UNREGISTER = "unregister_app";
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.v(ApeicUtil.TAG_UPLOAD_FILE, "UploadCheckReceiver onReceive");
+        Log.v(ApeicUtil.TAG_HTTP, "UploadCheckReceiver onReceive");
+
+        ConnectivityManager connManager = (ConnectivityManager)
+                context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (!connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnected() &&
+                !connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected()) {
+            return;
+        }
+
         File logFileFolder = new File(context.getFilesDir(),
                 ApeicUtil.PENDING_LOG_FILES_FOLDER);
         if (logFileFolder.exists()) {
-            Log.d(ApeicUtil.TAG_UPLOAD_FILE, "Num of files to be uploaded: " +
+            Log.d(ApeicUtil.TAG_HTTP, "Num of files to be uploaded: " +
                     String.valueOf(logFileFolder.listFiles().length));
             for (File file : logFileFolder.listFiles()) {
                 Intent uploadIntent = new Intent(context, LogUploadIntentService.class);
@@ -48,6 +58,9 @@ public class UploadCheckReceiver extends BroadcastReceiver {
                 context.startService(uploadIntent);
             }
         }
+
+        Intent updateIntent = new Intent(context, UpdateInstalledAppsIntentService.class);
+        context.startService(updateIntent);
     }
 
     public static class LogUploadIntentService extends IntentService {
@@ -58,16 +71,9 @@ public class UploadCheckReceiver extends BroadcastReceiver {
 
         @Override
         protected void onHandleIntent(Intent intent) {
-            Log.v(ApeicUtil.TAG_UPLOAD_FILE, "LogUploadIntentService onHandleIntent");
+            Log.v(ApeicUtil.TAG_HTTP, "LogUploadIntentService onHandleIntent");
             String path = intent.getStringExtra("path");
-            ConnectivityManager connManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-            if (connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnected() ||
-                    connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected()) {
-                Log.d(ApeicUtil.TAG_UPLOAD_FILE, "start uploading " + path);
-                upload(new File(path));
-            } else {
-                Log.d(ApeicUtil.TAG_UPLOAD_FILE, "postpone uploading ");
-            }
+            upload(new File(path));
         }
 
         private void upload(File file) {
@@ -82,71 +88,148 @@ public class UploadCheckReceiver extends BroadcastReceiver {
             try {
                 HttpResponse response = client.execute(post);
                 int statusCode = response.getStatusLine().getStatusCode();
-                Log.d(ApeicUtil.TAG_UPLOAD_FILE, "Status code of uploading " + file.getName() + ": "
+                Log.d(ApeicUtil.TAG_HTTP, "Status code of uploading " + file.getName() + ": "
                         + String.valueOf(statusCode));
                 if (statusCode == 200) {
                     file.delete();
                 }
             } catch (IOException e) {
-                Log.e(ApeicUtil.TAG_UPLOAD_FILE, e.getMessage());
+                Log.e(ApeicUtil.TAG_HTTP, e.getMessage());
             }
         }
 
         private String getUploadUrl() {
-            return API_PREFIX + "/" + ApeicPrefsUtil.getInstance(this).getUUID() + "/" + SUFFIX_UPLOAD;
+            return API_PREFIX + "/" + ApeicPrefsUtil.getInstance(this).getAndroidID() + "/" + SUFFIX_UPLOAD;
         }
     }
 
-    public static class UploadInstalledAppsIntentService extends IntentService {
+    public static class UpdateInstalledAppsIntentService extends IntentService {
 
-        public UploadInstalledAppsIntentService() {
-            super("UploadInstalledAppsIntentService");
+        public UpdateInstalledAppsIntentService() {
+            super("UpdateInstalledAppsIntentService");
         }
 
         @Override
         protected void onHandleIntent(Intent intent) {
-            Log.v(ApeicUtil.TAG_UPLOAD_FILE, "UploadInstalledAppsIntentService onHandleIntent");
+            Log.v(ApeicUtil.TAG_HTTP, "UpdateInstalledAppsIntentService onHandleIntent");
 
             PackageManager pm = getPackageManager();
             Set<String> currInstalledApps = new HashSet<String>();
             for (ApplicationInfo info : pm.getInstalledApplications(PackageManager.GET_META_DATA)) {
-                currInstalledApps.add(info.packageName);
+                if (pm.getLaunchIntentForPackage(info.packageName) != null) {
+                    currInstalledApps.add(info.packageName);
+                }
             }
 
             ApeicPrefsUtil prefsUtil = ApeicPrefsUtil.getInstance(this);
+            Set<String> registeringApps = prefsUtil.getStringSetPref(ApeicPrefsUtil.KEY_REGISTERING_APPS);
+            if (registeringApps.size() > 0) {
+                Log.v(ApeicUtil.TAG_HTTP, "Re-update newly installed apps.");
+                registerApps(prefsUtil.getStringSetPref(ApeicPrefsUtil.KEY_REGISTERING_APPS));
+            }
+            Set<String> unregisteringApps = prefsUtil.getStringSetPref(ApeicPrefsUtil.KEY_REGISTERING_APPS);
+            if (unregisteringApps.size() > 0) {
+                Log.v(ApeicUtil.TAG_HTTP, "Re-update uninstalled installed apps.");
+                unregisterApps(prefsUtil.getStringSetPref(ApeicPrefsUtil.KEY_UNREGISTERING_APPS));
+            }
+
             if (prefsUtil.getPrefs().contains(ApeicPrefsUtil.KEY_INSTALLED_APPS)) {
                 Set<String> lastInstalledApps = prefsUtil.getStringSetPref(ApeicPrefsUtil.KEY_INSTALLED_APPS);
                 Set<String> newlyInstalledApps = getNewlyInstalledApps(currInstalledApps, lastInstalledApps);
-                Log.d(ApeicUtil.TAG_UPLOAD_FILE, "Installed Apps: ");
-                for (String app : newlyInstalledApps) {
-                    Log.d(ApeicUtil.TAG_UPLOAD_FILE, app);
+                if (newlyInstalledApps.size() > 0) {
+                    Log.v(ApeicUtil.TAG_HTTP, "Newly installed Apps: ");
+                    registerApps(newlyInstalledApps);
                 }
-                Log.d(ApeicUtil.TAG_UPLOAD_FILE, "Removed Apps: ");
-                Set<String> removedApps = getRemovedApps(currInstalledApps, lastInstalledApps);
-                for (String app : removedApps) {
-                    Log.d(ApeicUtil.TAG_UPLOAD_FILE, app);
+
+                Set<String> removedApps = getUninstalledApps(currInstalledApps, lastInstalledApps);
+                if (removedApps.size() > 0) {
+                    Log.v(ApeicUtil.TAG_HTTP, "Uninstalled Apps: ");
+                    unregisterApps(removedApps);
                 }
             } else {
-                Log.d(ApeicUtil.TAG_UPLOAD_FILE, "Current installed Apps: ");
-                for (String app : currInstalledApps) {
-                    Log.d(ApeicUtil.TAG_UPLOAD_FILE, app);
-                }
-                ApeicPrefsUtil.getInstance(this).setStringSetPref(ApeicPrefsUtil.KEY_INSTALLED_APPS, currInstalledApps);
+                Log.v(ApeicUtil.TAG_HTTP, "Current installed Apps: ");
+                registerApps(currInstalledApps);
             }
+
+            ApeicPrefsUtil.getInstance(this).setStringSetPref(
+                    ApeicPrefsUtil.KEY_INSTALLED_APPS, currInstalledApps);
         }
 
         private Set<String> getNewlyInstalledApps(Set<String> currApps, Set<String> prevApps) {
-            Set<String> installedApps = new TreeSet<String>(currApps);
-            installedApps.addAll(currApps);
-            installedApps.removeAll(prevApps);
-            return installedApps;
+            Set<String> apps = new HashSet<String>();
+            for (String app : currApps) {
+                if (!prevApps.contains(app)) {
+                    apps.add(app);
+                }
+            }
+            return apps;
         }
 
-        private Set<String> getRemovedApps(Set<String> currApps, Set<String> prevApps) {
-            Set<String> removedApps = new TreeSet<String> (prevApps);
-            removedApps.addAll(prevApps);
-            removedApps.removeAll(currApps);
-            return removedApps;
+        private Set<String> getUninstalledApps(Set<String> currApps, Set<String> prevApps) {
+            Set<String> apps = new HashSet<String>();
+            for (String app : prevApps) {
+                if (!currApps.contains(app)) {
+                    apps.add(app);
+                }
+            }
+            return apps;
+        }
+
+        private void registerApps(Set<String> apps) {
+            Set<String> registeringApps = ApeicPrefsUtil.getInstance(this).
+                    getStringSetPref(ApeicPrefsUtil.KEY_REGISTERING_APPS);
+            for (String app : apps) {
+                Log.d(ApeicUtil.TAG, app);
+                HttpClient client = new DefaultHttpClient();
+                HttpGet get = new HttpGet(API_PREFIX + "/" + ApeicPrefsUtil.getInstance(this).getAndroidID()
+                        + "/" + SUFFIX_REGISTER + "?app=" + app);
+                try {
+                    HttpResponse response = client.execute(get);
+                    int statusCode = response.getStatusLine().getStatusCode();
+                    Log.d(ApeicUtil.TAG_HTTP, "Status code of registering " + app + ": "
+                            + String.valueOf(statusCode));
+                    if (statusCode == 200) {
+                        if (registeringApps.contains(app)) {
+                            registeringApps.remove(app);
+                        }
+                    } else {
+                        registeringApps.add(app);
+                    }
+                } catch (IOException e) {
+                    Log.e(ApeicUtil.TAG_HTTP, e.getMessage());
+                    registeringApps.add(app);
+                }
+            }
+            ApeicPrefsUtil.getInstance(this).setStringSetPref(
+                    ApeicPrefsUtil.KEY_REGISTERING_APPS, registeringApps);
+        }
+
+        private void unregisterApps(Set<String> apps) {
+            Set<String> unregisteringApps = ApeicPrefsUtil.getInstance(this).
+                    getStringSetPref(ApeicPrefsUtil.KEY_UNREGISTERING_APPS);
+            for (String app : apps) {
+                HttpClient client = new DefaultHttpClient();
+                HttpGet get = new HttpGet(API_PREFIX + "/" + ApeicPrefsUtil.getInstance(this).getAndroidID()
+                        + "/" + SUFFIX_UNREGISTER + "?app=" + app);
+                try {
+                    HttpResponse response = client.execute(get);
+                    int statusCode = response.getStatusLine().getStatusCode();
+                    Log.d(ApeicUtil.TAG_HTTP, "Status code of unregistering " + app + ": "
+                            + String.valueOf(statusCode));
+                    if (statusCode == 200) {
+                        if (unregisteringApps.contains(app)) {
+                            unregisteringApps.remove(app);
+                        }
+                    } else {
+                        unregisteringApps.add(app);
+                    }
+                } catch (IOException e) {
+                    Log.e(ApeicUtil.TAG_HTTP, e.getMessage());
+                    unregisteringApps.add(app);
+                }
+            }
+            ApeicPrefsUtil.getInstance(this).setStringSetPref(
+                    ApeicPrefsUtil.KEY_UNREGISTERING_APPS, unregisteringApps);
         }
     }
 }

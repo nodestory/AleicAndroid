@@ -2,10 +2,10 @@ package tw.edu.ntu.ee.apeic;
 
 public final class ApeicUtil {
 
-    public static final String TAG = "Apeic";
-    public static final String TAG_DATA = "Apeic Data Collecting";
-    public static final String TAG_FILE = "Apeic File Operation";
-    public static final String TAG_UPLOAD_FILE = "Apeic File Uploading";
+    public static final String TAG = "APEIC";
+    public static final String TAG_DATA = "APEIC_DATA";
+    public static final String TAG_FILE = "APEIC_FILE";
+    public static final String TAG_HTTP = "APEIC_HTTP";
 
     public static final String PACKAGE_NAME = "tw.edu.ntu.ee.apeic";
 
@@ -30,7 +30,7 @@ public final class ApeicUtil {
     public static final int MILLISECONDS_PER_SECOND = 1000;
     public static final int DETECTION_INTERVAL_MILLISECONDS = 10*MILLISECONDS_PER_SECOND;
     public static final int LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS = 2*60*60*MILLISECONDS_PER_SECOND;
-//    public static final int LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS = 60*MILLISECONDS_PER_SECOND;
+//    public static final int LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS = 10*MILLISECONDS_PER_SECOND;
     public static final int WIDGET_UPDATE_INTERVAL_MILLISECONDS = 10*MILLISECONDS_PER_SECOND;
 
     // Constants for constructing the log file name

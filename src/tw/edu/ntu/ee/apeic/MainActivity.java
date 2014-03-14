@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
         mTextView = (TextView) findViewById(R.id.textView_uuid);
-        mTextView.setText("UUID: " + mPrefsUtil.getUUID());
+        mTextView.setText("ID: " + mPrefsUtil.getAndroidID());
         mSwitch = (Switch) findViewById(R.id.log_service_switch);
         mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -114,8 +114,6 @@ public class MainActivity extends Activity {
 //        registerReceiver(mReceiver, filter);
 
         mLogFile = LogFile.getInstance(this);
-
-        startUploadRoutine();
     }
 
     /**
@@ -242,21 +240,28 @@ public class MainActivity extends Activity {
         mRequestType = ApeicUtil.REQUEST_TYPE.ADD;
         Intent intent = new Intent(this, LogService.class);
         startService(intent);
+        startUploadRoutine();
     }
 
     private void stopLogging() {
         mRequestType = ApeicUtil.REQUEST_TYPE.REMOVE;
         Intent intent = new Intent(this, LogService.class);
         stopService(intent);
+        stopUploadRoutine();
     }
 
     private void startUploadRoutine() {
         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, UploadCheckReceiver.class);
-        am.setRepeating(AlarmManager.RTC,
-                ApeicUtil.LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS,
+        am.setRepeating(AlarmManager.RTC, 0,
                 ApeicUtil.LOG_FILE_UPLOAD_INTERVAL_MILLISECONDS,
                 PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
+    }
+
+    private void stopUploadRoutine() {
+        Intent intent = new Intent(this, UploadCheckReceiver.class);
+        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+        am.cancel(PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
     }
 
 

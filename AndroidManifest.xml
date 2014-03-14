@@ -44,6 +44,7 @@
         <service android:name="tw.edu.ntu.ee.apeic.log.LogService"></service>
         <service android:name="tw.edu.ntu.ee.apeic.log.AddLogService"></service>
         <service android:name="tw.edu.ntu.ee.apeic.log.UploadCheckReceiver$LogUploadIntentService"></service>
+        <service android:name="tw.edu.ntu.ee.apeic.log.UploadCheckReceiver$UpdateInstalledAppsIntentService"></service>
         <service android:name="tw.edu.ntu.ee.apeic.widget.UpdateWidgetService"></service>
         <service
             android:name="tw.edu.ntu.ee.apeic.widget.UpdateWidgetRemoteViewsService"
